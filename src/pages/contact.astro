@@ -212,11 +212,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         statusDiv.className = 'form-status p-4 rounded-lg text-sm font-medium mt-4';
 
         if (res.ok && result.success) {
-          statusDiv.className += ' bg-green-50 text-green-800 border border-green-200';
-          statusDiv.textContent = '✅ ' + (result.message || 'Thank you! We\'ll be in touch within 24 hours.');
-          form.reset();
-          // Reset Turnstile
-          if (window.turnstile) window.turnstile.reset();
+          // Redirect to thank you page
+          window.location.href = '/thank-you/';
+          return;
         } else {
           statusDiv.className += ' bg-red-50 text-red-800 border border-red-200';
           statusDiv.textContent = '⚠️ ' + (result.error || 'Something went wrong. Please try again.');
