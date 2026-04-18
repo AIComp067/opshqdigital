@@ -125,15 +125,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <Fragment slot="schema">
+  <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "Do I need to switch cloud providers?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. We're experts in Azure but can work with your existing infrastructure." }},
-        { "@type": "Question", "name": "What does monitoring look like?", "acceptedAnswer": { "@type": "Answer", "text": "Automated health checks that run 24/7. If something goes wrong, you get alerted immediately." }},
-        { "@type": "Question", "name": "How much can I save on hosting?", "acceptedAnswer": { "@type": "Answer", "text": "We've helped clients cut hosting costs by $1,000+/year by right-sizing their infrastructure." }},
-        { "@type": "Question", "name": "What about security?", "acceptedAnswer": { "@type": "Answer", "text": "Every setup includes HTTPS, security headers, secret management, and access controls." }}
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://opshqdigital.com/services/" },
+            { "@type": "ListItem", "position": 3, "name": "Cloud & DevOps", "item": "https://opshqdigital.com/services/cloud/" }
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Cloud Infrastructure & DevOps — OpsHQ Digital",
+          "url": "https://opshqdigital.com/services/cloud/",
+          "description": "Right-sized cloud infrastructure with monitoring, CI/CD pipelines, and security hardening.",
+          "provider": { "@id": "https://opshqdigital.com/#organization" },
+          "areaServed": { "@type": "City", "name": "Seattle", "addressRegion": "WA" },
+          "priceRange": "$2,000 – $8,000"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Do I need to switch cloud providers?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. We're experts in Azure but can work with your existing infrastructure. Sometimes optimization is more valuable than migration." }},
+            { "@type": "Question", "name": "What does monitoring look like?", "acceptedAnswer": { "@type": "Answer", "text": "Automated health checks that run 24/7. If something goes wrong, you (and we) get alerted immediately — before customers notice." }},
+            { "@type": "Question", "name": "How much can I save on hosting?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on your current setup, but we've helped clients cut hosting costs by $1,000+/year by right-sizing their infrastructure." }},
+            { "@type": "Question", "name": "What about security?", "acceptedAnswer": { "@type": "Answer", "text": "Every infrastructure setup includes security hardening — HTTPS, security headers, secret management, and access controls. We follow industry best practices." }}
+          ]
+        }
       ]
     })} />
   </Fragment>

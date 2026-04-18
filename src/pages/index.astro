@@ -185,16 +185,49 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
     </div>
   </section>
 
-  <Fragment slot="schema">
+  <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "OpsHQ Digital",
-      "url": "https://opshqdigital.com",
-      "email": "nick@opshqdigital.com",
-      "description": "AI-powered automation and technology consulting for small and mid-size businesses.",
-      "areaServed": { "@type": "State", "name": "Washington" },
-      "founder": { "@type": "Person", "name": "Nick Reef" }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://opshqdigital.com/#organization",
+          "name": "OpsHQ Digital",
+          "url": "https://opshqdigital.com",
+          "email": "nick@opshqdigital.com",
+          "description": "AI-powered automation and technology consulting for small and mid-size businesses.",
+          "areaServed": { "@type": "State", "name": "Washington" },
+          "founder": { "@type": "Person", "name": "Nick Reef" },
+          "sameAs": []
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://opshqdigital.com/#localbusiness",
+          "name": "OpsHQ Digital",
+          "url": "https://opshqdigital.com",
+          "email": "nick@opshqdigital.com",
+          "description": "AI-powered automation, CRM systems, web development, and cloud infrastructure for small businesses.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Maple Valley",
+            "addressRegion": "WA",
+            "addressCountry": "US"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Seattle",
+            "addressRegion": "WA"
+          },
+          "priceRange": "$$",
+          "founder": { "@type": "Person", "name": "Nick Reef" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" }
+          ]
+        }
+      ]
     })} />
   </Fragment>
 </BaseLayout>

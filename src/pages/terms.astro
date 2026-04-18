@@ -59,4 +59,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://opshqdigital.com/terms/" }
+      ]
+    })} />
+  </Fragment>
 </BaseLayout>

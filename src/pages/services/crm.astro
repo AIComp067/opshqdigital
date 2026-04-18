@@ -155,15 +155,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <Fragment slot="schema">
+  <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "How is this different from Salesforce or HubSpot?", "acceptedAnswer": { "@type": "Answer", "text": "Those are general-purpose platforms that force you into their workflow. We build your CRM around how you actually sell — your pipeline stages, your follow-up cadence, your pricing." }},
-        { "@type": "Question", "name": "How long does it take to build a custom CRM?", "acceptedAnswer": { "@type": "Answer", "text": "Most CRM projects take 4-8 weeks from kickoff to launch. You'll see working software within the first 2-3 weeks." }},
-        { "@type": "Question", "name": "What if I already have customer data in spreadsheets?", "acceptedAnswer": { "@type": "Answer", "text": "We'll migrate it. Part of every project is getting your existing data into the new system cleanly." }},
-        { "@type": "Question", "name": "Do I need to be technical to use it?", "acceptedAnswer": { "@type": "Answer", "text": "Not at all. If you can read an email and click a button, you can use your CRM. We build for business owners, not engineers." }}
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://opshqdigital.com/services/" },
+            { "@type": "ListItem", "position": 3, "name": "CRM Development", "item": "https://opshqdigital.com/services/crm/" }
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Custom CRM Development — OpsHQ Digital",
+          "url": "https://opshqdigital.com/services/crm/",
+          "description": "Custom CRM systems with automated follow-ups, payment tracking, and daily digests for small businesses.",
+          "provider": { "@id": "https://opshqdigital.com/#organization" },
+          "areaServed": { "@type": "City", "name": "Seattle", "addressRegion": "WA" },
+          "priceRange": "$5,000 – $25,000"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "How is this different from Salesforce or HubSpot?", "acceptedAnswer": { "@type": "Answer", "text": "Those are general-purpose platforms that force you into their workflow. We build your CRM around how you actually sell — your pipeline stages, your follow-up cadence, your pricing. And you're not paying $50-150/user/month forever." }},
+            { "@type": "Question", "name": "How long does it take to build a custom CRM?", "acceptedAnswer": { "@type": "Answer", "text": "Most CRM projects take 4-8 weeks from kickoff to launch. You'll see working software within the first 2-3 weeks." }},
+            { "@type": "Question", "name": "What if I already have customer data in spreadsheets?", "acceptedAnswer": { "@type": "Answer", "text": "We'll migrate it. Part of every project is getting your existing data into the new system cleanly." }},
+            { "@type": "Question", "name": "Do I need to be technical to use it?", "acceptedAnswer": { "@type": "Answer", "text": "Not at all. If you can read an email and click a button, you can use your CRM. We build for business owners, not engineers." }}
+          ]
+        }
       ]
     })} />
   </Fragment>

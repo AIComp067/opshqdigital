@@ -116,4 +116,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </a>
     </div>
   </section>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Our Work", "item": "https://opshqdigital.com/work/" },
+            { "@type": "ListItem", "position": 3, "name": "Content Platform Case Study", "item": "https://opshqdigital.com/work/content-platform/" }
+          ]
+        },
+        {
+          "@type": "Article",
+          "headline": "From Expensive WordPress to Page-One Rankings",
+          "description": "Automated content platform with 35+ posts, AI publishing pipeline & page-one Google rankings — at a fraction of previous hosting costs.",
+          "url": "https://opshqdigital.com/work/content-platform/",
+          "author": { "@type": "Organization", "name": "OpsHQ Digital", "@id": "https://opshqdigital.com/#organization" },
+          "publisher": { "@type": "Organization", "name": "OpsHQ Digital", "@id": "https://opshqdigital.com/#organization" },
+          "mainEntityOfPage": "https://opshqdigital.com/work/content-platform/"
+        }
+      ]
+    })} />
+  </Fragment>
 </BaseLayout>

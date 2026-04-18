@@ -95,4 +95,36 @@ import ServiceCard from '../../components/ServiceCard.astro';
       </a>
     </div>
   </section>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://opshqdigital.com/services/" }
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "OpsHQ Digital",
+          "url": "https://opshqdigital.com/services/",
+          "description": "AI automation, CRM systems, websites & cloud infrastructure built for small businesses looking to scale or modernize.",
+          "provider": { "@id": "https://opshqdigital.com/#organization" },
+          "areaServed": { "@type": "City", "name": "Seattle", "addressRegion": "WA" },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Technology Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRM & Business Automation", "url": "https://opshqdigital.com/services/crm/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Agents & Intelligent Automation", "url": "https://opshqdigital.com/services/ai/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development", "url": "https://opshqdigital.com/services/web/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Infrastructure & DevOps", "url": "https://opshqdigital.com/services/cloud/" } }
+            ]
+          }
+        }
+      ]
+    })} />
+  </Fragment>
 </BaseLayout>

@@ -56,4 +56,25 @@ import CaseStudyCard from '../../components/CaseStudyCard.astro';
       </a>
     </div>
   </section>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Our Work", "item": "https://opshqdigital.com/work/" }
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "name": "Our Work — Real Results for Real Businesses",
+          "url": "https://opshqdigital.com/work/",
+          "description": "See how we've helped small businesses automate operations, capture more leads & cut manual work.",
+          "publisher": { "@id": "https://opshqdigital.com/#organization" }
+        }
+      ]
+    })} />
+  </Fragment>
 </BaseLayout>

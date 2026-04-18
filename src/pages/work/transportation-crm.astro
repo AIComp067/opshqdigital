@@ -121,4 +121,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </a>
     </div>
   </section>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Our Work", "item": "https://opshqdigital.com/work/" },
+            { "@type": "ListItem", "position": 3, "name": "Transportation CRM Case Study", "item": "https://opshqdigital.com/work/transportation-crm/" }
+          ]
+        },
+        {
+          "@type": "Article",
+          "headline": "From Spreadsheet Chaos to 200+ Managed Leads",
+          "description": "How a Seattle-area transportation company went from spreadsheet chaos to 200+ managed leads, AI follow-ups & automated daily operations.",
+          "url": "https://opshqdigital.com/work/transportation-crm/",
+          "author": { "@type": "Organization", "name": "OpsHQ Digital", "@id": "https://opshqdigital.com/#organization" },
+          "publisher": { "@type": "Organization", "name": "OpsHQ Digital", "@id": "https://opshqdigital.com/#organization" },
+          "mainEntityOfPage": "https://opshqdigital.com/work/transportation-crm/"
+        }
+      ]
+    })} />
+  </Fragment>
 </BaseLayout>
