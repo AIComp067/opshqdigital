@@ -1,0 +1,47 @@
+---
+const navLinks = [
+  { label: 'Services', href: '/services/' },
+  { label: 'Work', href: '/work/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Contact', href: '/contact/' },
+];
+---
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16" aria-label="Main navigation">
+    <a href="/" class="text-xl font-bold text-navy-950 hover:text-navy-800 transition-colors">
+      OpsHQ Digital
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8">
+      {navLinks.map(link => (
+        <a href={link.href} class="text-slate-600 hover:text-navy-950 font-medium transition-colors">
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact/" class="inline-flex items-center px-5 py-2.5 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px]">
+        Request a Call
+      </a>
+    </div>
+
+    <!-- Mobile hamburger (CSS-only) -->
+    <input type="checkbox" id="mobile-menu-toggle" class="hidden peer" aria-label="Toggle navigation menu" />
+    <label for="mobile-menu-toggle" class="md:hidden flex flex-col justify-center items-center w-11 h-11 cursor-pointer gap-1.5 peer-checked:[&>span:nth-child(1)]:rotate-45 peer-checked:[&>span:nth-child(1)]:translate-y-[7px] peer-checked:[&>span:nth-child(2)]:opacity-0 peer-checked:[&>span:nth-child(3)]:-rotate-45 peer-checked:[&>span:nth-child(3)]:-translate-y-[7px]" aria-label="Open menu">
+      <span class="block w-6 h-0.5 bg-navy-950 transition-all duration-300 origin-center"></span>
+      <span class="block w-6 h-0.5 bg-navy-950 transition-all duration-300"></span>
+      <span class="block w-6 h-0.5 bg-navy-950 transition-all duration-300 origin-center"></span>
+    </label>
+
+    <!-- Mobile menu overlay -->
+    <div class="fixed inset-0 top-16 bg-white z-30 flex-col items-center justify-start pt-8 gap-6 hidden peer-checked:flex md:hidden">
+      {navLinks.map(link => (
+        <a href={link.href} class="text-lg font-medium text-slate-700 hover:text-navy-950 py-2">
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact/" class="inline-flex items-center px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] mt-4">
+        Request a Call
+      </a>
+    </div>
+  </nav>
+</header>

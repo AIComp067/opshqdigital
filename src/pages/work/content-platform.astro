@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Content Platform Case Study | OpsHQ Digital"
+  description="Automated content platform with 35+ posts, AI publishing pipeline & page-one Google rankings — at a fraction of previous hosting costs."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-sm font-semibold text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Web & Content</span>
+      <h1 class="text-4xl md:text-5xl font-bold mt-4 mb-6">From Expensive WordPress to Page-One Rankings</h1>
+      <p class="text-lg text-slate-300 max-w-2xl">How an automated content platform replaced a $100+/month WordPress setup — and started ranking on Google in under 6 weeks.</p>
+    </div>
+  </section>
+
+  <!-- Challenge -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-navy-950 mb-6">The Challenge</h2>
+      <div class="text-slate-600 leading-relaxed space-y-4">
+        <p>A content-focused business needed to establish authority across multiple topics. The traditional approach — hire writers, manually publish, cross-post to social media — was too slow and too expensive for a bootstrapped operation running on WordPress with a $100+/month hosting bill and minimal traffic.</p>
+        <p>They needed a system that could produce high-quality, SEO-optimized content at scale, distribute it automatically, and measure what was working — without a marketing team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="py-16 md:py-24 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">What We Built</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-bold text-navy-950 mb-3">📰 Modern Content Platform</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">A blog built on Astro and MDX with multi-category support, multiple author profiles, and a structured content model. Each post includes SEO metadata, schema markup, and internal linking — all generated automatically.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-bold text-navy-950 mb-3">🤖 AI Content Pipeline</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Automated blog post generation with SEO optimization — keyword targeting, proper heading structure, internal linking, and meta descriptions. Long-form content optimized for both readers and search engines.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-bold text-navy-950 mb-3">📱 Social Media Distribution</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Automated cross-posting templates for multiple social platforms, each tailored to the platform's format and audience expectations.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-bold text-navy-950 mb-3">📊 Analytics Dashboard</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Custom admin portal integrating search analytics, traffic data, and content performance into a single view.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">The Results</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-slate-100 rounded-xl p-6 text-center">
+          <p class="text-3xl font-bold text-blue-500">$100+ → $$$</p>
+          <p class="text-sm text-slate-500 mt-2">Hosting cost reduced dramatically</p>
+        </div>
+        <div class="bg-slate-100 rounded-xl p-6 text-center">
+          <p class="text-3xl font-bold text-blue-500">35+</p>
+          <p class="text-sm text-slate-500 mt-2">Posts published</p>
+        </div>
+        <div class="bg-slate-100 rounded-xl p-6 text-center">
+          <p class="text-3xl font-bold text-blue-500">Page 1</p>
+          <p class="text-sm text-slate-500 mt-2">Google rankings in &lt;6 weeks</p>
+        </div>
+        <div class="bg-slate-100 rounded-xl p-6 text-center">
+          <p class="text-3xl font-bold text-blue-500">80+</p>
+          <p class="text-sm text-slate-500 mt-2">Internal cross-links</p>
+        </div>
+        <div class="bg-slate-100 rounded-xl p-6 text-center">
+          <p class="text-3xl font-bold text-blue-500">95+</p>
+          <p class="text-sm text-slate-500 mt-2">PageSpeed score</p>
+        </div>
+        <div class="bg-slate-100 rounded-xl p-6 text-center">
+          <p class="text-3xl font-bold text-blue-500">Auto</p>
+          <p class="text-sm text-slate-500 mt-2">Social distribution</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="py-12 bg-slate-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4 text-center">Technology Used</h3>
+      <div class="flex flex-wrap justify-center gap-2">
+        {['Astro', 'Tailwind CSS', 'MDX', 'Azure', 'Cloudflare', 'GA4', 'Search Console', 'Microsoft Clarity'].map(tech => (
+          <span class="text-xs bg-white text-slate-600 px-3 py-1.5 rounded-full border border-slate-200">{tech}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust + Links -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm text-slate-500 italic mb-8">References available on request.</p>
+      <div class="flex flex-wrap justify-center gap-4 text-sm">
+        <a href="/services/web/" class="text-blue-500 hover:text-blue-600 font-medium transition-colors">See our web development services →</a>
+        <a href="/services/cloud/" class="text-blue-500 hover:text-blue-600 font-medium transition-colors">See our cloud services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Build Your Own Content Engine?</h2>
+      <p class="text-lg text-slate-300 mb-8">Every project starts with a free discovery call. Tell us what you're trying to accomplish.</p>
+      <a href="/contact/?service=web" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] text-lg">
+        Request a Discovery Call
+      </a>
+    </div>
+  </section>
+</BaseLayout>

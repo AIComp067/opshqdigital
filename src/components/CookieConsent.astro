@@ -1,0 +1,95 @@
+---
+---
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 hidden">
+  <div class="bg-navy-950 border-t border-navy-700 px-4 py-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-slate-300 text-center sm:text-left">
+        We use cookies to understand how visitors use our site. No advertising cookies.
+        <a href="/privacy/" class="text-blue-400 hover:text-blue-300 underline ml-1">Privacy Policy</a>
+      </p>
+      <div class="flex gap-3 shrink-0">
+        <button id="cookie-decline" class="px-4 py-2 text-sm font-medium text-slate-300 border border-slate-500 rounded-lg hover:bg-navy-800 transition-colors min-h-[44px] cursor-pointer">
+          Decline
+        </button>
+        <button id="cookie-accept" class="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] cursor-pointer">
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const CONSENT_KEY = 'cookie_consent';
+  const CONSENT_VERSION = 1;
+  const TWELVE_MONTHS = 365 * 24 * 60 * 60 * 1000;
+
+  // Google Consent Mode v2 defaults
+  window.dataLayer = window.dataLayer || [];
+  function gtag(...args: any[]) { window.dataLayer.push(args); }
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+
+  function loadGA4() {
+    if (document.querySelector('script[src*="googletagmanager"]')) return;
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    s.async = true;
+    document.head.appendChild(s);
+    s.onload = () => {
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    };
+  }
+
+  function loadClarity() {
+    if (document.querySelector('script[data-clarity]')) return;
+    const s = document.createElement('script');
+    s.setAttribute('data-clarity', 'true');
+    s.textContent = `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/p533675072";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script");`;
+    document.head.appendChild(s);
+  }
+
+  function grantConsent() {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    loadGA4();
+    loadClarity();
+  }
+
+  function checkConsent() {
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    const raw = localStorage.getItem(CONSENT_KEY);
+    if (raw) {
+      try {
+        const data = JSON.parse(raw);
+        const expired = Date.now() - data.timestamp > TWELVE_MONTHS;
+        if (!expired && data.version === CONSENT_VERSION) {
+          if (data.consent === 'accepted') grantConsent();
+          return;
+        }
+      } catch {}
+      localStorage.removeItem(CONSENT_KEY);
+    }
+    banner.classList.remove('hidden');
+  }
+
+  function setConsent(value: string) {
+    localStorage.setItem(CONSENT_KEY, JSON.stringify({
+      consent: value,
+      timestamp: Date.now(),
+      version: CONSENT_VERSION
+    }));
+    document.getElementById('cookie-banner')?.classList.add('hidden');
+    if (value === 'accepted') grantConsent();
+  }
+
+  document.getElementById('cookie-accept')?.addEventListener('click', () => setConsent('accepted'));
+  document.getElementById('cookie-decline')?.addEventListener('click', () => setConsent('declined'));
+  checkConsent();
+</script>

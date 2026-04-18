@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://opshqdigital.com/sitemap-index.xml

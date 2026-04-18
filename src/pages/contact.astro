@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Contact OpsHQ Digital — Free Discovery Call"
+  description="Tell us about your project. We'll review it and reach out within 24 hours with a clear next step. No commitment."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Let's Talk About What's Slowing Your Business Down</h1>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto">Tell us about your project. We'll review it and reach out within 24 hours with a clear next step — no commitment, no sales pitch.</p>
+    </div>
+  </section>
+
+  <!-- Form + Info -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+        <!-- Form -->
+        <div class="lg:col-span-3">
+          <form id="contact-form" class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-navy-950 mb-1">Name <span class="text-red-500">*</span></label>
+              <input type="text" id="name" name="name" required minlength="2" maxlength="100" placeholder="Your name" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px]" aria-describedby="name-help" />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-navy-950 mb-1">Email <span class="text-red-500">*</span></label>
+              <input type="email" id="email" name="email" required maxlength="254" placeholder="you@company.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px]" aria-describedby="email-help" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="phone" class="block text-sm font-medium text-navy-950 mb-1">Phone</label>
+                <input type="tel" id="phone" name="phone" maxlength="20" placeholder="(555) 123-4567" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px]" />
+              </div>
+              <div>
+                <label for="company" class="block text-sm font-medium text-navy-950 mb-1">Company</label>
+                <input type="text" id="company" name="company" maxlength="100" placeholder="Company name (optional)" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px]" />
+              </div>
+            </div>
+
+            <div>
+              <label for="service" class="block text-sm font-medium text-navy-950 mb-1">What can we help with?</label>
+              <select id="service" name="service" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px] bg-white">
+                <option value="not-sure">Not sure yet</option>
+                <option value="crm">CRM & Automation</option>
+                <option value="ai">AI Agents</option>
+                <option value="web">Web Development</option>
+                <option value="cloud">Cloud & DevOps</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-navy-950 mb-1">Tell us about your project <span class="text-red-500">*</span></label>
+              <textarea id="message" name="message" required minlength="20" maxlength="2000" rows="5" placeholder="What's the biggest challenge in your business right now? What's costing you time or money?" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors resize-y" aria-describedby="message-help"></textarea>
+            </div>
+
+            <!-- Honeypot -->
+            <div class="hidden" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <!-- Hidden UTM fields -->
+            <input type="hidden" name="utm_source" />
+            <input type="hidden" name="utm_medium" />
+            <input type="hidden" name="utm_campaign" />
+            <input type="hidden" name="utm_term" />
+            <input type="hidden" name="utm_content" />
+
+            <!-- Turnstile placeholder -->
+            <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY"></div>
+
+            <button type="submit" class="w-full sm:w-auto px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] text-lg cursor-pointer">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Info sidebar -->
+        <div class="lg:col-span-2">
+          <div class="sticky top-24 space-y-8">
+            <div>
+              <h3 class="text-lg font-bold text-navy-950 mb-4">Direct Contact</h3>
+              <ul class="space-y-3 text-slate-600">
+                <li>
+                  <a href="mailto:nick@opshqdigital.com" class="hover:text-blue-500 transition-colors">📧 nick@opshqdigital.com</a>
+                </li>
+                <li>📍 Washington State</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold text-navy-950 mb-4">What to Expect</h3>
+              <ol class="space-y-4 text-sm text-slate-600">
+                <li class="flex gap-3">
+                  <span class="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                  <span><strong class="text-navy-950">You submit</strong> — we confirm receipt</span>
+                </li>
+                <li class="flex gap-3">
+                  <span class="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                  <span><strong class="text-navy-950">We review</strong> within 24 hours</span>
+                </li>
+                <li class="flex gap-3">
+                  <span class="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                  <span><strong class="text-navy-950">Free 30-min</strong> discovery call</span>
+                </li>
+                <li class="flex gap-3">
+                  <span class="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
+                  <span><strong class="text-navy-950">Clear proposal</strong> with fixed pricing</span>
+                </li>
+              </ol>
+            </div>
+
+            <div class="bg-slate-100 rounded-xl p-6">
+              <h3 class="text-sm font-bold text-navy-950 mb-3">Why Work With Us</h3>
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>✓ No long-term contracts</li>
+                <li>✓ Free discovery call — no obligation</li>
+                <li>✓ Direct access to the developer</li>
+                <li>✓ Fixed-price quotes — know the cost upfront</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Capture UTM params
+    const params = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(key => {
+      const val = params.get(key);
+      const el = document.querySelector<HTMLInputElement>(`input[name="${key}"]`);
+      if (val && el) el.value = val;
+    });
+
+    // Pre-select service from URL param
+    const service = params.get('service');
+    if (service) {
+      const select = document.getElementById('service') as HTMLSelectElement;
+      if (select) {
+        const option = select.querySelector(`option[value="${service}"]`);
+        if (option) select.value = service;
+      }
+    }
+  </script>
+</BaseLayout>

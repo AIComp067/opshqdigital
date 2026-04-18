@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+---
+<BaseLayout
+  title="Our Work — Real Results for Real Businesses | OpsHQ Digital"
+  description="See how we've helped small businesses automate operations, capture more leads & cut manual work. Real case studies with real outcomes."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Real Businesses. Real Results. See What We've Built.</h1>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto">Every project here is live today — handling real customers, real revenue, and real operations. These aren't mockups or demos. They're production systems that businesses depend on every day.</p>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <CaseStudyCard
+          title="From Spreadsheet Chaos to 200+ Managed Leads"
+          subtitle="A Seattle-area transportation company went from juggling spreadsheets and missed follow-ups to a custom CRM with AI email agents, automated daily briefings, and integrated payment tracking."
+          metrics={[
+            { value: '200+', label: 'leads managed' },
+            { value: '5 min', label: 'response time' },
+            { value: '15+ hrs/wk', label: 'saved' }
+          ]}
+          href="/work/transportation-crm/"
+          badge="CRM & Automation"
+        />
+        <CaseStudyCard
+          title="From Expensive WordPress to Page-One Rankings"
+          subtitle="An automated content platform with 35+ published posts, AI-assisted publishing, and social distribution — running at a fraction of the cost of the previous WordPress setup."
+          metrics={[
+            { value: '35+', label: 'posts published' },
+            { value: 'Page 1', label: 'Google rankings' },
+            { value: '95+', label: 'PageSpeed score' }
+          ]}
+          href="/work/content-platform/"
+          badge="Web & Content"
+        />
+      </div>
+
+      <p class="text-center text-sm text-slate-500 mt-8 italic">References available on request.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Your Business Could Be the Next Case Study</h2>
+      <p class="text-lg text-slate-300 mb-8">Every project starts with a conversation.</p>
+      <a href="/contact/" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] text-lg">
+        Request a Free Discovery Call
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+---
+<BaseLayout
+  title="Stop Fighting Your Technology — Let It Work for You | OpsHQ Digital"
+  description="Your business runs on manual processes, scattered data, and tools that don't talk to each other. We fix that with AI-powered automation."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+          Your Business Runs on Manual Processes. We Fix That.
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-8 max-w-prose">
+          AI-powered automation that saves you time, catches what you miss, and scales with your business. Stop losing leads, missing follow-ups, and spending hours on work a machine could handle.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+          <a href="/contact/" class="inline-flex items-center justify-center px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] text-center">
+            Request a Free Discovery Call
+          </a>
+          <a href="/work/" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-colors min-h-[44px] text-center">
+            See Our Work
+          </a>
+        </div>
+        <p class="text-sm text-slate-400">
+          Tell us about your project. We'll reach out within 24 hours — no commitment, no sales pitch.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="bg-slate-100 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-sm font-medium text-slate-500">Microsoft Azure Partner</p>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-slate-500">200+ Leads Managed</p>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-slate-500">10+ Years Experience</p>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-slate-500">99%+ Uptime</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4">What's Costing Your Business Time and Money?</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">Most small business owners are losing hours every week to manual processes, missed follow-ups, and technology that doesn't talk to each other. Here's how we fix it.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <ServiceCard
+          icon="🖥️"
+          title="Stop Losing Leads"
+          description="Custom CRM systems that track every lead, automate follow-ups, and tell you exactly what needs attention today — in one morning email."
+          href="/services/crm/"
+          badge="Most Popular"
+        />
+        <ServiceCard
+          icon="🤖"
+          title="Stop Doing Repetitive Work"
+          description="AI agents that read emails, draft responses in your voice, route leads, and handle the boring stuff — so you can focus on what makes you money."
+          href="/services/ai/"
+        />
+        <ServiceCard
+          icon="🌐"
+          title="Stop Paying for a Website That Does Nothing"
+          description="Fast, search-optimized sites that show up on Google and convert visitors into leads — at a fraction of what you're paying now."
+          href="/services/web/"
+        />
+        <ServiceCard
+          icon="☁️"
+          title="Stop Getting Surprise Cloud Bills"
+          description="Right-sized infrastructure with proper monitoring, automatic deployments, and security — so your systems run reliably without surprise invoices."
+          href="/services/cloud/"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="py-16 md:py-24 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4 text-center">Real Businesses. Real Results.</h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto text-center mb-12">Every system we build is in production today — handling real customers, real money, and real deadlines. We don't build demos. We build the technology that runs your business.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        <div class="bg-white rounded-lg p-6 text-center">
+          <p class="text-4xl font-bold text-blue-500">200+</p>
+          <p class="text-sm text-slate-500 mt-2">Leads tracked & managed</p>
+        </div>
+        <div class="bg-white rounded-lg p-6 text-center">
+          <p class="text-4xl font-bold text-blue-500">15+</p>
+          <p class="text-sm text-slate-500 mt-2">Hours/week saved</p>
+        </div>
+        <div class="bg-white rounded-lg p-6 text-center">
+          <p class="text-4xl font-bold text-blue-500">99%+</p>
+          <p class="text-sm text-slate-500 mt-2">Uptime across systems</p>
+        </div>
+        <div class="bg-white rounded-lg p-6 text-center">
+          <p class="text-4xl font-bold text-blue-500">5 min</p>
+          <p class="text-sm text-slate-500 mt-2">Lead response time</p>
+        </div>
+      </div>
+      <p class="text-center text-slate-500 italic">"Direct access to the developer — no middlemen, no project managers, no telephone game."</p>
+    </div>
+  </section>
+
+  <!-- Case Study Previews -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <CaseStudyCard
+          title="From Spreadsheet Chaos to 200+ Managed Leads"
+          subtitle="A Seattle-area transportation company automated their entire sales operation with a custom CRM, AI email agents, and integrated payment tracking."
+          metrics={[
+            { value: '200+', label: 'leads' },
+            { value: '5 min', label: 'response time' },
+            { value: '15+ hrs', label: 'saved/week' }
+          ]}
+          href="/work/transportation-crm/"
+          badge="CRM & Automation"
+        />
+        <CaseStudyCard
+          title="From Expensive WordPress to Page-One Rankings"
+          subtitle="An automated content platform with 35+ published posts, AI-assisted publishing, and social distribution — at a fraction of the previous cost."
+          metrics={[
+            { value: '35+', label: 'posts' },
+            { value: 'Page 1', label: 'Google' },
+            { value: '95+', label: 'PageSpeed' }
+          ]}
+          href="/work/content-platform/"
+          badge="Web & Content"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-16 md:py-24 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4">Here's Exactly What Happens When You Work With Us</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">No mystery. No corporate process. Just a straightforward path from "I have a problem" to "it's solved."</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+          <h3 class="text-lg font-bold text-navy-950 mb-2">Tell Us Your Pain Point</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Free 30-minute discovery call. You tell us what's broken — we'll ask the right questions and tell you honestly whether we can help.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+          <h3 class="text-lg font-bold text-navy-950 mb-2">We Build Your Solution</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Fixed-price proposal within 48 hours. Then we build in focused sprints — you see working software within weeks, not months.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+          <h3 class="text-lg font-bold text-navy-950 mb-2">You Focus on Your Business</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Your system goes live with monitoring and documentation. We handle the tech — you keep running your business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Stop Fighting Your Technology?</h2>
+      <p class="text-lg text-slate-300 mb-8">Tell us about your project. We'll review it and reach out within 24 hours with a clear next step — no commitment, no sales pitch.</p>
+      <a href="/contact/" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] text-lg">
+        Request a Free Discovery Call
+      </a>
+      <p class="text-sm text-slate-400 mt-6">Or email <a href="mailto:nick@opshqdigital.com" class="text-blue-400 hover:text-blue-300 underline">nick@opshqdigital.com</a></p>
+    </div>
+  </section>
+
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "OpsHQ Digital",
+      "url": "https://opshqdigital.com",
+      "email": "nick@opshqdigital.com",
+      "description": "AI-powered automation and technology consulting for small and mid-size businesses.",
+      "areaServed": { "@type": "State", "name": "Washington" },
+      "founder": { "@type": "Person", "name": "Nick Reef" }
+    })} />
+  </Fragment>
+</BaseLayout>
