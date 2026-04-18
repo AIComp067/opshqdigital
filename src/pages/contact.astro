@@ -129,6 +129,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <Fragment slot="head">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
@@ -178,5 +179,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         if (option) select.value = service;
       }
     }
+
+    // Form submission
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      // Remove any previous status messages
+      form.querySelector('.form-status')?.remove();
+
+      const formData = new FormData(form);
+      const data: Record<string, string> = {};
+      formData.forEach((val, key) => { data[key] = String(val); });
+
+      // Get Turnstile token
+      const turnstileInput = form.querySelector<HTMLInputElement>('input[name="cf-turnstile-response"]');
+      if (turnstileInput) data['cf-turnstile-response'] = turnstileInput.value;
+
+      try {
+        const res = await fetch('https://opshqdigital-func.azurewebsites.net/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const result = await res.json();
+
+        const statusDiv = document.createElement('div');
+        statusDiv.className = 'form-status p-4 rounded-lg text-sm font-medium mt-4';
+
+        if (res.ok && result.success) {
+          statusDiv.className += ' bg-green-50 text-green-800 border border-green-200';
+          statusDiv.textContent = '✅ ' + (result.message || 'Thank you! We\'ll be in touch within 24 hours.');
+          form.reset();
+          // Reset Turnstile
+          if (window.turnstile) window.turnstile.reset();
+        } else {
+          statusDiv.className += ' bg-red-50 text-red-800 border border-red-200';
+          statusDiv.textContent = '⚠️ ' + (result.error || 'Something went wrong. Please try again.');
+        }
+        form.appendChild(statusDiv);
+      } catch {
+        const statusDiv = document.createElement('div');
+        statusDiv.className = 'form-status p-4 rounded-lg text-sm font-medium mt-4 bg-red-50 text-red-800 border border-red-200';
+        statusDiv.textContent = '⚠️ Connection error. Please email nick@opshqdigital.com directly.';
+        form.appendChild(statusDiv);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = origText;
+      }
+    });
   </script>
 </BaseLayout>
