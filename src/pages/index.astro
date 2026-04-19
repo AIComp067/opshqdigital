@@ -9,28 +9,34 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
   ogImage="/images/hero-home.jpg"
 >
   <!-- Hero -->
-  <section class="relative overflow-hidden text-white">
-    <img src="/images/hero-home.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20" />
-    <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 to-navy-900/95"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-          Your Business Runs on Manual Processes. We Fix That.
-        </h1>
-        <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-8 max-w-prose">
-          AI-powered automation that saves you time, catches what you miss, and scales with your business. Stop losing leads, missing follow-ups, and spending hours on work a machine could handle.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 mb-6">
-          <a href="/contact/" class="inline-flex items-center justify-center px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] text-center">
-            Request a Free Discovery Call
-          </a>
-          <a href="/work/" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-colors min-h-[44px] text-center">
-            See Our Work
-          </a>
+  <section class="bg-navy-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Text side -->
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            Your Business Runs on Manual Processes. We Fix That.
+          </h1>
+          <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-8">
+            AI-powered automation that saves you time, catches what you miss, and scales with your business. Stop losing leads, missing follow-ups, and spending hours on work a machine could handle.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            <a href="/contact/" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg">
+              Request a Free Discovery Call →
+            </a>
+            <a href="/work/" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-colors min-h-[44px] text-center">
+              See Our Work
+            </a>
+          </div>
+          <p class="text-sm text-slate-400">
+            Tell us about your project. We'll reach out within 24 hours — no commitment, no sales pitch.
+          </p>
         </div>
-        <p class="text-sm text-slate-400">
-          Tell us about your project. We'll reach out within 24 hours — no commitment, no sales pitch.
-        </p>
+        <!-- Image side -->
+        <div class="relative">
+          <img src="/images/hero-home.jpg" alt="Business automation dashboard showing lead tracking and AI-powered workflows" class="rounded-2xl shadow-2xl shadow-blue-500/10 w-full" />
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl blur-xl -z-10"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -59,6 +65,10 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Our Services</span>
+        </div>
         <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4">What's Costing Your Business Time and Money?</h2>
         <p class="text-lg text-slate-600 max-w-2xl mx-auto">Most small business owners are losing hours every week to manual processes, missed follow-ups, and technology that doesn't talk to each other. Here's how we fix it.</p>
       </div>
@@ -93,8 +103,12 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
   </section>
 
   <!-- Social Proof -->
-  <section class="py-16 md:py-24 bg-slate-100">
+  <section class="py-16 md:py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Results</span>
+      </div>
       <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4 text-center">Real Businesses. Real Results.</h2>
       <p class="text-lg text-slate-600 max-w-2xl mx-auto text-center mb-12">Every system we build is in production today — handling real customers, real money, and real deadlines. We don't build demos. We build the technology that runs your business.</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
@@ -122,6 +136,12 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
   <!-- Case Study Previews -->
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Case Studies</span>
+        </div>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <CaseStudyCard
           title="From Spreadsheet Chaos to 200+ Managed Leads"
@@ -150,9 +170,13 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
   </section>
 
   <!-- How It Works -->
-  <section class="py-16 md:py-24 bg-slate-100">
+  <section class="py-16 md:py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">How It Works</span>
+        </div>
         <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4">Here's Exactly What Happens When You Work With Us</h2>
         <p class="text-lg text-slate-600 max-w-2xl mx-auto">No mystery. No corporate process. Just a straightforward path from "I have a problem" to "it's solved."</p>
       </div>

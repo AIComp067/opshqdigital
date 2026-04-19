@@ -6,19 +6,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   description="Automated content platform with 35+ posts, AI publishing pipeline & page-one Google rankings — at a fraction of previous hosting costs."
 >
   <!-- Hero -->
-  <section class="relative overflow-hidden text-white">
-    <img src="/images/hero-casestudy2.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20" />
-    <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 to-navy-900/95"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <span class="text-sm font-semibold text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Web & Content</span>
-      <h1 class="text-4xl md:text-5xl font-bold mt-4 mb-6">From Expensive WordPress to Page-One Rankings</h1>
-      <p class="text-lg text-slate-300 max-w-2xl">How an automated content platform replaced a $100+/month WordPress setup — and started ranking on Google in under 6 weeks.</p>
+  <section class="bg-navy-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Text side -->
+        <div>
+          <span class="text-sm font-semibold text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Web & Content</span>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mt-4 mb-6">From Expensive WordPress to Page-One Rankings</h1>
+          <p class="text-lg text-slate-300 mb-8">How an automated content platform replaced a $100+/month WordPress setup — and started ranking on Google in under 6 weeks.</p>
+          <a href="/contact/?service=web" class="inline-flex items-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg">
+            Request a Free Discovery Call →
+          </a>
+        </div>
+        <!-- Image side -->
+        <div class="relative">
+          <img src="/images/hero-casestudy2.jpg" alt="Content platform with automated publishing pipeline, SEO analytics, and page-one Google rankings" class="rounded-2xl shadow-2xl shadow-blue-500/10 w-full" />
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl blur-xl -z-10"></div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Challenge -->
   <section class="py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Challenge</span>
+      </div>
       <h2 class="text-3xl font-bold text-navy-950 mb-6">The Challenge</h2>
       <div class="text-slate-600 leading-relaxed space-y-4">
         <p>A content-focused business needed to establish authority across multiple topics. The traditional approach — hire writers, manually publish, cross-post to social media — was too slow and too expensive for a bootstrapped operation running on WordPress with a $100+/month hosting bill and minimal traffic.</p>
@@ -28,8 +43,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 
   <!-- Solution -->
-  <section class="py-16 md:py-24 bg-slate-100">
+  <section class="py-16 md:py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What We Built</span>
+      </div>
       <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">What We Built</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="bg-white rounded-xl p-6 border border-slate-200">
@@ -55,6 +74,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- Results -->
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Results</span>
+      </div>
       <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">The Results</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
         <div class="bg-slate-100 rounded-xl p-6 text-center">
@@ -86,7 +109,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 
   <!-- Tech Stack -->
-  <section class="py-12 bg-slate-100">
+  <section class="py-12 bg-slate-50">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4 text-center">Technology Used</h3>
       <div class="flex flex-wrap justify-center gap-2">

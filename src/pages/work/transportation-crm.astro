@@ -6,19 +6,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   description="How a Seattle-area transportation company went from spreadsheet chaos to 200+ managed leads, AI follow-ups & automated daily operations."
 >
   <!-- Hero -->
-  <section class="relative overflow-hidden text-white">
-    <img src="/images/hero-casestudy1.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20" />
-    <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 to-navy-900/95"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <span class="text-sm font-semibold text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">CRM & Automation</span>
-      <h1 class="text-4xl md:text-5xl font-bold mt-4 mb-6">From Spreadsheet Chaos to 200+ Managed Leads</h1>
-      <p class="text-lg text-slate-300 max-w-2xl">How a Seattle-area transportation company automated their entire sales operation — and got their evenings back.</p>
+  <section class="bg-navy-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Text side -->
+        <div>
+          <span class="text-sm font-semibold text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">CRM & Automation</span>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mt-4 mb-6">From Spreadsheet Chaos to 200+ Managed Leads</h1>
+          <p class="text-lg text-slate-300 mb-8">How a Seattle-area transportation company automated their entire sales operation — and got their evenings back.</p>
+          <a href="/contact/?service=crm" class="inline-flex items-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg">
+            Request a Free Discovery Call →
+          </a>
+        </div>
+        <!-- Image side -->
+        <div class="relative">
+          <img src="/images/hero-casestudy1.jpg" alt="Transportation company CRM showing lead pipeline with 200+ managed leads and automated follow-ups" class="rounded-2xl shadow-2xl shadow-blue-500/10 w-full" />
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl blur-xl -z-10"></div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Challenge -->
   <section class="py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Challenge</span>
+      </div>
       <h2 class="text-3xl font-bold text-navy-950 mb-6">The Challenge</h2>
       <div class="text-slate-600 leading-relaxed space-y-4">
         <p>A growing Seattle-area transportation company was drowning in manual work. Customer inquiries came in through email, phone, and their website — but there was no system to track them. The owner was spending hours each day hunting through inboxes, manually tracking quotes, and losing potential customers to slow follow-up.</p>
@@ -29,8 +44,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 
   <!-- Solution -->
-  <section class="py-16 md:py-24 bg-slate-100">
+  <section class="py-16 md:py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What We Built</span>
+      </div>
       <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">What We Built</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="bg-white rounded-xl p-6 border border-slate-200">
@@ -60,6 +79,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- Results -->
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Results</span>
+      </div>
       <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">The Results</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
         <div class="bg-slate-100 rounded-xl p-6 text-center">
@@ -91,7 +114,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 
   <!-- Tech Stack -->
-  <section class="py-12 bg-slate-100">
+  <section class="py-12 bg-slate-50">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4 text-center">Technology Used</h3>
       <div class="flex flex-wrap justify-center gap-2">

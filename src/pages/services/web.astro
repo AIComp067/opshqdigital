@@ -6,18 +6,33 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   description="Fast, SEO-optimized websites that generate leads — not just look pretty. Modern stack, minimal hosting costs. Seattle developer."
 >
   <!-- Hero -->
-  <section class="relative overflow-hidden text-white">
-    <img src="/images/hero-web.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20" />
-    <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 to-navy-900/95"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 max-w-3xl">Is Your Website Costing You Customers?</h1>
-      <p class="text-lg text-slate-300 max-w-2xl">If your site is slow, invisible on Google, or not bringing in leads — it's a liability, not an asset.</p>
+  <section class="bg-navy-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Text side -->
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Is Your Website Costing You Customers?</h1>
+          <p class="text-lg text-slate-300 mb-8">If your site is slow, invisible on Google, or not bringing in leads — it's a liability, not an asset.</p>
+          <a href="/contact/?service=web" class="inline-flex items-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg">
+            Request a Free Discovery Call →
+          </a>
+        </div>
+        <!-- Image side -->
+        <div class="relative">
+          <img src="/images/hero-web.jpg" alt="Modern website design with fast load times and SEO-optimized architecture" class="rounded-2xl shadow-2xl shadow-blue-500/10 w-full" />
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl blur-xl -z-10"></div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Problem -->
   <section class="py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Problem</span>
+      </div>
       <h2 class="text-3xl font-bold text-navy-950 mb-6">Your Website Should Be Your Best Salesperson</h2>
       <div class="text-slate-600 leading-relaxed space-y-4">
         <p>Your website should be working 24/7, answering questions, and generating leads. Instead, it's probably a WordPress site from 2019 with a $100+/month hosting bill, slow load times, and zero leads last quarter.</p>
@@ -27,8 +42,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 
   <!-- Solution -->
-  <section class="py-16 md:py-24 bg-slate-100">
+  <section class="py-16 md:py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Solution</span>
+      </div>
       <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">Websites That Work as Hard as You Do</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="bg-white rounded-xl p-6 border border-slate-200">
@@ -68,6 +87,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- Results -->
   <section class="py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Results</span>
+      </div>
       <h2 class="text-3xl font-bold text-navy-950 mb-6">Real Results</h2>
       <div class="bg-slate-100 rounded-xl p-8">
         <p class="text-slate-600 leading-relaxed mb-4">We built a content platform that went from:</p>
@@ -82,8 +105,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 
   <!-- FAQ -->
-  <section class="py-16 md:py-24 bg-slate-100">
+  <section class="py-16 md:py-24 bg-slate-50">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">FAQ</span>
+      </div>
       <h2 class="text-3xl font-bold text-navy-950 mb-8">Frequently Asked Questions</h2>
       <div class="space-y-6">
         <details class="bg-white rounded-xl p-6 border border-slate-200 group" open>

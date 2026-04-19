@@ -7,18 +7,36 @@ import ServiceCard from '../../components/ServiceCard.astro';
   description="AI automation, CRM systems, websites & cloud infrastructure built for small businesses looking to scale or modernize."
 >
   <!-- Hero -->
-  <section class="relative overflow-hidden text-white">
-    <img src="/images/hero-services.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20" />
-    <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 to-navy-900/95"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 md:py-24">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Technology That Solves Real Business Problems</h1>
-      <p class="text-lg text-slate-300 max-w-2xl mx-auto">You shouldn't have to become a tech expert to run your business. Here's how we take technology off your plate — so you can focus on what you do best.</p>
+  <section class="bg-navy-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Text side -->
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Technology That Solves Real Business Problems</h1>
+          <p class="text-lg text-slate-300 mb-8">You shouldn't have to become a tech expert to run your business. Here's how we take technology off your plate — so you can focus on what you do best.</p>
+          <a href="/contact/" class="inline-flex items-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg">
+            Request a Free Discovery Call →
+          </a>
+        </div>
+        <!-- Image side -->
+        <div class="relative">
+          <img src="/images/hero-services.jpg" alt="Technology services including CRM, AI automation, web development, and cloud infrastructure" class="rounded-2xl shadow-2xl shadow-blue-500/10 w-full" />
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl blur-xl -z-10"></div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Services Grid -->
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What We Do</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4">Solutions Built for Your Business</h2>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         <!-- CRM -->
         <div class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg hover:border-blue-300 transition-all">
