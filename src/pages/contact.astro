@@ -19,7 +19,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
         <!-- Form -->
         <div class="lg:col-span-3">
-          <form id="contact-form" class="space-y-6">
+          <form id="contact-form" class="space-y-6" method="POST" action="https://opshqdigital-func.azurewebsites.net/api/contact">
             <div>
               <label for="name" class="block text-sm font-medium text-navy-950 mb-1">Name <span class="text-red-500">*</span></label>
               <input type="text" id="name" name="name" required minlength="2" maxlength="100" placeholder="Your name" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px]" aria-describedby="name-help" />
@@ -43,7 +43,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
             <div>
               <label for="service" class="block text-sm font-medium text-navy-950 mb-1">What can we help with?</label>
-              <select id="service" name="service" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px] bg-white">
+              <select id="service" name="projectType" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px] bg-white">
                 <option value="not-sure">Not sure yet</option>
                 <option value="crm">CRM & Automation</option>
                 <option value="ai">AI Agents</option>
@@ -161,19 +161,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     })} />
   </Fragment>
 
-  <script>
+  <script is:inline>
     // Capture UTM params
     const params = new URLSearchParams(window.location.search);
     ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(key => {
       const val = params.get(key);
-      const el = document.querySelector<HTMLInputElement>(`input[name="${key}"]`);
+      const el = document.querySelector(`input[name="${key}"]`);
       if (val && el) el.value = val;
     });
 
     // Pre-select service from URL param
     const service = params.get('service');
     if (service) {
-      const select = document.getElementById('service') as HTMLSelectElement;
+      const select = document.getElementById('service');
       if (select) {
         const option = select.querySelector(`option[value="${service}"]`);
         if (option) select.value = service;
