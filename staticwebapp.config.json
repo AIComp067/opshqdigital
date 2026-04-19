@@ -6,7 +6,7 @@
     "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
     "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
     "Cross-Origin-Opener-Policy": "same-origin",
-    "Content-Security-Policy": "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://challenges.cloudflare.com https://www.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://c.bing.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://challenges.cloudflare.com https://www.clarity.ms https://c.bing.com https://clarity.ms; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'"
+    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com https://www.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://c.bing.com; connect-src 'self' https://opshqdigital-func.azurewebsites.net https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://challenges.cloudflare.com https://www.clarity.ms https://c.bing.com https://clarity.ms; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self' https://opshqdigital-func.azurewebsites.net"
   },
   "mimeTypes": {
     ".webp": "image/webp",

@@ -44,7 +44,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div>
               <label for="service" class="block text-sm font-medium text-navy-950 mb-1">What can we help with?</label>
               <select id="service" name="projectType" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px] bg-white">
-                <option value="not-sure">Not sure yet</option>
+                <option value="other">Not sure yet</option>
                 <option value="crm">CRM & Automation</option>
                 <option value="ai">AI Agents</option>
                 <option value="web">Web Development</option>
@@ -59,7 +59,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
             <!-- Honeypot -->
             <div class="hidden" aria-hidden="true">
-              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+              <input type="text" name="_honeypot" tabindex="-1" autocomplete="off" />
             </div>
 
             <!-- Hidden UTM fields -->
@@ -163,72 +163,70 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <script is:inline>
     // Capture UTM params
-    const params = new URLSearchParams(window.location.search);
-    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(key => {
-      const val = params.get(key);
-      const el = document.querySelector(`input[name="${key}"]`);
+    var params = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function(key) {
+      var val = params.get(key);
+      var el = document.querySelector('input[name="' + key + '"]');
       if (val && el) el.value = val;
     });
 
     // Pre-select service from URL param
-    const service = params.get('service');
+    var service = params.get('service');
     if (service) {
-      const select = document.getElementById('service');
+      var select = document.getElementById('service');
       if (select) {
-        const option = select.querySelector(`option[value="${service}"]`);
+        var option = select.querySelector('option[value="' + service + '"]');
         if (option) select.value = service;
       }
     }
 
     // Form submission
-    const form = document.getElementById('contact-form') as HTMLFormElement;
-    form?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-      const origText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
+    var form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var origText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
 
-      // Remove any previous status messages
-      form.querySelector('.form-status')?.remove();
+        // Remove any previous status messages
+        var oldStatus = form.querySelector('.form-status');
+        if (oldStatus) oldStatus.remove();
 
-      const formData = new FormData(form);
-      const data: Record<string, string> = {};
-      formData.forEach((val, key) => { data[key] = String(val); });
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function(val, key) { data[key] = String(val); });
 
-      // Get Turnstile token
-      const turnstileInput = form.querySelector<HTMLInputElement>('input[name="cf-turnstile-response"]');
-      if (turnstileInput) data['cf-turnstile-response'] = turnstileInput.value;
-
-      try {
-        const res = await fetch('https://opshqdigital-func.azurewebsites.net/api/contact', {
+        fetch('https://opshqdigital-func.azurewebsites.net/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
+          body: JSON.stringify(data)
+        })
+        .then(function(res) { return res.json().then(function(result) { return { ok: res.ok, result: result }; }); })
+        .then(function(resp) {
+          if (resp.ok && resp.result.success) {
+            window.location.replace('/thank-you/');
+            return;
+          }
+          var statusDiv = document.createElement('div');
+          statusDiv.className = 'form-status p-4 rounded-lg text-sm font-medium mt-4 bg-red-50 text-red-800 border border-red-200';
+          statusDiv.setAttribute('role', 'alert');
+          statusDiv.textContent = '⚠️ ' + (resp.result.error || 'Something went wrong. Please try again.');
+          form.appendChild(statusDiv);
+          btn.disabled = false;
+          btn.textContent = origText;
+        })
+        .catch(function() {
+          var statusDiv = document.createElement('div');
+          statusDiv.className = 'form-status p-4 rounded-lg text-sm font-medium mt-4 bg-red-50 text-red-800 border border-red-200';
+          statusDiv.setAttribute('role', 'alert');
+          statusDiv.textContent = '⚠️ Connection error. Please email nick@opshqdigital.com directly.';
+          form.appendChild(statusDiv);
+          btn.disabled = false;
+          btn.textContent = origText;
         });
-        const result = await res.json();
-
-        const statusDiv = document.createElement('div');
-        statusDiv.className = 'form-status p-4 rounded-lg text-sm font-medium mt-4';
-
-        if (res.ok && result.success) {
-          // Redirect to thank you page
-          window.location.href = '/thank-you/';
-          return;
-        } else {
-          statusDiv.className += ' bg-red-50 text-red-800 border border-red-200';
-          statusDiv.textContent = '⚠️ ' + (result.error || 'Something went wrong. Please try again.');
-        }
-        form.appendChild(statusDiv);
-      } catch {
-        const statusDiv = document.createElement('div');
-        statusDiv.className = 'form-status p-4 rounded-lg text-sm font-medium mt-4 bg-red-50 text-red-800 border border-red-200';
-        statusDiv.textContent = '⚠️ Connection error. Please email nick@opshqdigital.com directly.';
-        form.appendChild(statusDiv);
-      } finally {
-        btn.disabled = false;
-        btn.textContent = origText;
-      }
-    });
+      });
+    }
   </script>
 </BaseLayout>
