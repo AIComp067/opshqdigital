@@ -6,10 +6,13 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
 <BaseLayout
   title="Stop Fighting Your Technology — Let It Work for You | OpsHQ Digital"
   description="Your business runs on manual processes, scattered data, and tools that don't talk to each other. We fix that with AI-powered automation."
+  ogImage="/images/hero-home.jpg"
 >
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+  <section class="relative overflow-hidden text-white">
+    <img src="/images/hero-home.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20" />
+    <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 to-navy-900/95"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
       <div class="max-w-3xl">
         <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
           Your Business Runs on Manual Processes. We Fix That.
