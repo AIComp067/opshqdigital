@@ -253,6 +253,19 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" }
           ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://opshqdigital.com/#website",
+          "name": "OpsHQ Digital",
+          "url": "https://opshqdigital.com/",
+          "description": "AI-powered automation, CRM, and web development for small and mid-sized businesses.",
+          "publisher": { "@id": "https://opshqdigital.com/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": { "@type": "EntryPoint", "urlTemplate": "https://opshqdigital.com/?s={search_term_string}" },
+            "query-input": "required name=search_term_string"
+          }
         }
       ]
     })} />
