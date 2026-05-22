@@ -15,7 +15,7 @@ const { title, description, ogImage = '/og-home.png', noindex = false, canonical
 const canonicalURL = canonical || new URL(Astro.url.pathname, 'https://opshqdigital.com').href;
 const siteName = 'OpsHQ Digital';
 const buildDateIso = new Date().toISOString();
-const buildDate = buildDateIso.slice(0, 10);
+const buildDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' }).format(new Date());
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -41,7 +41,6 @@ const webPageSchema = {
   "name": title,
   "description": description,
   "dateModified": buildDateIso,
-  "datePublished": buildDateIso,
   "inLanguage": "en-US",
   "isPartOf": {
     "@type": "WebSite",
