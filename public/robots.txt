@@ -3,27 +3,10 @@ Allow: /
 
 Sitemap: https://opshqdigital.com/sitemap-index.xml
 
-# AI search crawlers — explicitly allowed
-User-agent: GPTBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-# AI-friendly site description
+# AI bot policy is managed at the Cloudflare edge (is_robots_txt_managed=true).
+# Cloudflare prepends an up-to-date Disallow list for train-only AI bots
+# (GPTBot, ClaudeBot, CCBot, Bytespider, Amazonbot, meta-externalagent,
+# Google-Extended, Applebot-Extended, etc.). Search-and-cite bots
+# (PerplexityBot, OAI-SearchBot, ChatGPT-User, Googlebot, Bingbot, Applebot)
+# remain allowed via the User-agent: * rule above.
 # llms.txt: https://opshqdigital.com/llms.txt
