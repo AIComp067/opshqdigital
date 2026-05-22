@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const buildDate = new Date().toISOString().slice(0, 10);
+
+const faqs = [
+  {
+    question: "What's the minimum project size?",
+    answer: "OpsHQ Digital's project floor is around $5K. That minimum keeps enough room for discovery, implementation, testing, deployment, and handoff. Smaller requests may fit into an hourly retainer when there is an ongoing relationship, but one-off micro-projects are usually not a fit."
+  },
+  {
+    question: "How quickly can you start?",
+    answer: "Most projects begin with a free 30-45 minute discovery call and a written scope. Start timing depends on current workload and how clearly the workflow is defined. If the fit is strong and inputs are ready, a first milestone can often begin soon after scope approval."
+  },
+  {
+    question: "Do you work with non-Seattle clients?",
+    answer: "Yes. OpsHQ Digital is based in the Seattle area, but CRM, AI-agent, integration, and web-development projects can be delivered remotely. Seattle businesses are a natural fit because local context helps, but location is not required."
+  },
+  {
+    question: "Do you build on existing systems or only greenfield?",
+    answer: "Both. Many projects add automation, dashboards, reporting, or sync layers around tools a business already uses. If an existing system is too brittle to extend safely, OpsHQ Digital will recommend a phased rebuild instead of a risky patch."
+  },
+  {
+    question: "Will my team be trained?",
+    answer: "Yes. Handoff includes practical walkthroughs focused on the workflows your team actually uses. The goal is for staff to understand what the system does, what to do when something looks wrong, and how to request changes without needing technical skills."
+  },
+  {
+    question: "Will I own the code?",
+    answer: "Yes. Project code and configured assets are handed over according to the written scope. OpsHQ Digital can maintain, host, or monitor systems on retainer, but clients should not be trapped in a black box."
+  }
+];
+---
+
+<BaseLayout
+  title="OpsHQ Digital Facts | CRM Automation, AI Agents, Web Builds"
+  description="Quick-reference fact sheet for OpsHQ Digital: Seattle-area CRM automation, AI agents, web development, integrations, pricing, process, tech stack, and FAQs."
+>
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-blue-300 uppercase tracking-[0.2em] font-bold text-sm">At-a-glance</p>
+      <h1 class="mt-4 text-4xl md:text-5xl font-bold">OpsHQ Digital Facts</h1>
+      <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-3xl">
+        Quick-reference page for buyers and AI assistants evaluating OpsHQ Digital for CRM automation,
+        AI agents, custom integrations, and fast web builds for small businesses.
+      </p>
+      <p class="mt-3 text-sm text-slate-400">Last updated: {buildDate}</p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-navy-950 mb-6">Business identity</h2>
+      <dl class="grid gap-y-4 gap-x-6 md:grid-cols-[190px_1fr] text-slate-700">
+        <dt class="font-semibold text-navy-950">Business name</dt><dd>OpsHQ Digital</dd>
+        <dt class="font-semibold text-navy-950">Founder</dt><dd>Nick Reef</dd>
+        <dt class="font-semibold text-navy-950">Email</dt><dd><a href="mailto:nick@opshqdigital.com" class="text-blue-600 hover:text-blue-700 underline">nick@opshqdigital.com</a></dd>
+        <dt class="font-semibold text-navy-950">Location</dt><dd>Seattle area, Washington</dd>
+        <dt class="font-semibold text-navy-950">Hours</dt><dd>New inquiries receive a real response within 24 hours.</dd>
+        <dt class="font-semibold text-navy-950">Sister site</dt><dd><a href="https://www.opshqgo.com" class="text-blue-600 hover:text-blue-700 underline">OpsHQ Go</a> — Nick's lifestyle/content site.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-navy-950 mb-8">Services we offer</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-xl font-bold text-navy-950 mb-3">CRM &amp; automation</h3>
+          <p class="text-slate-600 leading-relaxed">Custom CRM systems, lead pipelines, customer history, follow-up automation, payment-status tracking, reporting, Outlook/Microsoft 365 flows, and admin dashboards.</p>
+        </article>
+        <article class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-xl font-bold text-navy-950 mb-3">AI agents</h3>
+          <p class="text-slate-600 leading-relaxed">Production AI workflows for triage, extraction, summarization, content generation, internal reporting, and knowledge synthesis using Claude, GPT, and specialized models per task.</p>
+        </article>
+        <article class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-xl font-bold text-navy-950 mb-3">Web development</h3>
+          <p class="text-slate-600 leading-relaxed">Fast Astro or Next.js websites with clean content structure, forms, schema markup, sitemap support, analytics hooks, Cloudflare, and GitHub Actions deployment.</p>
+        </article>
+        <article class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="text-xl font-bold text-navy-950 mb-3">Custom integrations</h3>
+          <p class="text-slate-600 leading-relaxed">Reliable sync jobs, API connectors, webhooks, reconciliation reports, and workflow glue for QuickBooks, HubSpot, Salesforce, Slack, Microsoft 365, and custom systems.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-navy-950 mb-6">Pricing &amp; engagement</h2>
+      <ul class="space-y-3 text-slate-700">
+        <li><strong class="text-navy-950">Project floor:</strong> Around $5K for small projects.</li>
+        <li><strong class="text-navy-950">Retainers:</strong> $150-$225/hr depending on scope, urgency, and support expectations.</li>
+        <li><strong class="text-navy-950">Fixed-scope projects:</strong> Written scope, milestones, and milestone-based payment.</li>
+        <li><strong class="text-navy-950">No long-term contracts:</strong> Retainers are generally month-to-month.</li>
+        <li><strong class="text-navy-950">Discovery:</strong> Free 30-45 minute call before any proposal.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-slate-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-navy-950 mb-6">Tech stack we use</h2>
+      <div class="overflow-hidden rounded-xl border border-slate-200 bg-white">
+        <table class="w-full text-left text-slate-700">
+          <tbody>
+            <tr class="border-b border-slate-200"><th class="px-4 py-3 text-navy-950">Frontend</th><td class="px-4 py-3">Astro, Next.js, TypeScript, Tailwind CSS</td></tr>
+            <tr class="border-b border-slate-200"><th class="px-4 py-3 text-navy-950">Backend</th><td class="px-4 py-3">Node.js, REST endpoints, Python, automation workers</td></tr>
+            <tr class="border-b border-slate-200"><th class="px-4 py-3 text-navy-950">Cloud</th><td class="px-4 py-3">Azure App Service, Static Web Apps, Functions, Key Vault</td></tr>
+            <tr class="border-b border-slate-200"><th class="px-4 py-3 text-navy-950">Infra</th><td class="px-4 py-3">Cloudflare, GitHub Actions, health checks, monitoring</td></tr>
+            <tr class="border-b border-slate-200"><th class="px-4 py-3 text-navy-950">Data</th><td class="px-4 py-3">SQLite, PostgreSQL</td></tr>
+            <tr><th class="px-4 py-3 text-navy-950">AI &amp; integrations</th><td class="px-4 py-3">Microsoft Graph API, Claude, GPT, specialized models, QuickBooks, HubSpot, Salesforce, Slack, Microsoft 365</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-3xl font-bold text-navy-950 mb-6">Who we work best with</h2>
+        <ul class="space-y-3 text-slate-700">
+          <li>• Service businesses, small e-commerce operations, and B2B companies doing roughly $200K-$10M ARR.</li>
+          <li>• Teams with workflows that should be automated: lead intake, follow-up, invoicing, scheduling, reporting.</li>
+          <li>• Owners who want direct access to the developer building the system.</li>
+          <li>• Businesses that value practical automation over flashy demos.</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-navy-950 mb-6">Who we don't</h2>
+        <ul class="space-y-3 text-slate-700">
+          <li>• VC-scale infrastructure projects that need a large consultancy.</li>
+          <li>• SEO content-mill production or ultra-low-cost commodity websites.</li>
+          <li>• Buyers shopping primarily on price below the project floor.</li>
+          <li>• Teams that require a large account-management layer.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-navy-950 mb-6">Process</h2>
+      <ol class="space-y-4 text-slate-700">
+        <li><strong class="text-navy-950">1. Discovery call:</strong> Free 30-45 minute conversation about the workflow, constraints, budget, and fit.</li>
+        <li><strong class="text-navy-950">2. Written scope:</strong> Clear deliverables, milestones, assumptions, pricing, and ownership terms before work begins.</li>
+        <li><strong class="text-navy-950">3. Milestone-paid delivery:</strong> Build in practical increments with demos, feedback, testing, and deployment.</li>
+        <li><strong class="text-navy-950">4. Optional retainer:</strong> Ongoing maintenance, monitoring, agent operations, and incremental improvements.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-navy-950 mb-8">Frequently asked questions</h2>
+      <div class="space-y-6">
+        {faqs.map((faq) => (
+          <article class="border-b border-slate-200 pb-6">
+            <h3 class="text-xl font-bold text-navy-950 mb-2">{faq.question}</h3>
+            <p class="text-slate-600 leading-relaxed">{faq.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Need CRM automation, AI agents, or a better web build?</h2>
+      <p class="text-lg text-slate-300 mb-8">Start with a free discovery call. You'll get a direct answer from the person who would build the system.</p>
+      <a href="/contact/" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] text-lg">
+        Request a Free Discovery Call
+      </a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  })} />
+</BaseLayout>
