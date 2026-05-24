@@ -34,19 +34,27 @@ const organizationSchema = {
   "dateModified": buildDateIso
 };
 
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://opshqdigital.com/#website",
+  "url": "https://opshqdigital.com/",
+  "name": siteName,
+  "publisher": { "@id": "https://opshqdigital.com/#organization" },
+  "inLanguage": "en-US"
+};
+
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
+  "@id": `${canonicalURL}#webpage`,
   "url": canonicalURL,
   "name": title,
   "description": description,
   "dateModified": buildDateIso,
   "inLanguage": "en-US",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": siteName,
-    "url": "https://opshqdigital.com/"
-  }
+  "isPartOf": { "@id": "https://opshqdigital.com/#website" },
+  "about": { "@id": "https://opshqdigital.com/#organization" }
 };
 ---
 <!DOCTYPE html>
@@ -86,6 +94,7 @@ const webPageSchema = {
   <link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
 
   <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
 
   <slot name="head" />
