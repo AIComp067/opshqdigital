@@ -9,13 +9,12 @@ const SITE = 'https://opshqdigital.com';
 /** Pages that have a hero image — used to populate <image:image> sitemap entries. */
 const PAGE_IMAGES = {
   [`${SITE}/`]: { url: `${SITE}/images/hero-home.jpg`, caption: 'Business automation dashboard showing lead tracking and AI-powered workflows', title: 'OpsHQ Digital — homepage' },
-  [`${SITE}/services/`]: { url: `${SITE}/images/hero-services.jpg`, caption: 'Technology services including CRM, AI automation, web development, and cloud infrastructure', title: 'OpsHQ Digital services overview' },
-  [`${SITE}/services/ai/`]: { url: `${SITE}/images/hero-ai.jpg`, caption: 'AI-powered automation workflow with intelligent email agents and lead routing', title: 'AI agents and intelligent automation' },
-  [`${SITE}/services/cloud/`]: { url: `${SITE}/images/hero-cloud.jpg`, caption: 'Cloud infrastructure dashboard with monitoring, CI/CD pipelines, and security controls', title: 'Cloud infrastructure and DevOps' },
-  [`${SITE}/services/crm/`]: { url: `${SITE}/images/hero-crm.jpg`, caption: 'Custom CRM dashboard with lead tracking pipeline and automated follow-up system', title: 'Custom CRM development for small business' },
-  [`${SITE}/services/web/`]: { url: `${SITE}/images/hero-web.jpg`, caption: 'Modern website design with fast load times and SEO-optimized architecture', title: 'Website development that generates leads' },
+  [`${SITE}/services/`]: { url: `${SITE}/images/hero-services.jpg`, caption: 'AI Inbox + custom builds for service businesses', title: 'OpsHQ Digital services overview' },
+  [`${SITE}/services/ai-inbox/`]: { url: `${SITE}/images/hero-ai.jpg`, caption: 'AI Inbox automation for wedding venues with 5-minute response time', title: 'AI Inbox for wedding venues' },
+  [`${SITE}/capabilities/`]: { url: `${SITE}/images/hero-services.jpg`, caption: 'Custom AI, cloud, CRM, and web builds for small business', title: 'OpsHQ Digital capabilities' },
   [`${SITE}/work/transportation-crm/`]: { url: `${SITE}/images/hero-casestudy1.jpg`, caption: 'Transportation company CRM showing lead pipeline with 200+ managed leads and automated follow-ups', title: 'Transportation CRM case study' },
   [`${SITE}/work/content-platform/`]: { url: `${SITE}/images/hero-casestudy2.jpg`, caption: 'Content platform with automated publishing pipeline, SEO analytics, and page-one Google rankings', title: 'Content platform case study' },
+  [`${SITE}/work/inquiry-response-automation/`]: { url: `${SITE}/images/hero-casestudy1.jpg`, caption: 'AI-assisted inquiry response automation: 4-hour to 8-minute first reply time', title: 'Charter operator inquiry response automation case study' },
 };
 
 export default defineConfig({
