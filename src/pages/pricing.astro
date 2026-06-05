@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PricingCard from '../components/PricingCard.astro';
+---
+<BaseLayout
+  title="Pricing — OpsHQ Digital"
+  description="Transparent pricing for AI Inbox and custom work. No hidden fees, no annual contracts."
+>
+  <!-- Hero -->
+  <section class="bg-navy-950 text-white py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Simple, Honest Pricing</h1>
+      <p class="text-lg text-slate-300">One productized service. One transparent number. Plus custom-scope work at fair hourly rates.</p>
+    </div>
+  </section>
+
+  <!-- Productized -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Productized Service</span>
+      </div>
+      <h2 class="text-3xl font-bold text-navy-950 mb-8 text-center">AI Inbox</h2>
+      <PricingCard
+        productName="AI Inbox for Wedding Venues"
+        monthlyFee="$649"
+        setupFee="$0"
+        pilotOffer="30-day free pilot — full refund if you cancel before day 31"
+        features={[
+          "Custom AI assistant trained on your venue's voice + pricing + packages",
+          "Inquiry monitoring across Microsoft 365 or Google Workspace",
+          "5-minute first-response SLA",
+          "Human-in-the-loop approval via mobile push",
+          "Calendar integration for tour booking",
+          "Direct support from Nick — no ticket queue",
+          "Audit log of every draft, edit, approval, and send",
+          "Cancel anytime with 30-day notice; clean data export",
+        ]}
+        ctaText="Start Free Pilot"
+        ctaHref="/contact/?service=ai-inbox"
+        footnote="Want this for photographers, planners, or caterers? We're expanding to adjacent verticals in 2026 — let's talk."
+      />
+    </div>
+  </section>
+
+  <!-- Custom work -->
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Custom Work</span>
+      </div>
+      <h2 class="text-3xl font-bold text-navy-950 mb-6">Everything Else: Fair Rates, Fixed-Scope When Possible</h2>
+      <div class="text-slate-700 space-y-4 text-lg leading-relaxed">
+        <p>Most custom work falls into one of these buckets:</p>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3"><span class="text-blue-500 mt-1.5">•</span> <span><strong>Discovery + scoping:</strong> Free 30-minute discovery call. Written scope + fixed quote within 3 business days.</span></li>
+          <li class="flex items-start gap-3"><span class="text-blue-500 mt-1.5">•</span> <span><strong>Fixed-scope build:</strong> $4,500–$25,000 depending on complexity. Half up front, half on delivery.</span></li>
+          <li class="flex items-start gap-3"><span class="text-blue-500 mt-1.5">•</span> <span><strong>Time-and-materials:</strong> $175/hr for ongoing maintenance, small tweaks, or projects where scope can't be fixed in advance.</span></li>
+          <li class="flex items-start gap-3"><span class="text-blue-500 mt-1.5">•</span> <span><strong>Retainer:</strong> $1,200/mo for 8 prioritized hours, rollover up to 16 hours. Good fit for businesses that need a developer "on call" but not full-time.</span></li>
+        </ul>
+        <p class="pt-4">See <a href="/capabilities/" class="text-blue-500 font-medium hover:underline">the capabilities page</a> for what we typically build.</p>
+      </div>
+      <div class="mt-10">
+        <a href="/contact/?service=custom" class="inline-flex items-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">
+          Book a Discovery Call →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

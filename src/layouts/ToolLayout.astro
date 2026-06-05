@@ -1,0 +1,30 @@
+---
+// ToolLayout — stripped chrome for /tools/*. No nav distraction, conversion-focused.
+// Reuses BaseLayout's head + skip link + footer; replaces Header with a minimal version.
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  toolName: string;
+  ogImage?: string;
+  canonical?: string;
+}
+const { title, description, toolName, ogImage, canonical } = Astro.props;
+---
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a href="/" class="text-sm font-semibold text-navy-950 hover:text-blue-500 transition-colors">
+        ← OpsHQ Digital
+      </a>
+      <span class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Free Tool</span>
+    </div>
+  </section>
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs uppercase tracking-wider text-blue-500 font-semibold mb-2">{toolName}</p>
+      <slot />
+    </div>
+  </section>
+</BaseLayout>

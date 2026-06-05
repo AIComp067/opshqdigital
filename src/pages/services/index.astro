@@ -1,106 +1,66 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ServiceCard from '../../components/ServiceCard.astro';
 ---
 <BaseLayout
-  title="AI-Powered Automation for Small Business | OpsHQ Digital"
-  description="AI automation, CRM systems, websites & cloud infrastructure built for small businesses looking to scale or modernize."
+  title="Services — AI Inbox + Custom Work | OpsHQ Digital"
+  description="One productized service: AI Inbox for wedding venues, $649/mo, free 30-day pilot. Plus custom development for everything else."
 >
   <!-- Hero -->
   <section class="bg-navy-950 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Text side -->
-        <div>
-          <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Technology That Solves Real Business Problems</h1>
-          <p class="text-lg text-slate-300 mb-8">You shouldn't have to become a tech expert to run your business. Here's how we take technology off your plate — so you can focus on what you do best.</p>
-          <a href="/contact/" class="inline-flex items-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg">
-            Request a Free Discovery Call →
-          </a>
-        </div>
-        <!-- Image side -->
-        <div class="relative">
-          <img src="/images/hero-services.jpg" alt="Technology services including CRM, AI automation, web development, and cloud infrastructure" width="1024" height="1024" class="rounded-2xl shadow-2xl shadow-blue-500/10 w-full" />
-          <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl blur-xl -z-10"></div>
-        </div>
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          One Productized Service. Custom Builds for Everything Else.
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+          Most businesses don't need a 50-page menu of services. They need one thing that works. We do AI Inbox for wedding venues at a fixed monthly price — and custom-scope work when you need something built around your business.
+        </p>
+        <a href="/contact/" class="inline-flex items-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg">
+          Free Discovery Call →
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Services Grid -->
+  <!-- Two cards -->
   <section class="py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <div class="flex items-center justify-center gap-2 mb-4">
-          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-          <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What We Do</span>
-        </div>
-        <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4">Solutions Built for Your Business</h2>
-      </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-        <!-- CRM -->
-        <div class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg hover:border-blue-300 transition-all">
-          <div class="text-3xl mb-4">🖥️</div>
-          <h3 class="text-xl font-bold text-navy-950 mb-3">CRM & Business Automation</h3>
-          <p class="text-slate-600 leading-relaxed mb-4">Custom CRM systems that track every lead, automate follow-ups, and tell you exactly what needs attention today.</p>
-          <ul class="space-y-2 text-sm text-slate-600 mb-4">
-            <li>✓ Custom lead tracking that matches YOUR sales process</li>
-            <li>✓ Automated daily digest — know your whole business in one email</li>
-            <li>✓ Payment tracking and automated invoicing</li>
-            <li>✓ AI-powered email drafts in your brand voice</li>
-            <li>✓ Real-time sync with your existing tools</li>
-          </ul>
-          <p class="text-sm text-teal-500 font-medium mb-4">Custom-priced after discovery call</p>
-          <a href="/services/crm/" class="text-sm font-medium text-blue-500 hover:text-blue-600 transition-colors">Learn More About CRM →</a>
-        </div>
 
-        <!-- AI -->
-        <div class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg hover:border-blue-300 transition-all">
-          <div class="text-3xl mb-4">🤖</div>
-          <h3 class="text-xl font-bold text-navy-950 mb-3">AI Agents & Intelligent Automation</h3>
-          <p class="text-slate-600 leading-relaxed mb-4">AI agents that read emails, draft responses in your voice, route leads, and handle the boring stuff.</p>
-          <ul class="space-y-2 text-sm text-slate-600 mb-4">
-            <li>✓ AI email agents that sound like your best employee</li>
-            <li>✓ Smart lead routing — the right inquiry goes to the right workflow</li>
-            <li>✓ Save 15+ hours/week on manual processes</li>
-            <li>✓ Content automation and scheduling</li>
-            <li>✓ Intelligent monitoring with proactive alerts</li>
+        <!-- AI Inbox -->
+        <a href="/services/ai-inbox/" class="group bg-white rounded-2xl border-2 border-blue-500 p-8 hover:shadow-2xl hover:shadow-blue-500/10 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-semibold text-blue-500 uppercase tracking-wider">Productized Service</span>
+            <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">Free 30-day pilot</span>
+          </div>
+          <div class="text-3xl mb-3">📧</div>
+          <h2 class="text-2xl font-bold text-navy-950 mb-3 group-hover:text-blue-500 transition-colors">AI Inbox for Wedding Venues</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">5-minute first responses to every inquiry, in your voice, with human approval on every send. Built specifically for wedding venues. $649/mo, no setup fee, cancel anytime.</p>
+          <ul class="space-y-2 text-sm text-slate-600 mb-6">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✓</span> 5-min reply SLA across every inquiry</li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✓</span> Human-approval on every send (or auto-send for trusted senders)</li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✓</span> Full audit log + DPA included</li>
           </ul>
-          <p class="text-sm text-teal-500 font-medium mb-4">Custom-priced after discovery call</p>
-          <a href="/services/ai/" class="text-sm font-medium text-blue-500 hover:text-blue-600 transition-colors">Learn More About AI Automation →</a>
-        </div>
+          <span class="text-sm font-semibold text-blue-500 group-hover:underline">See pricing &amp; how it works →</span>
+        </a>
 
-        <!-- Web -->
-        <div class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg hover:border-blue-300 transition-all">
-          <div class="text-3xl mb-4">🌐</div>
-          <h3 class="text-xl font-bold text-navy-950 mb-3">Web Development</h3>
-          <p class="text-slate-600 leading-relaxed mb-4">Fast, search-optimized sites that show up on Google and convert visitors into leads — at a fraction of what you're paying now.</p>
-          <ul class="space-y-2 text-sm text-slate-600 mb-4">
-            <li>✓ Blazing-fast sites that rank on Google</li>
-            <li>✓ Built-in lead capture and conversion tracking</li>
-            <li>✓ Minimal hosting costs — no $100+/month hosting bills</li>
-            <li>✓ SEO-first architecture — built to rank</li>
-            <li>✓ Analytics and conversion tracking from day one</li>
+        <!-- Capabilities -->
+        <a href="/capabilities/" class="group bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-lg hover:border-blue-300 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Custom Work</span>
+            <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1 rounded-full">Fixed-scope quotes</span>
+          </div>
+          <div class="text-3xl mb-3">🛠️</div>
+          <h2 class="text-2xl font-bold text-navy-950 mb-3 group-hover:text-blue-500 transition-colors">Custom Builds — Web, Cloud, CRM, AI</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">Everything that isn't AI Inbox: custom AI agents, Azure cloud setup, CRM automation, fast SEO-strong websites. Written scope and fixed price after a 30-minute discovery call.</p>
+          <ul class="space-y-2 text-sm text-slate-600 mb-6">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✓</span> Free discovery, written scope, fixed quote</li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✓</span> $4,500–$45,000 depending on complexity</li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✓</span> Optional $1,200/mo retainer for ongoing care</li>
           </ul>
-          <p class="text-sm text-teal-500 font-medium mb-4">Custom-priced after discovery call</p>
-          <a href="/services/web/" class="text-sm font-medium text-blue-500 hover:text-blue-600 transition-colors">Learn More About Web Development →</a>
-        </div>
+          <span class="text-sm font-semibold text-blue-500 group-hover:underline">See capabilities &amp; how an engagement works →</span>
+        </a>
 
-        <!-- Cloud -->
-        <div class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg hover:border-blue-300 transition-all">
-          <div class="text-3xl mb-4">☁️</div>
-          <h3 class="text-xl font-bold text-navy-950 mb-3">Cloud Infrastructure & DevOps</h3>
-          <p class="text-slate-600 leading-relaxed mb-4">Right-sized infrastructure with proper monitoring, automatic deployments, and security.</p>
-          <ul class="space-y-2 text-sm text-slate-600 mb-4">
-            <li>✓ Right-sized cloud resources — pay for what you actually use</li>
-            <li>✓ Automated deployments — no more manual uploads</li>
-            <li>✓ 24/7 monitoring with proactive alerts</li>
-            <li>✓ Security hardening and compliance</li>
-            <li>✓ DNS, CDN, and performance optimization</li>
-          </ul>
-          <p class="text-sm text-teal-500 font-medium mb-4">Custom-priced after discovery call</p>
-          <a href="/services/cloud/" class="text-sm font-medium text-blue-500 hover:text-blue-600 transition-colors">Learn More About Cloud →</a>
-        </div>
       </div>
     </div>
   </section>
@@ -108,13 +68,14 @@ import ServiceCard from '../../components/ServiceCard.astro';
   <!-- Bottom CTA -->
   <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Not Sure Which Service You Need?</h2>
-      <p class="text-lg text-slate-300 mb-8">That's completely normal. Most of our clients start with a conversation, not a shopping list.</p>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Not Sure Which Path?</h2>
+      <p class="text-lg text-slate-300 mb-8">Tell us the problem in your own words. We'll tell you whether AI Inbox fits, a custom build is the answer, or you're better off with someone else.</p>
       <a href="/contact/" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] text-lg">
-        Request a Free Discovery Call
+        Free Discovery Call
       </a>
     </div>
   </section>
+
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -130,17 +91,14 @@ import ServiceCard from '../../components/ServiceCard.astro';
           "@type": "ProfessionalService",
           "name": "OpsHQ Digital",
           "url": "https://opshqdigital.com/services/",
-          "description": "AI automation, CRM systems, websites & cloud infrastructure built for small businesses looking to scale or modernize.",
           "provider": { "@id": "https://opshqdigital.com/#organization" },
           "areaServed": { "@type": "City", "name": "Seattle", "addressRegion": "WA" },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Technology Services",
+            "name": "Services",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRM & Business Automation", "url": "https://opshqdigital.com/services/crm/" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Agents & Intelligent Automation", "url": "https://opshqdigital.com/services/ai/" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development", "url": "https://opshqdigital.com/services/web/" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Infrastructure & DevOps", "url": "https://opshqdigital.com/services/cloud/" } }
+              { "@type": "Offer", "price": "649", "priceCurrency": "USD", "itemOffered": { "@type": "Service", "name": "AI Inbox for Wedding Venues", "url": "https://opshqdigital.com/services/ai-inbox/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web, Cloud, CRM, and AI Builds", "url": "https://opshqdigital.com/capabilities/" } }
             ]
           }
         }
@@ -148,3 +106,4 @@ import ServiceCard from '../../components/ServiceCard.astro';
     })} />
   </Fragment>
 </BaseLayout>
+

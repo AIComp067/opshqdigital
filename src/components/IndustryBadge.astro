@@ -1,0 +1,19 @@
+---
+// IndustryBadge — small pill tag for service pages + case studies.
+// Improves vertical scannability ("this case study is about wedding venues").
+interface Props {
+  label: string;
+  variant?: 'wedding' | 'charter' | 'service' | 'tech';
+}
+const { label, variant = 'service' } = Astro.props;
+
+const palette = {
+  wedding: 'bg-rose-50 text-rose-700 border-rose-200',
+  charter: 'bg-amber-50 text-amber-700 border-amber-200',
+  service: 'bg-blue-50 text-blue-700 border-blue-200',
+  tech: 'bg-slate-100 text-slate-700 border-slate-200',
+};
+---
+<span class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider border ${palette[variant]}`}>
+  {label}
+</span>

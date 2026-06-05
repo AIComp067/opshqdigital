@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MetricCard from '../../components/MetricCard.astro';
+import QuoteBlock from '../../components/QuoteBlock.astro';
+import IndustryBadge from '../../components/IndustryBadge.astro';
+---
+<BaseLayout
+  title="Case Study: 4-Hour to 8-Minute Inquiry Response (Charter Operator)"
+  description="A Seattle-area charter operator was losing 50% of their inquiries to slower competitors. Here's the AI-assisted inbox system we built in four weeks — and the lessons it taught us about wedding-venue-grade reply automation."
+>
+  <!-- Hero -->
+  <section class="bg-navy-950 text-white py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-6">
+        <IndustryBadge label="Charter Operator" variant="charter" />
+        <IndustryBadge label="Inquiry Automation" variant="service" />
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+        5-Minute Replies. 40% More Closed Leads.
+      </h1>
+      <p class="text-lg md:text-xl text-slate-300 leading-relaxed">
+        A Seattle-area charter operator was losing roughly half their inquiries to faster competitors. Here's what we built in four weeks — and what it taught us about applying the same playbook to wedding venues.
+      </p>
+    </div>
+  </section>
+
+  <!-- Exec summary callout -->
+  <section class="py-10 md:py-12 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-xl p-6 sm:p-8 border-2 border-blue-500/20 shadow-lg">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+          <div>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Client</p>
+            <p class="text-navy-950 font-semibold">Family-run charter / party-bus operator, Seattle WA</p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Challenge</p>
+            <p class="text-navy-950 font-semibold">~50% of inquiries went cold before reply, mostly weekends + after-hours</p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Result</p>
+            <p class="text-navy-950 font-semibold">8-minute average reply, ~40% lift in inquiries that converted to a booked tour</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-navy-950 mb-10 text-center">Before / After (90-Day Window)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <MetricCard label="Avg First-Reply Time" before="4 hr 12 min" after="8 min" caption="Across 280 inquiries in the 90-day window" />
+        <MetricCard label="Inquiries → Booked Tour" before="48%" after="68%" caption="+20pp lift attributed to faster, more relevant first response" />
+        <MetricCard label="Owner Time on Inbox" before="~12 hr/wk" after="~3 hr/wk" caption="Owner now reviews and approves; doesn't write from scratch" />
+      </div>
+    </div>
+  </section>
+
+  <!-- The story -->
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-lg prose-slate max-w-none">
+      <h2 class="text-3xl font-bold text-navy-950 mb-6 not-prose">The Story</h2>
+
+      <h3 class="text-xl font-bold text-navy-950 mt-8 mb-3">What was happening</h3>
+      <p class="text-slate-700 leading-relaxed">
+        The owner was personally answering every inquiry — about 30 a week, mostly via email, some via Instagram DM and the website form. Weeknights worked OK; weekends were a disaster. Saturday inquiries often didn't get a reply until late Sunday or Monday morning, by which point the customer had usually moved on to a competitor.
+      </p>
+      <p class="text-slate-700 leading-relaxed">
+        The shape of the response was consistent: warm tone, exact pricing, package PDF, calendar link to book a tour. The owner had the formula down — they just couldn't get it out the door fast enough on the days that mattered.
+      </p>
+
+      <h3 class="text-xl font-bold text-navy-950 mt-8 mb-3">What we built</h3>
+      <p class="text-slate-700 leading-relaxed">An AI assistant trained on:</p>
+      <ul class="text-slate-700">
+        <li>The last six months of the owner's actual replies (tone, structure, signature, escalation rules)</li>
+        <li>The full pricing list, package details, and seasonal availability</li>
+        <li>The owner's "no" rules (what they won't quote without seeing, what dates they hold, what kinds of events they won't take)</li>
+      </ul>
+      <p class="text-slate-700 leading-relaxed">
+        The system polls the inbox every minute. New inquiry lands — within ~60 seconds it has a drafted reply waiting for the owner's approval on their phone. Tap to send, tap to edit, tap to skip. Trusted senders (returning planners, repeat customers) auto-send without approval.
+      </p>
+
+      <h3 class="text-xl font-bold text-navy-950 mt-8 mb-3">What it took to ship</h3>
+      <ul class="text-slate-700">
+        <li><strong>Week 1:</strong> Audit the existing inbox, classify 6 months of replies, extract the tone + pricing + escalation rules.</li>
+        <li><strong>Week 2:</strong> Build the AI inbox loop. Connect to Microsoft 365 (read-only first). Daily QA on drafts the owner never sees.</li>
+        <li><strong>Week 3:</strong> Turn on approval mode. Owner reviews every draft for 7 days; we tune from feedback.</li>
+        <li><strong>Week 4:</strong> Live. Mobile push approvals, audit log, daily metrics digest. Trusted-sender auto-send rolled out for known planners.</li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-navy-950 mt-8 mb-3">Why this matters for wedding venues</h3>
+      <p class="text-slate-700 leading-relaxed">
+        Wedding venues face the same inbox dynamics: high-intent inquiries with short comparison windows, weekend-heavy inquiry volume, an owner who knows exactly what to say but can't get to it fast enough. The same system applies — the only thing that changes is the prompt training data (your packages, your tone, your venue's calendar).
+      </p>
+      <p class="text-slate-700 leading-relaxed">
+        We're now actively onboarding the first three wedding-venue pilots. If you're a venue owner reading this and the 4-hour reply time hits home, <a href="/contact/?service=ai-inbox" class="text-blue-500 font-medium">start a free 30-day pilot</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote (charter operator, anonymized) -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <QuoteBlock
+        quote="I was the bottleneck. The system isn't replacing me — it's letting me actually do the parts of the job I'm good at, instead of typing the same email at 11pm on a Saturday."
+        name="Operator"
+        role="Owner"
+        company="Seattle-area charter operator (case study used with permission, name withheld pending publication)"
+      />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-20 bg-navy-950 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Want This for Your Venue?</h2>
+      <p class="text-lg text-slate-300 mb-8">We're onboarding three more wedding-venue pilots this quarter. Free for 30 days. No setup fee. Cancel anytime.</p>
+      <a href="/contact/?service=ai-inbox" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">
+        Start a Free Pilot →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

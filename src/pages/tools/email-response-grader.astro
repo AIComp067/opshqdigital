@@ -1,0 +1,131 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+---
+<ToolLayout
+  title="Email Response Grader — How Fast Is Your Business Replying?"
+  description="Paste a recent inquiry, tell us how long it took to reply, and we'll grade your response time + estimate the revenue at risk. Free, no signup."
+  toolName="Free Tool"
+  canonical="https://opshqdigital.com/tools/email-response-grader/"
+>
+  <h1 class="text-3xl md:text-4xl font-bold text-navy-950 mb-3">Email Response Grader</h1>
+  <p class="text-lg text-slate-600 mb-8 leading-relaxed">Reply speed is the single biggest predictor of whether a wedding-venue or service-business inquiry converts to a tour. Paste any recent inquiry, tell us how long it took to reply, and we'll show your grade — plus a no-fluff estimate of the revenue at risk.</p>
+
+  <form id="grader-form" class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
+
+    <div>
+      <label for="inquiry" class="block text-sm font-medium text-navy-950 mb-1">
+        Paste a recent inquiry <span class="text-slate-400">(optional)</span>
+      </label>
+      <p class="text-xs text-slate-500 mb-2">Helps us spot quick wins in the reply structure. We don't store it — runs in your browser.</p>
+      <textarea id="inquiry" name="inquiry" rows="4" maxlength="3000" placeholder="Paste a recent customer inquiry here, or skip..." class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors resize-y"></textarea>
+    </div>
+
+    <div>
+      <label for="reply-time" class="block text-sm font-medium text-navy-950 mb-1">
+        How long until you replied? <span class="text-red-500">*</span>
+      </label>
+      <select id="reply-time" name="replyTime" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors bg-white min-h-[44px]">
+        <option value="">— Select —</option>
+        <option value="0">Within 5 minutes</option>
+        <option value="1">5 minutes to 1 hour</option>
+        <option value="2">1 to 4 hours</option>
+        <option value="3">4 to 24 hours</option>
+        <option value="4">More than 24 hours, or didn't reply</option>
+      </select>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div>
+        <label for="aov" class="block text-sm font-medium text-navy-950 mb-1">
+          Average booking value <span class="text-red-500">*</span>
+        </label>
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">$</span>
+          <input type="number" id="aov" name="aov" required min="100" max="100000" step="100" value="8000" class="w-full pl-8 pr-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px]" />
+        </div>
+        <p class="text-xs text-slate-500 mt-1">Default $8,000 — typical wedding venue avg.</p>
+      </div>
+      <div>
+        <label for="inquiries" class="block text-sm font-medium text-navy-950 mb-1">
+          Inquiries per month
+        </label>
+        <input type="number" id="inquiries" name="inquiries" min="1" max="500" step="1" value="30" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px]" />
+        <p class="text-xs text-slate-500 mt-1">Default 30 — typical wedding venue.</p>
+      </div>
+    </div>
+
+    <button type="submit" class="w-full sm:w-auto px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] text-lg cursor-pointer">
+      Grade My Response Time
+    </button>
+  </form>
+
+  <div id="result" class="hidden mt-10 space-y-6"></div>
+
+  <div class="mt-12 pt-8 border-t border-slate-200">
+    <h2 class="text-xl font-bold text-navy-950 mb-3">How the grader works</h2>
+    <p class="text-slate-600 leading-relaxed text-sm">Grades use the industry-standard conversion-capture curve: response under 5 minutes captures ~95% of inquiries that ultimately book; the same response at 24+ hours captures ~15%. Multiply that drop by your booking value and monthly inquiry volume and you get your monthly revenue at risk. We use conservative numbers; the actual hit is usually worse. All math runs in your browser — nothing is sent anywhere unless you choose to email yourself the full report.</p>
+  </div>
+
+  <script is:inline>
+    const CAPTURE = [0.95, 0.85, 0.65, 0.35, 0.12];
+    const LABELS  = ['under 5 minutes', '5 minutes to 1 hour', '1 to 4 hours', '4 to 24 hours', 'more than 24 hours'];
+    const GRADES  = ['A', 'B', 'C', 'D', 'F'];
+    const COLORS  = ['text-emerald-600', 'text-emerald-500', 'text-amber-500', 'text-orange-500', 'text-red-500'];
+    const BANDS   = ['bg-emerald-50 border-emerald-200', 'bg-emerald-50 border-emerald-200', 'bg-amber-50 border-amber-200', 'bg-orange-50 border-orange-200', 'bg-red-50 border-red-200'];
+
+    const FIX_BY_BUCKET = [
+      'You\u2019re already in the top tier. Lock it in with an SLA so it stays here even on weekends and holidays.',
+      'Close. Cutting another 20\u201340 minutes off the average gets you to A-grade and ~10pp more inquiries captured.',
+      'Common pattern. Most owners can\u2019t maintain sub-hour replies solo. This is exactly where AI Inbox pays for itself.',
+      'You\u2019re losing more than half of these to faster competitors before they ever see your venue. Highest-leverage thing to fix in your business.',
+      'These inquiries are gone. Some are recoverable with a strong follow-up sequence; most aren\u2019t. Speed is the only durable fix.'
+    ];
+
+    const form = document.getElementById('grader-form');
+    const resultEl = document.getElementById('result');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const bucket = parseInt(fd.get('replyTime'));
+      const aov = parseInt(fd.get('aov')) || 8000;
+      const inquiriesPerMonth = parseInt(fd.get('inquiries')) || 30;
+
+      const grade = GRADES[bucket];
+      const colorClass = COLORS[bucket];
+      const bandClass = BANDS[bucket];
+      const yourCapture = CAPTURE[bucket];
+      const bestCapture = CAPTURE[0];
+      const lost = (bestCapture - yourCapture) * inquiriesPerMonth * aov;
+      const lostMonthly = Math.round(lost / 100) * 100;
+      const lostAnnual = lostMonthly * 12;
+      const fmt = n => '$' + n.toLocaleString('en-US');
+
+      resultEl.innerHTML = `
+        <div class="${bandClass} border-2 rounded-2xl p-6 sm:p-8 text-center">
+          <p class="text-sm font-semibold uppercase tracking-wider text-slate-600 mb-2">Your Response Grade</p>
+          <p class="text-7xl sm:text-8xl font-bold ${colorClass} leading-none mb-3">${grade}</p>
+          <p class="text-lg text-slate-700">You replied in <strong>${LABELS[bucket]}</strong>.</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8">
+          <p class="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-3">Monthly revenue at risk</p>
+          <p class="text-4xl sm:text-5xl font-bold text-navy-950 mb-2">${fmt(lostMonthly)}<span class="text-lg text-slate-500 font-normal"> / month</span></p>
+          <p class="text-base text-slate-600">~${fmt(lostAnnual)} per year, based on <strong>${inquiriesPerMonth} inquiries/mo</strong> at <strong>${fmt(aov)}</strong> avg booking value.</p>
+          <p class="text-xs text-slate-500 mt-3 italic">Assumes that closing the gap to A-grade response time recovers the modeled capture-rate difference. Real-world results vary; we err on the conservative side.</p>
+        </div>
+
+        <div class="bg-navy-950 text-white rounded-2xl p-6 sm:p-8">
+          <p class="text-sm font-semibold uppercase tracking-wider text-blue-300 mb-3">The fix</p>
+          <p class="text-lg text-slate-100 leading-relaxed mb-6">${FIX_BY_BUCKET[bucket]}</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/services/ai-inbox/" class="inline-flex items-center justify-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors min-h-[44px]">See How AI Inbox Solves This</a>
+            <a href="/contact/?service=ai-inbox" class="inline-flex items-center justify-center px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors min-h-[44px]">Book a 15-min Walk-Through</a>
+          </div>
+        </div>
+      `;
+      resultEl.classList.remove('hidden');
+      resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</ToolLayout>
