@@ -20,17 +20,7 @@
       }
     },
     {
-      "route": "/services/ai",
-      "redirect": "/services/ai-inbox/",
-      "statusCode": 301
-    },
-    {
       "route": "/services/ai/",
-      "redirect": "/services/ai-inbox/",
-      "statusCode": 301
-    },
-    {
-      "route": "/services/crm",
       "redirect": "/services/ai-inbox/",
       "statusCode": 301
     },
@@ -40,17 +30,7 @@
       "statusCode": 301
     },
     {
-      "route": "/services/cloud",
-      "redirect": "/capabilities/",
-      "statusCode": 301
-    },
-    {
       "route": "/services/cloud/",
-      "redirect": "/capabilities/",
-      "statusCode": 301
-    },
-    {
-      "route": "/services/web",
       "redirect": "/capabilities/",
       "statusCode": 301
     },
