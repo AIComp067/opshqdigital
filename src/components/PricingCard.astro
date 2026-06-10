@@ -1,10 +1,10 @@
 ---
-// PricingCard — fixed-price display for productized offerings.
+// PricingCard — fixed-price OR no-price display for productized offerings.
 // Mobile: flex-col default. Desktop: flex-row.
 // Spec'd by Sonnet (design agent). Placed 60-70% down a service page.
 interface Props {
   productName: string;
-  monthlyFee: string;          // e.g. "$649"
+  monthlyFee?: string;         // e.g. "$649" — omit to hide the price block entirely
   setupFee?: string;           // e.g. "$0" or "$949" — pass "$0" or omit for none
   pilotOffer?: string;         // e.g. "30-day free pilot"
   features: string[];
@@ -27,16 +27,27 @@ const {
   <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
     <div>
       <p class="text-xs font-semibold text-blue-500 uppercase tracking-wider mb-2">{productName}</p>
-      <div class="flex items-baseline gap-2">
-        <span class="text-4xl sm:text-5xl font-bold text-navy-950">{monthlyFee}</span>
-        <span class="text-slate-500 text-base">/ month</span>
-      </div>
-      {pilotOffer && <p class="text-sm text-blue-500 font-medium mt-2">✓ {pilotOffer}</p>}
-      {setupFee && setupFee !== '$0' && (
+      {monthlyFee && (
+        <div class="flex items-baseline gap-2">
+          <span class="text-4xl sm:text-5xl font-bold text-navy-950">{monthlyFee}</span>
+          <span class="text-slate-500 text-base">/ month</span>
+        </div>
+      )}
+      {!monthlyFee && pilotOffer && (
+        <p class="text-2xl sm:text-3xl font-bold text-navy-950">{pilotOffer}</p>
+      )}
+      {!monthlyFee && !pilotOffer && (
+        <p class="text-2xl sm:text-3xl font-bold text-navy-950">Quoted on the discovery call</p>
+      )}
+      {monthlyFee && pilotOffer && <p class="text-sm text-blue-500 font-medium mt-2">✓ {pilotOffer}</p>}
+      {monthlyFee && setupFee && setupFee !== '$0' && (
         <p class="text-sm text-slate-500 mt-2">+ {setupFee} one-time setup</p>
       )}
-      {(!setupFee || setupFee === '$0') && (
+      {monthlyFee && (!setupFee || setupFee === '$0') && (
         <p class="text-sm text-slate-500 mt-2">No setup fee</p>
+      )}
+      {!monthlyFee && (
+        <p class="text-sm text-slate-500 mt-2">Monthly fee scoped on the discovery call. Cancel anytime after the pilot.</p>
       )}
     </div>
     <a

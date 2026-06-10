@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const testimonials = [
+  {
+    quote: "The CRM Nick built gave me my evenings back. Lead follow-ups that used to take me hours every day now happen automatically. I check one email in the morning and know exactly where every lead stands. It's the kind of system I would have paid 5x more for from a big agency.",
+    author: "Bill",
+    role: "Founder, Fun Way To Go LLC",
+    business: "Seattle Party Bus Rental",
+    initial: "B",
+    project: "Custom CRM + AI Email Automation + Payment Integration",
+    projectLink: "/work/transportation-crm/",
+  },
+];
+
+// Schema.org Review payload for SEO + AI assistants
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://opshqdigital.com/#organization",
+  "name": "OpsHQ Digital",
+  "url": "https://opshqdigital.com/",
+  "review": testimonials.map(t => ({
+    "@type": "Review",
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "author": { "@type": "Person", "name": `${t.author} (${t.business})` },
+    "reviewBody": t.quote,
+    "itemReviewed": {
+      "@type": "Organization",
+      "name": "OpsHQ Digital"
+    }
+  })),
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": String(testimonials.length),
+    "bestRating": "5"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Testimonials", "item": "https://opshqdigital.com/testimonials/" }
+  ]
+};
+---
+<BaseLayout
+  title="Testimonials — OpsHQ Digital"
+  description="What real Pacific Northwest small business owners say about working with OpsHQ Digital. Honest quotes from founders who've shipped real systems with us."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-blue-300 uppercase tracking-[0.2em] font-bold text-sm">In their own words</p>
+      <h1 class="mt-4 text-4xl md:text-5xl font-bold">What Founders Say About Working With Us</h1>
+      <p class="mt-6 text-lg text-slate-300">No paid placements. No fake stock-photo praise. Real Seattle-area founders, real systems we built for them.</p>
+    </div>
+  </section>
+
+  <!-- Testimonials grid -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      {testimonials.map(t => (
+        <article class="bg-white rounded-2xl border border-slate-200 p-8 md:p-12 shadow-sm">
+          <svg class="w-10 h-10 text-blue-500 mb-6" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+          </svg>
+          <p class="text-xl md:text-2xl text-navy-950 font-medium leading-relaxed mb-8">"{t.quote}"</p>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0">{t.initial}</div>
+            <div>
+              <p class="font-bold text-navy-950">{t.author}</p>
+              <p class="text-sm text-slate-500">{t.role} · {t.business}</p>
+            </div>
+          </div>
+          <div class="border-t border-slate-200 pt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <p class="text-sm text-slate-600"><strong class="text-navy-950">What we built:</strong> {t.project}</p>
+            <a href={t.projectLink} class="text-sm font-semibold text-blue-500 hover:underline">Read the case study →</a>
+          </div>
+        </article>
+      ))}
+
+      <!-- Pipeline / next ones -->
+      <div class="bg-slate-50 rounded-2xl border border-dashed border-slate-300 p-8 md:p-10 text-center">
+        <p class="text-slate-700 leading-relaxed">More references on request. We're early — we'd rather show you one real, working system than line up ten polished blurbs.</p>
+        <p class="text-sm text-slate-500 mt-3">Want to talk to a reference before signing anything? Ask on the discovery call.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="bg-navy-950 text-white py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Want to Be the Next One?</h2>
+      <p class="text-lg text-slate-300 mb-8">Free 30-minute discovery call. We'll tell you straight up whether we can help, and roughly what it would cost. No pitch.</p>
+      <a href="/contact/" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg min-h-[44px]">
+        Book a Discovery Call →
+      </a>
+    </div>
+  </section>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+</BaseLayout>

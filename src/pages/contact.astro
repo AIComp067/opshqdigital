@@ -209,6 +209,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         .then(function(res) { return res.json().then(function(result) { return { ok: res.ok, result: result }; }); })
         .then(function(resp) {
           if (resp.ok && resp.result.success) {
+            try {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'generate_lead', {
+                  form_id: 'contact-form',
+                  project_type: data.projectType || 'other',
+                  has_phone: data.phone ? 'yes' : 'no',
+                  has_company: data.company ? 'yes' : 'no'
+                });
+              } else if (window.dataLayer) {
+                window.dataLayer.push(['event', 'generate_lead', {
+                  form_id: 'contact-form',
+                  project_type: data.projectType || 'other'
+                }]);
+              }
+            } catch (gaErr) { /* swallow analytics errors, never block the redirect */ }
             window.location.replace('/thank-you/');
             return;
           }
