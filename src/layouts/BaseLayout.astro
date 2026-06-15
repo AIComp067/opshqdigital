@@ -17,6 +17,33 @@ const siteName = 'OpsHQ Digital';
 const buildDateIso = new Date().toISOString();
 const buildDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' }).format(new Date());
 
+// Path-derived BreadcrumbList JSON-LD (skipped on homepage; only when 2+ segments).
+// Slug-to-display converts hyphens to spaces, title-cases each word.
+// Ported from SPL pattern for May 2026 EEAT consistency.
+const path = Astro.url.pathname;
+const pathSegments = path.split('/').filter(Boolean);
+const slugToDisplay = (slug) =>
+  slug.split('-').map(w => w.length === 2 ? w.toUpperCase() : (w.charAt(0).toUpperCase() + w.slice(1))).join(' ');
+const breadcrumbItems = pathSegments.length > 0 ? [
+  { name: 'Home', url: 'https://opshqdigital.com/' },
+  ...pathSegments.map((seg, i) => {
+    const accumPath = '/' + pathSegments.slice(0, i + 1).join('/') + '/';
+    const isLast = i === pathSegments.length - 1;
+    const name = slugToDisplay(seg);
+    return isLast ? { name } : { name, url: `https://opshqdigital.com${accumPath}` };
+  })
+] : [];
+const breadcrumbSchema = breadcrumbItems.length > 1 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': breadcrumbItems.map((item, i) => ({
+    '@type': 'ListItem',
+    'position': i + 1,
+    'name': item.name,
+    ...(item.url ? { 'item': item.url } : {})
+  }))
+} : null;
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -97,6 +124,43 @@ const webPageSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+
+  {/* Person schema for Nick (founder) — site-wide EEAT signal (May 2026 Core Update).
+       Standalone Person entity referenced via @id from Organization.founder. */}
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://opshqdigital.com/#nick-founder",
+    "name": "Nick Reef",
+    "jobTitle": "Founder & Developer",
+    "url": "https://opshqdigital.com/about/",
+    "worksFor": { "@id": "https://opshqdigital.com/#organization" },
+    "homeLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Maple Valley",
+        "addressRegion": "WA",
+        "addressCountry": "US"
+      }
+    },
+    "knowsAbout": [
+      "CRM automation", "AI agents", "Web development", "Custom integrations",
+      "Microsoft Graph API", "Microsoft 365", "Azure", "Cloudflare",
+      "Production software engineering"
+    ],
+    "hasCredential": [
+      "10+ years building production software",
+      "Microsoft Azure + Graph API specialist",
+      "Full-stack engineering — backend, frontend, infrastructure",
+      "Maple Valley, WA — Pacific Northwest based"
+    ]
+  })} />
+
+  {/* Path-derived BreadcrumbList JSON-LD (skipped on homepage). */}
+  {breadcrumbSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  )}
 
   <slot name="head" />
 
