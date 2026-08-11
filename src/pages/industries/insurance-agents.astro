@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import IndustryBadge from '../../components/IndustryBadge.astro';
+import MetricCard from '../../components/MetricCard.astro';
+
+const faqs = [
+  {
+    q: "How fast can you respond to an insurance quote request?",
+    a: "Under 5 minutes, every time — day, night, or weekend. When a prospect submits a quote request they usually send it to 4–5 agents at once, and studies show the first to reply is up to 9× more likely to win the policy. AI Inbox drafts a personalized first response the moment a lead lands, so a new agent can out-respond an established agency.",
+  },
+  {
+    q: "Will the AI quote a binding rate or bind coverage on its own?",
+    a: "No. It never quotes a binding premium, never binds coverage, and never sends anything you haven't approved (approval mode is the default — a quick tap on your phone). It confirms you received the request, asks the qualifying questions your carrier needs, and books the call — so the prospect feels handled while you stay fully in control and compliant.",
+  },
+  {
+    q: "I'm a brand-new agent building my book — is this overkill?",
+    a: "It's the opposite. When you're new you don't have a team answering the phone, so speed and follow-up are the only edges you control. AI Inbox plus an automated follow-up cadence lets a solo agent respond instantly and never let a lead go cold — which is exactly how you compete with agencies that have been around for 20 years.",
+  },
+  {
+    q: "Do I also get a website that brings in leads?",
+    a: "Yes. We build fast, SEO-strong agent websites (Astro on Azure) that actually rank and capture quote requests, then wire the form straight into AI Inbox and your CRM. So the site brings the lead in and the AI responds in minutes — one connected pipeline, not four disconnected tools.",
+  },
+  {
+    q: "Can it work with my carrier and agency systems?",
+    a: "We connect to Microsoft 365 or Google Workspace for your inbox, and to your calendar (Calendly, HubSpot, Google) for booking. For CRM we integrate with what you have or build a lightweight one if your agency's system doesn't fit how you actually work.",
+  },
+  {
+    q: "What does it cost?",
+    a: "AI Inbox starts with a free 30-day pilot — if it doesn't book you more appointments in the first month, you don't pay. Websites and custom automation are a fixed price quoted after a free 30-minute discovery call. No monthly retainer required to start.",
+  },
+];
+---
+<BaseLayout
+  title="AI Lead Response + Websites for Insurance Agents | OpsHQ Digital"
+  description="Insurance is won by whoever replies first. We give agents 5-minute AI responses to every quote request (human-approved, never binding), a lead-capturing website, and follow-up automation. Free 30-day pilot."
+>
+  <!-- Hero -->
+  <section class="bg-navy-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 mb-6">
+          <IndustryBadge label="For Insurance Agents" variant="service" />
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          In Insurance, the First to Reply Wins the Policy.
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+          Every quote request goes to four or five agents at once. We make sure you're always the one who answers first — with a thoughtful, on-brand response in under 5 minutes, a website that actually brings leads in, and follow-up that never lets a prospect go cold.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/contact/?service=insurance" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg min-h-[44px]">
+            Free Discovery Call →
+          </a>
+          <a href="/tools/email-response-grader/" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">
+            Grade My Current Response Time
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Problem</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-6">Speed Is the Whole Game — and You're Busy Selling.</h2>
+      <div class="text-slate-600 leading-relaxed space-y-4 text-lg">
+        <p>You're on a call, in an appointment, or writing a policy when three quote requests come in. By the time you get to them that evening, the prospect has already talked to an agent who called back in ten minutes.</p>
+        <p class="font-semibold text-navy-950">Responding within 5 minutes makes a lead up to <strong>9× more likely</strong> to convert than a reply an hour later. Most agents — especially new ones without a support team — take hours.</p>
+        <p>You don't need to work more nights. You need a system that answers instantly in your voice, keeps prospects warm with automatic follow-up, and only pulls you in when it's time to actually talk.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we build -->
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What We Build for Agents</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">One Connected Lead Pipeline</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="text-3xl mb-3">⚡</div>
+          <h3 class="text-lg font-bold text-navy-950 mb-2">5-Minute AI Responses</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Every quote request gets a personalized reply within minutes — in your voice, asking the right qualifying questions, with a link to book the call. Human-approved on every send. Never quotes a binding rate.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="text-3xl mb-3">🌐</div>
+          <h3 class="text-lg font-bold text-navy-950 mb-2">A Site That Brings Leads In</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">A fast, professional agent website that ranks in local search and turns visitors into quote requests — wired straight into your inbox and CRM. Your personal brand, working while you sleep.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="text-3xl mb-3">🔁</div>
+          <h3 class="text-lg font-bold text-navy-950 mb-2">Follow-Up on Autopilot</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Most policies are won on the 3rd–5th touch, not the first. We set up an automatic, tasteful follow-up cadence so no lead ever goes cold because you got busy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Proof It Works</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4 text-center">We Built This for a Real Lead-Driven Business</h2>
+      <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12 text-lg">The same inquiry-response engine, running live on a high-volume service business — the numbers after four weeks:</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <MetricCard label="Reply Time" before="4 hours" after="8 min" caption="Average first response across every inquiry" />
+        <MetricCard label="Leads Captured" before="48%" after="68%" caption="Inquiries that book a call or callback" />
+      </div>
+      <div class="text-center mt-10">
+        <a href="/work/inquiry-response-automation/" class="text-blue-500 font-medium hover:underline text-lg">Read the full case study →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Questions Agents Ask</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-8">FAQ</h2>
+      <div class="space-y-4">
+        {faqs.map(f => (
+          <details class="group bg-white rounded-xl border border-slate-200 p-6">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-navy-950 list-none">
+              {f.q}
+              <span class="text-blue-500 group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-slate-600 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 md:py-20 bg-navy-950 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Be the Agent Who Always Answers First</h2>
+      <p class="text-lg text-slate-300 mb-8">Free 30-minute call. Tell us how leads reach you today and we'll show you exactly where you're losing them — and what it'd take to fix it.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-3">
+        <a href="/contact/?service=insurance" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Book a Discovery Call</a>
+        <a href="/tools/email-response-grader/" class="inline-flex items-center justify-center px-8 py-4 bg-white text-navy-950 font-medium rounded-lg hover:bg-slate-100 transition-colors text-lg min-h-[44px]">Try the Free Grader →</a>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Lead Response + Websites for Insurance Agents",
+      "serviceType": "Lead response automation, web development, and CRM for insurance agents",
+      "provider": { "@id": "https://opshqdigital.com/#organization" },
+      "areaServed": ["Seattle", "Washington", "United States"],
+      "audience": { "@type": "BusinessAudience", "audienceType": "Insurance agents and agencies" },
+      "url": "https://opshqdigital.com/industries/insurance-agents/"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    })} />
+  </Fragment>
+</BaseLayout>

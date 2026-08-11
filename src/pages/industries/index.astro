@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const industries = [
+  { href: '/industries/insurance-agents/', emoji: '🛡️', title: 'Insurance Agents', blurb: 'Be the agent who answers first. 5-minute AI responses to every quote request, a lead-capturing website, and follow-up that never lets a prospect go cold.' },
+  { href: '/industries/home-services/', emoji: '🔧', title: 'Home & Trade Services', blurb: 'HVAC, plumbing, electrical, roofing, remodels, landscaping. Win the estimate while you\u2019re still on the job \u2014 instant responses and a site that ranks locally.' },
+  { href: '/industries/professional-services/', emoji: '⚖️', title: 'Professional Services', blurb: 'Law firms, accountants, consultants. Turn more inquiries into booked consultations with 5-minute on-brand replies, smart intake, and a credible site \u2014 human-approved.' },
+  { href: '/industries/transportation/', emoji: '🚐', title: 'Transportation & Shuttles', blurb: 'Shuttle, charter, limo & party bus. Answer every booking request in 5 minutes and run booking, capacity & payments from one CRM built for the road.' },
+];
+
+const stack = [
+  { label: 'Websites', detail: 'Astro + Tailwind on Azure Static Web Apps \u2014 real Core Web Vitals, real local SEO, real organic results.' },
+  { label: 'AI & Agents', detail: 'Multi-model AI assistants that do real work \u2014 lead response, intake, routing, document extraction \u2014 with human approval by default.' },
+  { label: 'Cloud & Security', detail: 'Azure Functions, Key Vault, Managed Identity, GitHub Actions OIDC deploys \u2014 no stored credentials, done right the first time.' },
+  { label: 'CRM & Integrations', detail: 'Custom CRMs, booking pipelines, Stripe payments, Microsoft 365 / Google Workspace, ACS email + SMS, calendars.' },
+];
+---
+<BaseLayout
+  title="Industries We Serve \u2014 SMB Lead Response, Websites & AI | OpsHQ Digital"
+  description="OpsHQ Digital builds AI lead response, websites, and custom automation for small and mid-sized service businesses: insurance agents, home & trade services, professional practices, and transportation operators. Free 30-day pilot."
+>
+  <section class="bg-navy-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Who We Help</h1>
+        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+          We work with <strong>small and mid-sized service businesses</strong> that live and die by lead response \u2014 where the first to reply usually wins, and the owner is too busy doing the work to sit in the inbox. We make sure you answer first, look professional online, and never let a lead go cold.
+        </p>
+        <a href="/contact/" class="inline-flex items-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg min-h-[44px]">Free Discovery Call →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry cards -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        {industries.map(ind => (
+          <a href={ind.href} class="group bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-lg hover:border-blue-300 transition-all">
+            <div class="text-4xl mb-4">{ind.emoji}</div>
+            <h2 class="text-2xl font-bold text-navy-950 mb-3 group-hover:text-blue-500 transition-colors">{ind.title}</h2>
+            <p class="text-slate-600 leading-relaxed mb-4">{ind.blurb}</p>
+            <span class="text-sm font-semibold text-blue-500 group-hover:underline">See how we help {ind.title} →</span>
+          </a>
+        ))}
+      </div>
+      <p class="text-center text-slate-500 mt-10 text-lg">Don\u2019t see your industry? If you\u2019re a service business that runs on inbound leads, the same playbook usually fits. <a href="/contact/" class="text-blue-500 hover:underline font-medium">Tell us about it →</a></p>
+    </div>
+  </section>
+
+  <!-- How we build / stack -->
+  <section class="py-16 md:py-24 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">How We Build</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4">Modern Stack, Owner-Operated, No Agency Overhead</h2>
+      <p class="text-slate-600 text-lg mb-10 max-w-3xl">Everything we build runs on the same fast, secure, cloud-native stack we run our own products on \u2014 not a page-builder, not offshore templates. You work directly with Nick, the person building it.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {stack.map(s => (
+          <div class="bg-white rounded-xl p-6 border border-slate-200">
+            <h3 class="text-lg font-bold text-navy-950 mb-2">{s.label}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">{s.detail}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10"><a href="/capabilities/" class="inline-flex items-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">See Full Capabilities →</a></div>
+    </div>
+  </section>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Industries We Serve",
+      "url": "https://opshqdigital.com/industries/",
+      "about": { "@id": "https://opshqdigital.com/#organization" },
+      "description": "AI lead response, websites, and custom automation for small and mid-sized service businesses: insurance agents, home & trade services, professional practices, and transportation operators.",
+      "hasPart": [
+        { "@type": "WebPage", "name": "Insurance Agents", "url": "https://opshqdigital.com/industries/insurance-agents/" },
+        { "@type": "WebPage", "name": "Home & Trade Services", "url": "https://opshqdigital.com/industries/home-services/" },
+        { "@type": "WebPage", "name": "Professional Services", "url": "https://opshqdigital.com/industries/professional-services/" },
+        { "@type": "WebPage", "name": "Transportation & Shuttles", "url": "https://opshqdigital.com/industries/transportation/" }
+      ]
+    })} />
+  </Fragment>
+</BaseLayout>

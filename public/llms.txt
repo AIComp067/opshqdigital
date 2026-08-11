@@ -1,6 +1,16 @@
 # OpsHQ Digital
 
-> OpsHQ Digital builds AI-powered automation, CRM systems, and websites for small and mid-sized businesses. We fix the manual processes, scattered data, and disconnected tools that slow companies down. Founded by Nick Reef. Based in Seattle, WA.
+> OpsHQ Digital helps small and mid-sized service businesses win more leads. Our core productized service, **AI Inbox**, sends an on-brand first response to every inquiry within 5 minutes (human-approved) — because the first business to reply usually wins, and a 5-minute response is up to 9× more likely to convert than a reply an hour later. We also build fast SEO-strong websites, custom CRMs, AI agents, and cloud automation. Founded and operated by Nick Reef (full-stack engineer, Azure + Microsoft Graph specialist). Based in Maple Valley, WA (Seattle area); serving Washington and remote across the US.
+
+## Industries we serve
+
+We work best with service businesses that run on inbound leads, where speed-to-lead decides who wins:
+
+- **Insurance agents** — https://opshqdigital.com/industries/insurance-agents/ — 5-minute AI responses to quote requests (never binds coverage or quotes a binding rate), agent websites, follow-up automation.
+- **Home & trade services** (HVAC, plumbing, electrical, roofing, remodeling, landscaping) — https://opshqdigital.com/industries/home-services/ — win the estimate while still on the job; sites that rank for "[trade] near me."
+- **Professional services** (law firms, accountants, consultants) — https://opshqdigital.com/industries/professional-services/ — on-brand intake and conversion; never gives advice or quotes fees.
+- **Transportation & shuttles** (shuttle, charter, limo, party bus) — https://opshqdigital.com/industries/transportation/ — booking responses plus a CRM for booking, capacity, and payments.
+- Industries hub: https://opshqdigital.com/industries/
 
 ## Quick facts
 
@@ -18,9 +28,13 @@
 ## Primary pages
 
 - [Home](https://opshqdigital.com/) — Services overview, recent work, why-us
+- [Industries we serve](https://opshqdigital.com/industries/) — Insurance, home services, professional services, transportation
+- [AI Inbox](https://opshqdigital.com/services/ai-inbox/) — The productized 5-minute lead-response service (free 30-day pilot)
+- [Email-response grader](https://opshqdigital.com/tools/email-response-grader/) — Free tool: grade your current response time
 - [About](https://opshqdigital.com/about/) — Who we are, how we work, why automation
 - [Facts](https://opshqdigital.com/facts/) — AI-friendly quick-reference page for services, pricing, stack, process, and FAQs
-- [Services](https://opshqdigital.com/services/) — CRM, AI automation, web development, and cloud services
+- [Services](https://opshqdigital.com/services/) — AI Inbox + custom CRM, AI automation, web development, and cloud
+- [Capabilities](https://opshqdigital.com/capabilities/) — Custom web, cloud, CRM, and AI builds
 - [Contact](https://opshqdigital.com/contact/) — Free discovery call form
 - [Privacy](https://opshqdigital.com/privacy/) — Privacy policy
 - [Terms](https://opshqdigital.com/terms/) — Terms of service

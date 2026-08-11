@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import IndustryBadge from '../../components/IndustryBadge.astro';
+import MetricCard from '../../components/MetricCard.astro';
+
+const faqs = [
+  {
+    q: "How does this fit a law firm, accounting practice, or consultancy?",
+    a: "Prospects who reach out to a professional practice are high-intent but impatient — they've often contacted two or three firms. AI Inbox sends a polished, on-brand acknowledgement within 5 minutes, gathers the intake details you need, and books the consultation, so you convert more inquiries without a receptionist watching the inbox all day.",
+  },
+  {
+    q: "Is it appropriate for a formal, regulated practice?",
+    a: "Yes — that's exactly why the default is human approval on every send. It never gives legal, financial, or tax advice, never quotes fees without your sign-off, and only says what you've approved it to say. It handles logistics (acknowledge, intake, schedule) while you handle the substance.",
+  },
+  {
+    q: "Can it screen or route inquiries?",
+    a: "Yes. We can qualify inquiries against your ideal-client criteria (practice area, matter type, budget, jurisdiction) and route or flag them accordingly, so partners only spend time on the ones worth a consultation.",
+  },
+  {
+    q: "Do you build the website too?",
+    a: "Yes. Fast, credible practice websites (Astro on Azure) built to rank for your practice areas and convert visitors into booked consultations, wired into your inbox, calendar, and intake — with proper schema so you show up well in search and AI answers.",
+  },
+  {
+    q: "What does it cost?",
+    a: "AI Inbox is a free 30-day pilot. Websites and custom automation (intake, document workflows, CRM) are fixed-price after a free 30-minute discovery call.",
+  },
+];
+---
+<BaseLayout
+  title="AI Intake & Websites for Law Firms, Accountants & Consultants | OpsHQ Digital"
+  description="Professional practices: convert more inquiries with 5-minute on-brand responses, smart intake, and a website that ranks. Human-approved on every send — never gives advice or quotes fees. Free 30-day pilot."
+>
+  <section class="bg-navy-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 mb-6"><IndustryBadge label="For Professional Services" variant="service" /></div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Turn More Inquiries Into Booked Consultations.</h1>
+        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+          Law firms, accounting practices, consultancies and advisors: high-intent prospects don't wait. We send a polished, on-brand response within 5 minutes, run your intake, and book the consultation — human-approved, so it never gives advice or quotes a fee.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/contact/?service=professional-services" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg min-h-[44px]">Free Discovery Call →</a>
+          <a href="/tools/email-response-grader/" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Grade My Current Response Time</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Problem</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-6">Billable Work Comes First — So Inquiries Wait.</h2>
+      <div class="text-slate-600 leading-relaxed space-y-4 text-lg">
+        <p>A potential client fills out your contact form during a hearing, a close, or a client meeting. It sits until end of day. Meanwhile they've booked a consult with the firm that answered in ten minutes.</p>
+        <p class="font-semibold text-navy-950">A 5-minute response makes a prospect up to <strong>9× more likely</strong> to convert than a reply an hour later — and first impressions of a professional practice are unforgiving.</p>
+        <p>You need every inquiry to get an immediate, credible, on-brand acknowledgement and a booked consult — without pulling a partner or paralegal off billable work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What We Build for Practices</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">Intake and Conversion, Handled</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">⚡</div><h3 class="text-lg font-bold text-navy-950 mb-2">5-Minute On-Brand Replies</h3><p class="text-sm text-slate-600 leading-relaxed">Every inquiry gets an immediate, professional acknowledgement in your firm's voice — human-approved, never advice, never a fee quote — with the intake questions and a link to book the consult.</p></div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">🧭</div><h3 class="text-lg font-bold text-navy-950 mb-2">Smart Intake & Routing</h3><p class="text-sm text-slate-600 leading-relaxed">Qualify inquiries against your ideal-client criteria — practice area, matter type, budget, jurisdiction — and route or flag them, so your team only spends time on the ones worth a consultation.</p></div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">🌐</div><h3 class="text-lg font-bold text-navy-950 mb-2">A Website That Earns Trust</h3><p class="text-sm text-slate-600 leading-relaxed">Fast, credible practice site built to rank for your practice areas and convert — with proper schema so you show up well in Google and AI answers, wired into your inbox, calendar, and intake.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Proof It Works</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">The Response Engine, Running Live</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <MetricCard label="Reply Time" before="4 hours" after="8 min" caption="Average first response across every inquiry" />
+        <MetricCard label="Leads Captured" before="48%" after="68%" caption="Inquiries that book a call or consult" />
+      </div>
+      <div class="text-center mt-10"><a href="/work/inquiry-response-automation/" class="text-blue-500 font-medium hover:underline text-lg">Read the full case study →</a></div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Questions Practices Ask</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-8">FAQ</h2>
+      <div class="space-y-4">
+        {faqs.map(f => (
+          <details class="group bg-white rounded-xl border border-slate-200 p-6">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-navy-950 list-none">{f.q}<span class="text-blue-500 group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+            <p class="mt-4 text-slate-600 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-navy-950 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Stop Losing Clients to a Slow Inbox</h2>
+      <p class="text-lg text-slate-300 mb-8">Free 30-minute call. We'll show you where inquiries stall today and what a same-minute, on-brand response would change.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-3">
+        <a href="/contact/?service=professional-services" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Book a Discovery Call</a>
+        <a href="/tools/email-response-grader/" class="inline-flex items-center justify-center px-8 py-4 bg-white text-navy-950 font-medium rounded-lg hover:bg-slate-100 transition-colors text-lg min-h-[44px]">Try the Free Grader →</a>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org", "@type": "Service",
+      "name": "AI Intake & Websites for Professional Services",
+      "serviceType": "Lead response automation, intake, web development, and CRM for professional practices",
+      "provider": { "@id": "https://opshqdigital.com/#organization" },
+      "areaServed": ["Seattle", "Washington", "United States"],
+      "audience": { "@type": "BusinessAudience", "audienceType": "Law firms, accounting practices, consultancies, and advisors" },
+      "url": "https://opshqdigital.com/industries/professional-services/"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org", "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
+    })} />
+  </Fragment>
+</BaseLayout>

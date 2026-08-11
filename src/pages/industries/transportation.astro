@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import IndustryBadge from '../../components/IndustryBadge.astro';
+import MetricCard from '../../components/MetricCard.astro';
+
+const faqs = [
+  {
+    q: "What kinds of transportation businesses is this for?",
+    a: "Shuttle services, charter and motorcoach operators, limo and party-bus companies, airport and hotel shuttles, tour and event transportation, and NEMT. If you take booking inquiries by email or web form, the same lead-response and dispatch tooling applies.",
+  },
+  {
+    q: "How does it help with quote requests?",
+    a: "Charter and shuttle prospects shop several operators at once. AI Inbox replies within 5 minutes with an on-brand response that captures the trip details you need — date, passenger count, pickup/dropoff, hours — and books the call. It never quotes a binding price or holds a vehicle without your approval.",
+  },
+  {
+    q: "Can you handle our booking, capacity, and dispatch, not just email?",
+    a: "Yes — this is exactly what we built for a live transportation operator: a custom CRM with a booking pipeline, per-day fleet capacity, payment tracking, and mobile-first dispatch for owners on the road. See the case study below.",
+  },
+  {
+    q: "Do you build the website too?",
+    a: "Yes. Fast, SEO-strong sites (Astro on Azure) built to rank for your routes and service areas and convert visitors into booking requests, wired into your inbox, calendar, and CRM.",
+  },
+  {
+    q: "What does it cost?",
+    a: "AI Inbox is a free 30-day pilot. Websites and custom builds (CRM, booking, capacity, dispatch, payments) are fixed-price after a free 30-minute discovery call.",
+  },
+];
+---
+<BaseLayout
+  title="AI Booking Response, CRM & Websites for Shuttle & Transportation Operators | OpsHQ Digital"
+  description="Shuttle, charter, limo & party-bus operators: answer every quote request in 5 minutes, and run booking, capacity & dispatch from one custom CRM. Built for a live transportation business. Free 30-day pilot."
+>
+  <section class="bg-navy-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 mb-6"><IndustryBadge label="For Transportation & Shuttles" variant="charter" /></div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Book More Trips. Run Dispatch From Your Pocket.</h1>
+        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+          Shuttles, charter, limo and party bus: quote requests go to several operators at once, and you're driving or dispatching when they land. We answer every inquiry in 5 minutes, and run your booking, capacity and payments from one CRM built for operators on the road.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/contact/?service=transportation" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg min-h-[44px]">Free Discovery Call →</a>
+          <a href="/work/transportation-crm/" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">See the Transportation CRM →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Problem</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-6">Bookings Come In While You're Behind the Wheel.</h2>
+      <div class="text-slate-600 leading-relaxed space-y-4 text-lg">
+        <p>A charter request lands mid-route. You reply that night — after the prospect already booked the operator who answered first. Meanwhile your bookings, capacity, and payments live across a spreadsheet, a booking tool, and your memory.</p>
+        <p class="font-semibold text-navy-950">A 5-minute reply makes a booking inquiry up to <strong>9× more likely</strong> to convert — and double-bookings or missed deposits cost you real money.</p>
+        <p>You need instant, on-brand responses to every request, and one place that knows what's booked, what's open, and who still owes a deposit — on your phone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What We Build for Operators</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">Lead Response + a CRM Built for the Road</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">⚡</div><h3 class="text-lg font-bold text-navy-950 mb-2">5-Minute Booking Responses</h3><p class="text-sm text-slate-600 leading-relaxed">Every quote request answered within minutes in your voice, capturing date, passengers, pickup/dropoff and hours, with a link to book. Approve from your phone. Never quotes a binding price or holds a vehicle without you.</p></div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">📊</div><h3 class="text-lg font-bold text-navy-950 mb-2">Booking, Capacity & Payments</h3><p class="text-sm text-slate-600 leading-relaxed">A custom CRM that knows per-day fleet capacity, tracks deposits and balances (Stripe), and flags trips that still need a vehicle assigned — mobile-first for dispatching on the go.</p></div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">🌐</div><h3 class="text-lg font-bold text-navy-950 mb-2">A Site That Books Trips</h3><p class="text-sm text-slate-600 leading-relaxed">Fast, SEO-strong website built to rank for your routes and service areas and convert visitors into booking requests, wired straight into your inbox and CRM.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Proof It Works</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4 text-center">Built and Running for a Live Transportation Operator</h2>
+      <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12 text-lg">The inquiry-response engine and the operator CRM are both in daily production. The response numbers after four weeks:</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <MetricCard label="Reply Time" before="4 hours" after="8 min" caption="Average first response across every inquiry" />
+        <MetricCard label="Leads Captured" before="48%" after="68%" caption="Inquiries that book a call or trip" />
+      </div>
+      <div class="text-center mt-10 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/work/inquiry-response-automation/" class="text-blue-500 font-medium hover:underline text-lg">Inquiry-response case study →</a>
+        <a href="/work/transportation-crm/" class="text-blue-500 font-medium hover:underline text-lg">Transportation CRM case study →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Questions Operators Ask</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-8">FAQ</h2>
+      <div class="space-y-4">
+        {faqs.map(f => (
+          <details class="group bg-white rounded-xl border border-slate-200 p-6">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-navy-950 list-none">{f.q}<span class="text-blue-500 group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+            <p class="mt-4 text-slate-600 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-navy-950 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Book More Trips Without Living in Your Inbox</h2>
+      <p class="text-lg text-slate-300 mb-8">Free 30-minute call. Tell us how bookings reach you today and we'll show you where trips (and deposits) are slipping.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-3">
+        <a href="/contact/?service=transportation" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Book a Discovery Call</a>
+        <a href="/tools/email-response-grader/" class="inline-flex items-center justify-center px-8 py-4 bg-white text-navy-950 font-medium rounded-lg hover:bg-slate-100 transition-colors text-lg min-h-[44px]">Try the Free Grader →</a>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org", "@type": "Service",
+      "name": "AI Booking Response, CRM & Websites for Transportation Operators",
+      "serviceType": "Lead response automation, booking CRM, web development for transportation and shuttle operators",
+      "provider": { "@id": "https://opshqdigital.com/#organization" },
+      "areaServed": ["Seattle", "Washington", "United States"],
+      "audience": { "@type": "BusinessAudience", "audienceType": "Shuttle, charter, limo, party bus, and transportation operators" },
+      "url": "https://opshqdigital.com/industries/transportation/"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org", "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
+    })} />
+  </Fragment>
+</BaseLayout>
