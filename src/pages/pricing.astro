@@ -1,100 +1,141 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PricingCard from '../components/PricingCard.astro';
+import { BASE, ADDONS, BUNDLES } from '../data/pricing.js';
 
-const addons = [
-  { icon: '⚡', label: 'AI Inbox — 5-minute lead response' },
-  { icon: '📊', label: 'ROI / ROAS / ROAI reporting' },
-  { icon: '📈', label: 'Live results dashboard' },
-  { icon: '🧠', label: 'Premium AI models' },
-  { icon: '🤖', label: 'Extra AI automations' },
-  { icon: '🌐', label: 'Websites & landing pages' },
-  { icon: '🔎', label: 'SEO & AI-search citations' },
-  { icon: '📍', label: 'Google Business Profile & local' },
-  { icon: '🔁', label: 'Follow-up cadence' },
-  { icon: '➕', label: 'Usage top-ups' },
-  { icon: '⭐', label: 'Priority optimization' },
-];
+const money = (n) => '$' + n.toLocaleString('en-US');
+const byId = Object.fromEntries(ADDONS.map((a) => [a.id, a]));
+const bundleTotals = BUNDLES.map((b) => {
+  const items = b.addonIds.map((id) => byId[id]);
+  const monthly = BASE.monthly + items.reduce((s, a) => s + a.monthly, 0);
+  const setup = BASE.setup + items.reduce((s, a) => s + a.setup, 0);
+  return { ...b, items, monthly, setup };
+});
 ---
 <BaseLayout
   title="Pricing — OpsHQ Digital"
-  description="Transparent pricing for AI Inbox and custom work. No hidden fees, no annual contracts."
+  description="Simple, honest pricing: a $25/mo base (hosting + optimization, $50 setup), then add only what you need — AI lead response, content & SEO, social, and Google Ads. No long-term contracts."
 >
   <!-- Hero -->
   <section class="bg-navy-950 text-white py-16 md:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Simple, Honest Pricing</h1>
-      <p class="text-lg text-slate-300">No public price list — every business is different. It starts with a free 30-minute consultation. If we're a fit, a one-time setup fee gets you live, then a simple monthly fee covers hosting and ongoing optimization.</p>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Simple, Honest Pricing</h1>
+      <p class="text-base md:text-lg text-slate-300">Start with a base plan, then add only what moves the needle. A one-time setup gets you live; a simple monthly fee keeps it running and improving. No long-term contracts — cancel anytime with 30-day notice.</p>
     </div>
   </section>
 
-  <!-- Productized -->
-  <section class="py-16 md:py-20">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-center gap-2 mb-4">
-        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Productized Service</span>
-      </div>
-      <h2 class="text-3xl font-bold text-navy-950 mb-8 text-center">AI Inbox</h2>
-      <PricingCard
-        productName="AI Inbox"
-        headline="Free consultation to start"
-        features={[
-          "Custom AI assistant trained on your business's voice + pricing + packages",
-          "Inquiry monitoring across Microsoft 365 or Google Workspace",
-          "5-minute first-response SLA",
-          "Human-in-the-loop approval via mobile push",
-          "Calendar integration for booking calls or tours",
-          "Direct support from Nick — no ticket queue",
-          "Audit log of every draft, edit, approval, and send",
-          "No long-term contract — 30-day notice to cancel, clean data export",
-        ]}
-        ctaText="Book Your Consultation"
-        ctaHref="/contact/?service=ai-inbox"
-        footnote="Built for high-touch service businesses: wedding venues, photographers, planners, caterers, transportation operators, contractors, agencies."
-      />
-    </div>
-  </section>
-
-  <!-- Custom work -->
-  <section class="py-16 md:py-20 bg-slate-50">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-2 mb-4">
-        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-        <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Custom Work</span>
-      </div>
-      <h2 class="text-3xl font-bold text-navy-950 mb-6">Everything Else: Setup, Then a Simple Monthly Fee</h2>
-      <div class="text-slate-700 space-y-4 text-lg leading-relaxed">
-        <p>Custom CRM, AI agents, integrations, cloud setup, websites — the price depends on what you actually need, and we'd rather quote it once we understand the scope than pretend a number on a marketing page applies to your situation.</p>
-        <p>Here's how it works:</p>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-3"><span class="text-blue-500 mt-1.5">•</span> <span><strong>Free 30-minute consultation.</strong> Tell us the problem. We'll tell you whether we can help and roughly what it'll cost — on the call, not a week later.</span></li>
-          <li class="flex items-start gap-3"><span class="text-blue-500 mt-1.5">•</span> <span><strong>Requirements session + one-time setup fee.</strong> A short working session to pin down exactly what you need, then a one-time fee to build and connect everything.</span></li>
-          <li class="flex items-start gap-3"><span class="text-blue-500 mt-1.5">•</span> <span><strong>Simple monthly fee.</strong> Flat hosting plus optimization — scoped to what you actually need each month. It ticks up when we're actively improving things and settles back down when we're not.</span></li>
-          <li class="flex items-start gap-3"><span class="text-blue-500 mt-1.5">•</span> <span><strong>No long-term contract.</strong> Month-to-month, 30-day notice to cancel, and your data always exports cleanly.</span></li>
-        </ul>
-        <p class="pt-4">See <a href="/capabilities/" class="text-blue-500 font-medium hover:underline">the capabilities page</a> for what we typically build.</p>
-      </div>
-      <div class="mt-10">
-        <a href="/contact/?service=custom" class="inline-flex items-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">
-          Book a Discovery Call →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bundles & add-ons (availability only) -->
+  <!-- Base plan -->
   <section class="py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Grows With You</span></div>
-      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-4">Bundles &amp; Add-Ons, Available as You Grow</h2>
-      <p class="text-slate-600 text-lg leading-relaxed mb-8 max-w-2xl">Start lean, then layer on only what moves the needle. Everything below is available and scoped on your consultation — you only pay for what's turned on, and we adjust it month to month as your needs change.</p>
-      <div class="flex flex-wrap gap-2.5">
-        {addons.map(a => (
-          <span class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-medium text-navy-950"><span aria-hidden="true">{a.icon}</span> {a.label}</span>
-        ))}
+      <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Start Here</span></div>
+      <div class="bg-white border-2 border-blue-500 rounded-2xl p-6 sm:p-8 shadow-xl shadow-blue-500/10">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+          <div>
+            <p class="text-xs font-semibold text-blue-500 uppercase tracking-wider mb-2">{BASE.label}</p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-4xl sm:text-5xl font-bold text-navy-950">{money(BASE.monthly)}</span>
+              <span class="text-slate-500 text-base">/ month</span>
+            </div>
+            <p class="text-sm text-slate-500 mt-2">+ {money(BASE.setup)} one-time setup</p>
+            <p class="text-slate-600 mt-3 max-w-md">{BASE.tagline}</p>
+          </div>
+          <a href="/contact/?service=hosting" class="inline-flex items-center justify-center px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] whitespace-nowrap">Start with a free consult →</a>
+        </div>
+        <div class="border-t border-slate-200 pt-6">
+          <p class="text-sm font-semibold text-navy-950 mb-3">What's included:</p>
+          <ul class="grid sm:grid-cols-2 gap-2">
+            {BASE.includes.map((f) => (
+              <li class="flex items-start gap-2 text-sm text-slate-700"><span class="text-blue-500 flex-shrink-0 mt-0.5">✓</span> <span>{f}</span></li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <p class="text-sm text-slate-500 mt-8">The headline metric we build toward: <strong class="text-navy-950">ROAI — Return on AI</strong> — proving the system pays for itself. We recommend a starting bundle on your consultation.</p>
     </div>
   </section>
+
+  <!-- Add-ons -->
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Add What You Need</span></div>
+        <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-3">Add-Ons — Stack Onto Your Base</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">Each has a one-time setup and a flat monthly. Turn them on and off as your needs change — you only pay for what's active.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {ADDONS.map((a) => (
+          <div class={`bg-white rounded-xl border ${a.core ? 'border-blue-300' : 'border-slate-200'} p-6`}>
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="text-lg font-bold text-navy-950">{a.label}{a.core && <span class="ml-2 align-middle text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-100 rounded px-1.5 py-0.5">Popular</span>}</h3>
+              <div class="text-right flex-shrink-0">
+                <p class="text-2xl font-bold text-navy-950">{money(a.monthly)}<span class="text-sm text-slate-500 font-normal">/mo</span></p>
+                <p class="text-xs text-slate-500">+ {money(a.setup)} setup</p>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-sm text-slate-500 text-center mt-6"><strong>Opstimization</strong> is our optimization service: <strong>T1</strong> (light, included in the base) and <strong>T2</strong> (hands-on + premium AI). Google Ads pricing includes a $30/mo starter ad budget.</p>
+    </div>
+  </section>
+
+  <!-- Popular starting points -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Popular Starting Points</span></div>
+        <h2 class="text-2xl md:text-3xl font-bold text-navy-950">Not Sure Where to Start?</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {bundleTotals.map((b) => (
+          <div class={`rounded-2xl p-6 border ${b.featured ? 'border-2 border-blue-500 shadow-lg shadow-blue-500/10' : 'border-slate-200'} bg-white flex flex-col`}>
+            {b.featured && <span class="self-start text-[10px] font-bold uppercase tracking-wider text-white bg-blue-500 rounded px-2 py-1 mb-3">Most popular</span>}
+            <h3 class="text-lg font-bold text-navy-950 mb-1">{b.name}</h3>
+            <p class="text-sm text-slate-600 mb-4 flex-grow">{b.blurb}</p>
+            <p class="text-3xl font-bold text-navy-950">{money(b.monthly)}<span class="text-sm text-slate-500 font-normal">/mo</span></p>
+            <p class="text-xs text-slate-500 mb-4">+ {money(b.setup)} one-time setup</p>
+            <ul class="space-y-1.5 mb-5">
+              <li class="flex items-start gap-2 text-sm text-slate-700"><span class="text-blue-500 mt-0.5">✓</span> {BASE.label} (base)</li>
+              {b.items.map((a) => (
+                <li class="flex items-start gap-2 text-sm text-slate-700"><span class="text-blue-500 mt-0.5">✓</span> {a.label}</li>
+              ))}
+            </ul>
+            <a href="/contact/" class="inline-flex items-center justify-center px-5 py-2.5 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors min-h-[44px]">Book a free consult →</a>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-slate-500 mt-8">Want to see what a plan could <em>return</em> for your business? <a href="/tools/roi-estimator/" class="text-blue-500 font-medium hover:underline">Try the ROI estimator →</a></p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-8 text-center">How It Works</h2>
+      <ol class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <li class="bg-white rounded-xl p-6 border border-slate-200"><span class="flex w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold items-center justify-center mb-3">1</span><p class="font-semibold text-navy-950 mb-1">Free consultation</p><p class="text-sm text-slate-600">A free 30-minute call. We figure out what actually moves your numbers.</p></li>
+        <li class="bg-white rounded-xl p-6 border border-slate-200"><span class="flex w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold items-center justify-center mb-3">2</span><p class="font-semibold text-navy-950 mb-1">Setup, then live</p><p class="text-sm text-slate-600">A short requirements session + one-time setup fee to build and connect everything.</p></li>
+        <li class="bg-white rounded-xl p-6 border border-slate-200"><span class="flex w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold items-center justify-center mb-3">3</span><p class="font-semibold text-navy-950 mb-1">Simple monthly</p><p class="text-sm text-slate-600">Flat monthly for hosting + optimization. Month-to-month, cancel anytime with 30-day notice.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Let's Build Your Plan</h2>
+      <p class="text-lg text-slate-300 mb-8">Free 30-minute consultation. We'll recommend a starting point and give you exact pricing before you commit to anything.</p>
+      <a href="/contact/" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors min-h-[44px] text-lg">Book a Free Consultation</a>
+    </div>
+  </section>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://opshqdigital.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://opshqdigital.com/pricing/" }
+      ]
+    })} />
+  </Fragment>
 </BaseLayout>

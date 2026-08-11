@@ -1,5 +1,8 @@
 ---
 import ToolLayout from '../../layouts/ToolLayout.astro';
+import { BASE, ADDONS } from '../../data/pricing.js';
+const money = (n) => '$' + n.toLocaleString('en-US');
+const pricingJson = JSON.stringify({ base: BASE, addons: ADDONS });
 ---
 <ToolLayout
   title="ROI Estimator — What Could OpsHQ Digital Return for Your Business?"
@@ -8,7 +11,8 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
   canonical="https://opshqdigital.com/tools/roi-estimator/"
 >
   <h1 class="text-3xl md:text-4xl font-bold text-navy-950 mb-3">ROI Estimator</h1>
-  <p class="text-lg text-slate-600 mb-8 leading-relaxed">Tell us your numbers, pick the capabilities you'd add, and we'll estimate the return — both as a <strong>multiple</strong> (like 3&times;) and in <strong>dollars</strong>. It's an estimate; your exact numbers get confirmed on a free consultation.</p>
+  <p class="text-lg text-slate-600 mb-2 leading-relaxed">Tell us your numbers, pick the capabilities you'd add, and we'll estimate the return — both as a <strong>multiple</strong> (like 3&times;) and in <strong>dollars</strong>. It's an estimate; your exact numbers get confirmed on a free consultation.</p>
+  <p class="text-sm text-slate-500 mb-8">Prefer to just see the prices? <a href="/pricing/" class="text-blue-500 font-medium hover:underline">View full pricing →</a></p>
 
   <!-- Industry selector -->
   <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Your industry</p>
@@ -50,11 +54,15 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
     <div>
       <p class="block text-sm font-medium text-navy-950 mb-2">Which capabilities?</p>
       <div class="space-y-2" id="addon-list">
-        <label class="flex items-start gap-3 p-3 rounded-lg border border-blue-200 bg-blue-50/50 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="ai_inbox" checked class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">AI Inbox — 5-minute lead response <span class="ml-1 align-middle text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-100 rounded px-1.5 py-0.5">Core</span></span><span class="block text-xs text-slate-500">Answers every lead in your voice, human-approved — so more of the leads you <em>already get</em> turn into booked business.</span></span></label>
-        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="t2_opstim" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Priority Optimization (T2)</span><span class="block text-xs text-slate-500">Hands-on monthly tuning + premium AI — squeezes more out of everything you run.</span></span></label>
-        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="content_seo" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Content &amp; SEO engine</span><span class="block text-xs text-slate-500">Rank locally + in AI search — brings <em>more</em> leads in over time.</span></span></label>
-        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="social" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Social auto-posting</span><span class="block text-xs text-slate-500">Consistent presence on FB / X — more top-of-funnel leads.</span></span></label>
-        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="sem" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Google Ads / SEM</span><span class="block text-xs text-slate-500">Buy qualified traffic — <strong>includes a $30/mo starter ad budget</strong>. Fastest lead lift.</span></span></label>
+        {ADDONS.map((a) => (
+          <label class={`flex items-start gap-3 p-3 rounded-lg border ${a.core ? 'border-blue-200 bg-blue-50/50' : 'border-slate-200'} hover:border-blue-300 cursor-pointer transition-colors`}>
+            <input type="checkbox" name="addon" value={a.id} checked={a.core} class="mt-1 h-4 w-4 accent-blue-500" />
+            <span>
+              <span class="font-medium text-navy-950">{a.label}{a.core && <span class="ml-1 align-middle text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-100 rounded px-1.5 py-0.5">Core</span>} <span class="text-slate-400 font-normal text-xs">&middot; {money(a.monthly)}/mo + {money(a.setup)} setup</span></span>
+              <span class="block text-xs text-slate-500">{a.desc}</span>
+            </span>
+          </label>
+        ))}
       </div>
       <p class="text-xs text-slate-500 mt-2">✓ <strong>ROI / ROAS / ROAI reporting is included</strong> — so you see all of this every month.</p>
     </div>
@@ -93,6 +101,7 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </Fragment>
 
+  <script type="application/json" id="pricing-data" set:html={pricingJson} is:inline></script>
   <script is:inline>
     /* ============================================================
        EDITABLE PRICING CONFIG — Nick: set real prices here when ready.
@@ -100,19 +109,12 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
        value/labor-based placeholders. Flip SHOW_PRICES=false to hide $
        (shows the return multiple + "pricing on consultation").
        ============================================================ */
-    var BASE_SETUP = 50;      /* one-time initial setup — includes T1 Opstimization */
-    var BASE_MONTHLY = 25;    /* hosting + T1 Opstimization (1 premium AI prompt/mo) */
-    var SHOW_PRICES = true;
-    /* Cost-based, low-margin ladder (2026-08-11). Monthly ≈ infra COGS + thin margin.
-       Google Ads BAKES IN a $30/mo starter ad budget. Reporting is included (folded into base/AI Inbox).
-       'boost' = ongoing-optimization multiplier on modeled results. Infra COGS table: spec §13. */
-    var ADDONS = {
-      ai_inbox:    { label: 'AI Inbox — 5-minute lead response', monthly: 25, lift: 0,    inbox: true,  boost: 0    },
-      t2_opstim:   { label: 'Priority Optimization (T2)',         monthly: 25, lift: 0,    inbox: false, boost: 0.10 },
-      content_seo: { label: 'Content & SEO engine',               monthly: 25, lift: 0.15, inbox: false, boost: 0    },
-      social:      { label: 'Social auto-posting',                monthly: 15, lift: 0.08, inbox: false, boost: 0    },
-      sem:         { label: 'Google Ads / SEM (incl. $30 ad budget)', monthly: 59, lift: 0.25, inbox: false, boost: 0 }
-    };
+    var PRICING = JSON.parse(document.getElementById('pricing-data').textContent);
+    var BASE_SETUP = PRICING.base.setup;
+    var BASE_MONTHLY = PRICING.base.monthly;
+    var SHOW_PRICES = true;   /* flip to false to hide $ (show only the multiple) */
+    var ADDONS = {};
+    PRICING.addons.forEach(function (a) { ADDONS[a.id] = a; });
     /* Conversion capture by current reply speed (conservative absolute booking share). */
     var CAPTURE = [0.28, 0.24, 0.18, 0.12, 0.07];
     var RECOVERY = 0.6; /* AI Inbox recovers 60% of the gap to best-in-class speed */
@@ -172,11 +174,12 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
       var bucket = parseInt(document.getElementById('resp').value, 10) || 0;
       var addons = selectedAddons();
       var curCap = CAPTURE[bucket];
-      var hasInbox = false, lift = 0, investAddons = 0, boost = 0, chosen = [];
+      var hasInbox = false, lift = 0, investAddons = 0, boost = 0, setupAddons = 0, chosen = [];
       addons.forEach(function (a) {
         var cfg = ADDONS[a]; if (!cfg) return;
         chosen.push(cfg.label);
         investAddons += cfg.monthly;
+        setupAddons += (cfg.setup || 0);
         lift += cfg.lift;
         boost += (cfg.boost || 0);
         if (cfg.inbox) hasInbox = true;
@@ -188,7 +191,7 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
       var addlBooked = RAMP * Math.max(0, newBooked - curBooked) * (1 + boost);
       var addlRevMonthly = addlBooked * V;
       var investMonthly = BASE_MONTHLY + investAddons;
-      var setup = BASE_SETUP;
+      var setup = BASE_SETUP + setupAddons;
       var multiple = investMonthly > 0 ? (addlRevMonthly / investMonthly) : 0;
       return {
         addlRevMonthly: addlRevMonthly,
