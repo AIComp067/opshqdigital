@@ -1,6 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PricingCard from '../components/PricingCard.astro';
+
+const addons = [
+  { icon: '⚡', label: 'AI Inbox — 5-minute lead response' },
+  { icon: '📊', label: 'ROI / ROAS / ROAI reporting' },
+  { icon: '📈', label: 'Live results dashboard' },
+  { icon: '🧠', label: 'Premium AI models' },
+  { icon: '🤖', label: 'Extra AI automations' },
+  { icon: '🌐', label: 'Websites & landing pages' },
+  { icon: '🔎', label: 'SEO & AI-search citations' },
+  { icon: '📍', label: 'Google Business Profile & local' },
+  { icon: '🔁', label: 'Follow-up cadence' },
+  { icon: '➕', label: 'Usage top-ups' },
+  { icon: '⭐', label: 'Priority optimization' },
+];
 ---
 <BaseLayout
   title="Pricing — OpsHQ Digital"
@@ -66,6 +80,21 @@ import PricingCard from '../components/PricingCard.astro';
           Book a Discovery Call →
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- Bundles & add-ons (availability only) -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Grows With You</span></div>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-4">Bundles &amp; Add-Ons, Available as You Grow</h2>
+      <p class="text-slate-600 text-lg leading-relaxed mb-8 max-w-2xl">Start lean, then layer on only what moves the needle. Everything below is available and scoped on your consultation — you only pay for what's turned on, and we adjust it month to month as your needs change.</p>
+      <div class="flex flex-wrap gap-2.5">
+        {addons.map(a => (
+          <span class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-medium text-navy-950"><span aria-hidden="true">{a.icon}</span> {a.label}</span>
+        ))}
+      </div>
+      <p class="text-sm text-slate-500 mt-8">The headline metric we build toward: <strong class="text-navy-950">ROAI — Return on AI</strong> — proving the system pays for itself. We recommend a starting bundle on your consultation.</p>
     </div>
   </section>
 </BaseLayout>
