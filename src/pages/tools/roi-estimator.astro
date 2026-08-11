@@ -51,9 +51,10 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
       <p class="block text-sm font-medium text-navy-950 mb-2">Which capabilities?</p>
       <div class="space-y-2" id="addon-list">
         <label class="flex items-start gap-3 p-3 rounded-lg border border-blue-200 bg-blue-50/50 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="ai_inbox" checked class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">AI Inbox — 5-minute lead response <span class="ml-1 align-middle text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-100 rounded px-1.5 py-0.5">Core</span></span><span class="block text-xs text-slate-500">Answers every lead in your voice, human-approved — so more of the leads you <em>already get</em> turn into booked business.</span></span></label>
+        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="t2_opstim" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Priority Optimization (T2)</span><span class="block text-xs text-slate-500">Hands-on monthly tuning + premium AI — squeezes more out of everything you run.</span></span></label>
         <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="content_seo" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Content &amp; SEO engine</span><span class="block text-xs text-slate-500">Rank locally + in AI search — brings <em>more</em> leads in over time.</span></span></label>
         <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="social" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Social auto-posting</span><span class="block text-xs text-slate-500">Consistent presence on FB / X — more top-of-funnel leads.</span></span></label>
-        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="sem" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Google Ads / SEM management</span><span class="block text-xs text-slate-500">Buy qualified traffic (ad budget separate) — fastest lead lift.</span></span></label>
+        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="sem" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Google Ads / SEM</span><span class="block text-xs text-slate-500">Buy qualified traffic — <strong>includes a $30/mo starter ad budget</strong>. Fastest lead lift.</span></span></label>
       </div>
       <p class="text-xs text-slate-500 mt-2">✓ <strong>ROI / ROAS / ROAI reporting is included</strong> — so you see all of this every month.</p>
     </div>
@@ -99,17 +100,18 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
        value/labor-based placeholders. Flip SHOW_PRICES=false to hide $
        (shows the return multiple + "pricing on consultation").
        ============================================================ */
-    var HOURLY = 30;          /* Nick's blended rate for initial setups */
-    var BASE_SETUP_HRS = 1.5; /* base onboarding: site + hosting + monitoring + analytics + form */
-    var BASE_MONTHLY = 15;    /* base managed monthly (infra ~$0.10 + monitoring/attention) */
+    var BASE_SETUP = 50;      /* one-time initial setup — includes T1 Opstimization */
+    var BASE_MONTHLY = 25;    /* hosting + T1 Opstimization (1 premium AI prompt/mo) */
     var SHOW_PRICES = true;
-    /* Cost-based pricing (2026-08-11): monthly ≈ infra COGS + thin margin; setup = hours × $30.
-       Infra COGS/mo is cents–a-few-dollars (see spec §13). Reporting is folded into AI Inbox/base. */
+    /* Cost-based, low-margin ladder (2026-08-11). Monthly ≈ infra COGS + thin margin.
+       Google Ads BAKES IN a $30/mo starter ad budget. Reporting is included (folded into base/AI Inbox).
+       'boost' = ongoing-optimization multiplier on modeled results. Infra COGS table: spec §13. */
     var ADDONS = {
-      ai_inbox:    { label: 'AI Inbox — 5-minute lead response', monthly: 29, setupHrs: 3, lift: 0,    inbox: true  },
-      content_seo: { label: 'Content & SEO engine',               monthly: 25, setupHrs: 2, lift: 0.15, inbox: false },
-      social:      { label: 'Social auto-posting',                monthly: 10, setupHrs: 1, lift: 0.08, inbox: false },
-      sem:         { label: 'Google Ads / SEM management',        monthly: 39, setupHrs: 3, lift: 0.25, inbox: false }
+      ai_inbox:    { label: 'AI Inbox — 5-minute lead response', monthly: 25, lift: 0,    inbox: true,  boost: 0    },
+      t2_opstim:   { label: 'Priority Optimization (T2)',         monthly: 25, lift: 0,    inbox: false, boost: 0.10 },
+      content_seo: { label: 'Content & SEO engine',               monthly: 25, lift: 0.15, inbox: false, boost: 0    },
+      social:      { label: 'Social auto-posting',                monthly: 15, lift: 0.08, inbox: false, boost: 0    },
+      sem:         { label: 'Google Ads / SEM (incl. $30 ad budget)', monthly: 59, lift: 0.25, inbox: false, boost: 0 }
     };
     /* Conversion capture by current reply speed (conservative absolute booking share). */
     var CAPTURE = [0.28, 0.24, 0.18, 0.12, 0.07];
@@ -170,23 +172,23 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
       var bucket = parseInt(document.getElementById('resp').value, 10) || 0;
       var addons = selectedAddons();
       var curCap = CAPTURE[bucket];
-      var hasInbox = false, lift = 0, investAddons = 0, setupHrs = 0, chosen = [];
+      var hasInbox = false, lift = 0, investAddons = 0, boost = 0, chosen = [];
       addons.forEach(function (a) {
         var cfg = ADDONS[a]; if (!cfg) return;
         chosen.push(cfg.label);
         investAddons += cfg.monthly;
-        setupHrs += cfg.setupHrs;
         lift += cfg.lift;
+        boost += (cfg.boost || 0);
         if (cfg.inbox) hasInbox = true;
       });
       var newCap = hasInbox ? (curCap + RECOVERY * (CAPTURE[0] - curCap)) : curCap;
       var newLeads = L * (1 + lift);
       var curBooked = L * curCap;
       var newBooked = newLeads * newCap;
-      var addlBooked = RAMP * Math.max(0, newBooked - curBooked);
+      var addlBooked = RAMP * Math.max(0, newBooked - curBooked) * (1 + boost);
       var addlRevMonthly = addlBooked * V;
       var investMonthly = BASE_MONTHLY + investAddons;
-      var setup = (BASE_SETUP_HRS + setupHrs) * HOURLY;
+      var setup = BASE_SETUP;
       var multiple = investMonthly > 0 ? (addlRevMonthly / investMonthly) : 0;
       return {
         addlRevMonthly: addlRevMonthly,
