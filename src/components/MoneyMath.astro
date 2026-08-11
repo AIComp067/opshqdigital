@@ -1,0 +1,26 @@
+---
+interface Props {
+  unit?: string;
+  href?: string;
+}
+const { unit = "customer", href = "/contact/" } = Astro.props;
+---
+<section class="bg-gradient-to-br from-blue-600 to-teal-500 text-white py-14 md:py-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      <div class="md:col-span-2">
+        <p class="text-sm font-semibold uppercase tracking-wider text-blue-100 mb-2">Do the math</p>
+        <h2 class="text-2xl md:text-3xl font-bold leading-tight mb-3">One more {unit} a month usually pays for the whole system.</h2>
+        <p class="text-blue-50 leading-relaxed">You already pay to generate leads. Answering them first &mdash; in 5 minutes instead of 5 hours &mdash; is the cheapest growth lever you have. Every reply that beats a competitor is revenue you were otherwise handing away.</p>
+      </div>
+      <div class="flex md:justify-end">
+        <a href={href} class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors text-lg min-h-[44px] shadow-lg">See what it'd recover &rarr;</a>
+      </div>
+    </div>
+    <div class="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-white/20 text-center">
+      <div><div class="text-3xl md:text-4xl font-bold">5 min</div><div class="text-sm text-blue-100 mt-1">Response, every time</div></div>
+      <div><div class="text-3xl md:text-4xl font-bold">9&times;</div><div class="text-sm text-blue-100 mt-1">More likely to convert</div></div>
+      <div><div class="text-3xl md:text-4xl font-bold">$0</div><div class="text-sm text-blue-100 mt-1">To pilot the inbox 30 days</div></div>
+    </div>
+  </div>
+</section>

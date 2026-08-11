@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import MoneyMath from '../../components/MoneyMath.astro';
 import IndustryBadge from '../../components/IndustryBadge.astro';
 import MetricCard from '../../components/MetricCard.astro';
 
@@ -32,10 +33,11 @@ const faqs = [
 >
   <section class="bg-navy-950 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="max-w-3xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
         <div class="flex items-center gap-2 mb-6"><IndustryBadge label="For Professional Services" variant="service" /></div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Turn More Inquiries Into Booked Consultations.</h1>
-        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">Turn More Inquiries Into Booked Consultations.</h1>
+        <p class="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
           Law firms, accounting practices, consultancies and advisors: high-intent prospects don't wait. We send a polished, on-brand response within 5 minutes, run your intake, and book the consultation — human-approved, so it never gives advice or quotes a fee.
         </p>
         <div class="flex flex-col sm:flex-row gap-3">
@@ -43,13 +45,20 @@ const faqs = [
           <a href="/tools/email-response-grader/" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Grade My Current Response Time</a>
         </div>
       </div>
+      <div class="relative">
+        <img src="/images/hero-services.jpg" alt="Professional services intake and consultation booking automated with 5-minute replies" width="1440" height="960" class="rounded-2xl shadow-2xl shadow-blue-500/10 w-full" />
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl blur-xl -z-10"></div>
+      </div>
+      </div>
     </div>
   </section>
+
+  <MoneyMath unit="client" href="/contact/?service=professional-services" />
 
   <section class="py-16 md:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Problem</span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-6">Billable Work Comes First — So Inquiries Wait.</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-6">Billable Work Comes First — So Inquiries Wait.</h2>
       <div class="text-slate-600 leading-relaxed space-y-4 text-lg">
         <p>A potential client fills out your contact form during a hearing, a close, or a client meeting. It sits until end of day. Meanwhile they've booked a consult with the firm that answered in ten minutes.</p>
         <p class="font-semibold text-navy-950">A 5-minute response makes a prospect up to <strong>9× more likely</strong> to convert than a reply an hour later — and first impressions of a professional practice are unforgiving.</p>
@@ -61,7 +70,7 @@ const faqs = [
   <section class="py-16 md:py-20 bg-slate-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What We Build for Practices</span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">Intake and Conversion, Handled</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-12 text-center">Intake and Conversion, Handled</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">⚡</div><h3 class="text-lg font-bold text-navy-950 mb-2">5-Minute On-Brand Replies</h3><p class="text-sm text-slate-600 leading-relaxed">Every inquiry gets an immediate, professional acknowledgement in your firm's voice — human-approved, never advice, never a fee quote — with the intake questions and a link to book the consult.</p></div>
         <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">🧭</div><h3 class="text-lg font-bold text-navy-950 mb-2">Smart Intake & Routing</h3><p class="text-sm text-slate-600 leading-relaxed">Qualify inquiries against your ideal-client criteria — practice area, matter type, budget, jurisdiction — and route or flag them, so your team only spends time on the ones worth a consultation.</p></div>
@@ -73,7 +82,7 @@ const faqs = [
   <section class="py-16 md:py-20">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Proof It Works</span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">The Response Engine, Running Live</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-12 text-center">The Response Engine, Running Live</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <MetricCard label="Reply Time" before="4 hours" after="8 min" caption="Average first response across every inquiry" />
         <MetricCard label="Leads Captured" before="48%" after="68%" caption="Inquiries that book a call or consult" />
@@ -85,7 +94,7 @@ const faqs = [
   <section class="py-16 md:py-20 bg-slate-50">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Questions Practices Ask</span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-8">FAQ</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-8">FAQ</h2>
       <div class="space-y-4">
         {faqs.map(f => (
           <details class="group bg-white rounded-xl border border-slate-200 p-6">
@@ -99,7 +108,7 @@ const faqs = [
 
   <section class="py-16 md:py-20 bg-navy-950 text-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Stop Losing Clients to a Slow Inbox</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Stop Losing Clients to a Slow Inbox</h2>
       <p class="text-lg text-slate-300 mb-8">Free 30-minute call. We'll show you where inquiries stall today and what a same-minute, on-brand response would change.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-3">
         <a href="/contact/?service=professional-services" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Book a Discovery Call</a>

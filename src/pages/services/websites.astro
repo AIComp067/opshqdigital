@@ -3,11 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import IndustryBadge from '../../components/IndustryBadge.astro';
 
 const faqs = [
-  { q: "What makes your websites different from a template or Wix site?", a: "Speed and results. We build on Astro + Tailwind deployed to Azure Static Web Apps \u2014 real Core Web Vitals, real local SEO, no plugin bloat or fragile page-builder. Your forms wire straight into your inbox, CRM, and Stripe, so the site is a lead machine, not a brochure." },
-  { q: "Will it actually rank on Google?", a: "That\u2019s the point. Every page ships with proper schema (Organization, LocalBusiness, FAQPage, Breadcrumb), clean information architecture, fast load times, and AI-search optimization (llms.txt, structured data) so you show up in both classic search and AI answers. We\u2019ve done this across multiple live sites." },
-  { q: "Do you connect the forms to my other tools?", a: "Yes \u2014 form submissions flow into Microsoft 365 or Google Workspace, your CRM, and (if you take payments) Stripe. Pair it with AI Inbox and every lead that hits the site gets a 5-minute response automatically." },
-  { q: "Can you migrate my slow existing site?", a: "Yes. We migrate content from a slow WordPress/Wix/Squarespace site, keep your URLs and rankings intact with proper redirects, and rebuild it fast. We\u2019ll tell you honestly if a rebuild is worth it or if a few fixes would do." },
-  { q: "What does it cost and how long does it take?", a: "Most builds are 2\u20135 weeks, fixed-price after a free 30-minute discovery call \u2014 you see the scope and price before committing. You own the code." },
+  { q: "What makes your websites different from a template or Wix site?", a: "Speed and results. We build on Astro + Tailwind deployed to Azure Static Web Apps — real Core Web Vitals, real local SEO, no plugin bloat or fragile page-builder. Your forms wire straight into your inbox, CRM, and Stripe, so the site is a lead machine, not a brochure." },
+  { q: "Will it actually rank on Google?", a: "That’s the point. Every page ships with proper schema (Organization, LocalBusiness, FAQPage, Breadcrumb), clean information architecture, fast load times, and AI-search optimization (llms.txt, structured data) so you show up in both classic search and AI answers. We’ve done this across multiple live sites." },
+  { q: "Do you connect the forms to my other tools?", a: "Yes — form submissions flow into Microsoft 365 or Google Workspace, your CRM, and (if you take payments) Stripe. Pair it with AI Inbox and every lead that hits the site gets a 5-minute response automatically." },
+  { q: "Can you migrate my slow existing site?", a: "Yes. We migrate content from a slow WordPress/Wix/Squarespace site, keep your URLs and rankings intact with proper redirects, and rebuild it fast. We’ll tell you honestly if a rebuild is worth it or if a few fixes would do." },
+  { q: "What does it cost and how long does it take?", a: "Most builds are 2–5 weeks, fixed-price after a free 30-minute discovery call — you see the scope and price before committing. You own the code." },
 ];
 ---
 <BaseLayout
@@ -16,14 +16,20 @@ const faqs = [
 >
   <section class="bg-navy-950 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="max-w-3xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
         <div class="flex items-center gap-2 mb-6"><IndustryBadge label="Web Builds" variant="tech" /></div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">A Website That Brings in Leads \u2014 Not Just a Pretty Brochure.</h1>
-        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">Fast, SEO-strong sites built on a modern stack (Astro + Azure), tuned to rank in local search and turn visitors into inquiries \u2014 wired straight into your inbox, CRM, and payments. Real Core Web Vitals. Real organic results.</p>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">A Website That Brings in Leads — Not Just a Pretty Brochure.</h1>
+        <p class="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">Fast, SEO-strong sites built on a modern stack (Astro + Azure), tuned to rank in local search and turn visitors into inquiries — wired straight into your inbox, CRM, and payments. Real Core Web Vitals. Real organic results.</p>
         <div class="flex flex-col sm:flex-row gap-3">
           <a href="/contact/?service=websites" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg min-h-[44px]">Free Discovery Call →</a>
           <a href="/work/" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">See Our Work</a>
         </div>
+      </div>
+      <div class="relative">
+        <img src="/images/hero-web.jpg" alt="Fast, SEO-strong small business website wired to inbox, CRM, and payments" width="1440" height="960" class="rounded-2xl shadow-2xl shadow-blue-500/10 w-full" />
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl blur-xl -z-10"></div>
+      </div>
       </div>
     </div>
   </section>
@@ -31,10 +37,10 @@ const faqs = [
   <section class="py-16 md:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Problem</span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-6">Most Small Business Sites Are Slow, Invisible, or Both.</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-6">Most Small Business Sites Are Slow, Invisible, or Both.</h2>
       <div class="text-slate-600 leading-relaxed space-y-4 text-lg">
-        <p>A bloated template loads in six seconds on a phone, doesn\u2019t rank for the searches your customers actually use, and dumps form submissions into an inbox nobody watches. Visitors bounce; leads never arrive.</p>
-        <p class="font-semibold text-navy-950">A website should do one job well: get found, explain the offer, and capture the lead \u2014 fast.</p>
+        <p>A bloated template loads in six seconds on a phone, doesn’t rank for the searches your customers actually use, and dumps form submissions into an inbox nobody watches. Visitors bounce; leads never arrive.</p>
+        <p class="font-semibold text-navy-950">A website should do one job well: get found, explain the offer, and capture the lead — fast.</p>
       </div>
     </div>
   </section>
@@ -42,20 +48,20 @@ const faqs = [
   <section class="py-16 md:py-20 bg-slate-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What You Get</span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">Fast, Found, and Wired to Convert</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-12 text-center">Fast, Found, and Wired to Convert</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">⚡</div><h3 class="text-lg font-bold text-navy-950 mb-2">Genuinely Fast</h3><p class="text-sm text-slate-600 leading-relaxed">Astro + Tailwind on Azure Static Web Apps. Real Lighthouse and Core Web Vitals scores \u2014 not a page-builder that\u2019s fast in the demo and slow in the wild.</p></div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">⚡</div><h3 class="text-lg font-bold text-navy-950 mb-2">Genuinely Fast</h3><p class="text-sm text-slate-600 leading-relaxed">Astro + Tailwind on Azure Static Web Apps. Real Lighthouse and Core Web Vitals scores — not a page-builder that’s fast in the demo and slow in the wild.</p></div>
         <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">🔍</div><h3 class="text-lg font-bold text-navy-950 mb-2">Built to Rank</h3><p class="text-sm text-slate-600 leading-relaxed">Clean architecture, local + service-area pages, and full schema (LocalBusiness, FAQPage, Breadcrumb) plus AI-search optimization so you show up in Google and AI answers.</p></div>
         <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">🔌</div><h3 class="text-lg font-bold text-navy-950 mb-2">Wired to Your Tools</h3><p class="text-sm text-slate-600 leading-relaxed">Forms flow into your inbox, CRM, and Stripe. Pair it with AI Inbox and every lead the site captures gets a 5-minute response, automatically.</p></div>
       </div>
-      <p class="text-center text-slate-500 mt-10 text-lg">Typical build: 2\u20135 weeks, fixed-price after a discovery call. You own the code.</p>
+      <p class="text-center text-slate-500 mt-10 text-lg">Typical build: 2–5 weeks, fixed-price after a discovery call. You own the code.</p>
     </div>
   </section>
 
   <section class="py-16 md:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">FAQ</span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-8">Common Questions</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-8">Common Questions</h2>
       <div class="space-y-4">
         {faqs.map(f => (
           <details class="group bg-white rounded-xl border border-slate-200 p-6">
@@ -69,8 +75,8 @@ const faqs = [
 
   <section class="py-16 md:py-20 bg-navy-950 text-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Get a Site That Actually Pulls Its Weight</h2>
-      <p class="text-lg text-slate-300 mb-8">Free 30-minute call. Tell us what you sell and who you sell to \u2014 we\u2019ll tell you what a site that ranks and converts would take.</p>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Get a Site That Actually Pulls Its Weight</h2>
+      <p class="text-lg text-slate-300 mb-8">Free 30-minute call. Tell us what you sell and who you sell to — we’ll tell you what a site that ranks and converts would take.</p>
       <a href="/contact/?service=websites" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Book a Discovery Call →</a>
     </div>
   </section>

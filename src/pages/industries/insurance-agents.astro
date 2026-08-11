@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import MoneyMath from '../../components/MoneyMath.astro';
 import IndustryBadge from '../../components/IndustryBadge.astro';
 import MetricCard from '../../components/MetricCard.astro';
 
@@ -37,14 +38,15 @@ const faqs = [
   <!-- Hero -->
   <section class="bg-navy-950 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="max-w-3xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
         <div class="flex items-center gap-2 mb-6">
           <IndustryBadge label="For Insurance Agents" variant="service" />
         </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
           In Insurance, the First to Reply Wins the Policy.
         </h1>
-        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+        <p class="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
           Every quote request goes to four or five agents at once. We make sure you're always the one who answers first — with a thoughtful, on-brand response in under 5 minutes, a website that actually brings leads in, and follow-up that never lets a prospect go cold.
         </p>
         <div class="flex flex-col sm:flex-row gap-3">
@@ -56,8 +58,15 @@ const faqs = [
           </a>
         </div>
       </div>
+      <div class="relative">
+        <img src="/images/hero-crm.jpg" alt="Insurance agency lead pipeline with 5-minute AI-drafted quote responses" width="1440" height="960" class="rounded-2xl shadow-2xl shadow-blue-500/10 w-full" />
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl blur-xl -z-10"></div>
+      </div>
+      </div>
     </div>
   </section>
+
+  <MoneyMath unit="policy" href="/contact/?service=insurance" />
 
   <!-- The Problem -->
   <section class="py-16 md:py-20">
@@ -66,7 +75,7 @@ const faqs = [
         <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
         <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Problem</span>
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-6">Speed Is the Whole Game — and You're Busy Selling.</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-6">Speed Is the Whole Game — and You're Busy Selling.</h2>
       <div class="text-slate-600 leading-relaxed space-y-4 text-lg">
         <p>You're on a call, in an appointment, or writing a policy when three quote requests come in. By the time you get to them that evening, the prospect has already talked to an agent who called back in ten minutes.</p>
         <p class="font-semibold text-navy-950">Responding within 5 minutes makes a lead up to <strong>9× more likely</strong> to convert than a reply an hour later. Most agents — especially new ones without a support team — take hours.</p>
@@ -82,7 +91,7 @@ const faqs = [
         <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
         <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What We Build for Agents</span>
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">One Connected Lead Pipeline</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-12 text-center">One Connected Lead Pipeline</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-white rounded-xl p-6 border border-slate-200">
           <div class="text-3xl mb-3">⚡</div>
@@ -110,7 +119,7 @@ const faqs = [
         <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
         <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Proof It Works</span>
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4 text-center">We Built This for a Real Lead-Driven Business</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-4 text-center">We Built This for a Real Lead-Driven Business</h2>
       <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12 text-lg">The same inquiry-response engine, running live on a high-volume service business — the numbers after four weeks:</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <MetricCard label="Reply Time" before="4 hours" after="8 min" caption="Average first response across every inquiry" />
@@ -129,7 +138,7 @@ const faqs = [
         <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
         <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Questions Agents Ask</span>
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-8">FAQ</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-8">FAQ</h2>
       <div class="space-y-4">
         {faqs.map(f => (
           <details class="group bg-white rounded-xl border border-slate-200 p-6">
@@ -147,7 +156,7 @@ const faqs = [
   <!-- Final CTA -->
   <section class="py-16 md:py-20 bg-navy-950 text-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Be the Agent Who Always Answers First</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Be the Agent Who Always Answers First</h2>
       <p class="text-lg text-slate-300 mb-8">Free 30-minute call. Tell us how leads reach you today and we'll show you exactly where you're losing them — and what it'd take to fix it.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-3">
         <a href="/contact/?service=insurance" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Book a Discovery Call</a>

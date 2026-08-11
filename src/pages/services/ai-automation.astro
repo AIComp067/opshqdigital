@@ -3,27 +3,33 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import IndustryBadge from '../../components/IndustryBadge.astro';
 
 const faqs = [
-  { q: "What can AI automation actually do for a small business?", a: "Real, bounded work: triage and draft email replies, qualify and route leads, extract details from messy documents or receipts, summarize conversations, generate first-draft content, and produce reports. It removes repetitive judgment work \u2014 not your control. Every automation has review points, logging, and fallback paths." },
-  { q: "Is this a chatbot on my website?", a: "No. We build agents that do work behind the scenes and connect to your real systems (inbox, CRM, documents, payments), not a chat widget that frustrates customers. When a human should be in the loop, they are \u2014 by design." },
-  { q: "How do you keep it from doing something wrong?", a: "Constraints first. Human-approval steps where it matters, explicit \u201cwill not do\u201d rules, audit logs of every action, and monitoring so failures are visible instead of silent. We build small, watch it closely, and expand only what\u2019s earned trust." },
-  { q: "Which AI models do you use?", a: "Whatever fits the task \u2014 Claude, GPT, Gemini, and specialized models \u2014 often several together (one to draft, one to classify, one to verify). You\u2019re not locked to a single vendor, and we swap models as they improve." },
-  { q: "What does it cost?", a: "Custom automation is fixed-price after a free 30-minute discovery call \u2014 written scope and price before you commit. Many projects start small (one workflow) and expand once it\u2019s proven." },
+  { q: "What can AI automation actually do for a small business?", a: "Real, bounded work: triage and draft email replies, qualify and route leads, extract details from messy documents or receipts, summarize conversations, generate first-draft content, and produce reports. It removes repetitive judgment work — not your control. Every automation has review points, logging, and fallback paths." },
+  { q: "Is this a chatbot on my website?", a: "No. We build agents that do work behind the scenes and connect to your real systems (inbox, CRM, documents, payments), not a chat widget that frustrates customers. When a human should be in the loop, they are — by design." },
+  { q: "How do you keep it from doing something wrong?", a: "Constraints first. Human-approval steps where it matters, explicit “will not do” rules, audit logs of every action, and monitoring so failures are visible instead of silent. We build small, watch it closely, and expand only what’s earned trust." },
+  { q: "Which AI models do you use?", a: "Whatever fits the task — Claude, GPT, Gemini, and specialized models — often several together (one to draft, one to classify, one to verify). You’re not locked to a single vendor, and we swap models as they improve." },
+  { q: "What does it cost?", a: "Custom automation is fixed-price after a free 30-minute discovery call — written scope and price before you commit. Many projects start small (one workflow) and expand once it’s proven." },
 ];
 ---
 <BaseLayout
   title="Practical AI Automation for Small Businesses | OpsHQ Digital"
-  description="AI agents that do real work \u2014 email triage, lead routing, document extraction, reporting \u2014 connected to your actual systems, with human approval, logging, and monitoring. Not a chatbot demo. Fixed-price."
+  description="AI agents that do real work — email triage, lead routing, document extraction, reporting — connected to your actual systems, with human approval, logging, and monitoring. Not a chatbot demo. Fixed-price."
 >
   <section class="bg-navy-950 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="max-w-3xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
         <div class="flex items-center gap-2 mb-6"><IndustryBadge label="AI & Agents" variant="tech" /></div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">AI That Does Real Work \u2014 Not a Chatbot Demo.</h1>
-        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">We build AI agents that quietly handle the repetitive judgment work eating your week \u2014 triaging email, routing leads, extracting data, drafting replies, building reports \u2014 connected to your real systems, with you in control.</p>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">AI That Does Real Work — Not a Chatbot Demo.</h1>
+        <p class="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">We build AI agents that quietly handle the repetitive judgment work eating your week — triaging email, routing leads, extracting data, drafting replies, building reports — connected to your real systems, with you in control.</p>
         <div class="flex flex-col sm:flex-row gap-3">
           <a href="/contact/?service=ai-automation" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg min-h-[44px]">Free Discovery Call →</a>
           <a href="/work/" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">See Our Work</a>
         </div>
+      </div>
+      <div class="relative">
+        <img src="/images/hero-ai.jpg" alt="AI agents automating email triage, lead routing, and document extraction" width="1440" height="960" class="rounded-2xl shadow-2xl shadow-blue-500/10 w-full" />
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl blur-xl -z-10"></div>
+      </div>
       </div>
     </div>
   </section>
@@ -31,9 +37,9 @@ const faqs = [
   <section class="py-16 md:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Problem</span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-6">Your Team\u2019s Best Hours Go to Repetitive Work.</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-6">Your Team’s Best Hours Go to Repetitive Work.</h2>
       <div class="text-slate-600 leading-relaxed space-y-4 text-lg">
-        <p>Reading and sorting email. Re-typing details from PDFs into a spreadsheet. Chasing the same follow-ups. Copy-pasting between tools that don\u2019t talk. It\u2019s hours a week of work a machine should do \u2014 and it\u2019s the work that quietly caps how much you can grow.</p>
+        <p>Reading and sorting email. Re-typing details from PDFs into a spreadsheet. Chasing the same follow-ups. Copy-pasting between tools that don’t talk. It’s hours a week of work a machine should do — and it’s the work that quietly caps how much you can grow.</p>
         <p class="font-semibold text-navy-950">Good AI automation gives those hours back without handing your business to an unsupervised bot.</p>
       </div>
     </div>
@@ -42,11 +48,11 @@ const faqs = [
   <section class="py-16 md:py-20 bg-slate-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What We Automate</span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">Bounded Tasks, Real Systems, Human Oversight</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-12 text-center">Bounded Tasks, Real Systems, Human Oversight</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">📨</div><h3 class="text-lg font-bold text-navy-950 mb-2">Inbox & Lead Ops</h3><p class="text-sm text-slate-600 leading-relaxed">Triage, draft replies, qualify and route leads, book calls \u2014 with human approval by default. (This is the heart of our AI Inbox service.)</p></div>
-        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">📄</div><h3 class="text-lg font-bold text-navy-950 mb-2">Documents & Data</h3><p class="text-sm text-slate-600 leading-relaxed">Extract details from receipts, PDFs, and messy text; sync between tools; reconcile records; produce clean reports \u2014 idempotent jobs with visible failures.</p></div>
-        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">🧠</div><h3 class="text-lg font-bold text-navy-950 mb-2">Content & Summaries</h3><p class="text-sm text-slate-600 leading-relaxed">First-draft content pipelines, meeting/thread summaries, and decision-support briefs \u2014 reviewable output, not an unmanaged content farm.</p></div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">📨</div><h3 class="text-lg font-bold text-navy-950 mb-2">Inbox & Lead Ops</h3><p class="text-sm text-slate-600 leading-relaxed">Triage, draft replies, qualify and route leads, book calls — with human approval by default. (This is the heart of our AI Inbox service.)</p></div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">📄</div><h3 class="text-lg font-bold text-navy-950 mb-2">Documents & Data</h3><p class="text-sm text-slate-600 leading-relaxed">Extract details from receipts, PDFs, and messy text; sync between tools; reconcile records; produce clean reports — idempotent jobs with visible failures.</p></div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">🧠</div><h3 class="text-lg font-bold text-navy-950 mb-2">Content & Summaries</h3><p class="text-sm text-slate-600 leading-relaxed">First-draft content pipelines, meeting/thread summaries, and decision-support briefs — reviewable output, not an unmanaged content farm.</p></div>
       </div>
     </div>
   </section>
@@ -54,7 +60,7 @@ const faqs = [
   <section class="py-16 md:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">FAQ</span></div>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-8">Common Questions</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-950 mb-8">Common Questions</h2>
       <div class="space-y-4">
         {faqs.map(f => (
           <details class="group bg-white rounded-xl border border-slate-200 p-6">
@@ -68,8 +74,8 @@ const faqs = [
 
   <section class="py-16 md:py-20 bg-navy-950 text-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Get Your Week Back</h2>
-      <p class="text-lg text-slate-300 mb-8">Free 30-minute call. Tell us the repetitive task that eats the most time \u2014 we\u2019ll tell you whether it\u2019s worth automating and roughly what it takes.</p>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Get Your Week Back</h2>
+      <p class="text-lg text-slate-300 mb-8">Free 30-minute call. Tell us the repetitive task that eats the most time — we’ll tell you whether it’s worth automating and roughly what it takes.</p>
       <a href="/contact/?service=ai-automation" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Book a Discovery Call →</a>
     </div>
   </section>
