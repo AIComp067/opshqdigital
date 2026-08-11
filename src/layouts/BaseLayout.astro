@@ -52,10 +52,6 @@ const organizationSchema = {
   "url": "https://opshqdigital.com/",
   "description": "Boutique Seattle-area technology services agency building CRM automation, AI agents, custom integrations, and fast web builds for small businesses.",
   "email": "nick@opshqdigital.com",
-  "founder": {
-    "@type": "Person",
-    "name": "Nick Reef"
-  },
   "areaServed": ["Seattle", "Washington", "United States"],
   "knowsAbout": ["CRM automation", "AI agents", "Web development", "Custom integrations", "Microsoft Graph API", "Azure", "Cloudflare"],
   "dateModified": buildDateIso
@@ -124,38 +120,6 @@ const webPageSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
-
-  {/* Person schema for Nick (founder) — site-wide EEAT signal (May 2026 Core Update).
-       Standalone Person entity referenced via @id from Organization.founder. */}
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://opshqdigital.com/#nick-founder",
-    "name": "Nick Reef",
-    "jobTitle": "Founder & Developer",
-    "url": "https://opshqdigital.com/about/",
-    "worksFor": { "@id": "https://opshqdigital.com/#organization" },
-    "homeLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Maple Valley",
-        "addressRegion": "WA",
-        "addressCountry": "US"
-      }
-    },
-    "knowsAbout": [
-      "CRM automation", "AI agents", "Web development", "Custom integrations",
-      "Microsoft Graph API", "Microsoft 365", "Azure", "Cloudflare",
-      "Production software engineering"
-    ],
-    "hasCredential": [
-      "10+ years building production software",
-      "Microsoft Azure + Graph API specialist",
-      "Full-stack engineering — backend, frontend, infrastructure",
-      "Maple Valley, WA — Pacific Northwest based"
-    ]
-  })} />
 
   {/* Path-derived BreadcrumbList JSON-LD (skipped on homepage). */}
   {breadcrumbSchema && (

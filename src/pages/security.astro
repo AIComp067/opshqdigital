@@ -2,75 +2,39 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout
-  title="Security &amp; Trust — OpsHQ Digital"
-  description="How we handle your data, what we will and won't do with it, and the contractual commitments that back it up."
+  title="How We Handle Your Data — OpsHQ Digital"
+  description="Plain-English commitments about how we handle your data: where it lives, how it's protected, and what we will and won't do with it."
   noindex={false}
 >
   <section class="bg-navy-950 text-white py-16 md:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Security &amp; Trust</h1>
-      <p class="text-lg text-slate-300">Plain-English commitments about how we handle your customers' data. If something here isn't clear or strong enough for your legal team, <a href="/contact/?service=ai-inbox" class="text-blue-300 hover:underline">tell us</a> — we'll address it in writing before any inbox is connected.</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">How We Handle Your Data</h1>
+      <p class="text-lg text-slate-300">Straight talk about where your data lives, how it's protected, and what we will and won't do with it. Questions? <a href="/contact/" class="text-blue-300 hover:underline">Just ask</a> — we'll answer plainly before anything gets connected.</p>
     </div>
   </section>
 
   <section class="py-16 md:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-lg prose-slate max-w-none">
-      <h2>Data residency</h2>
-      <p>All processing for AI Inbox happens in Microsoft Azure US datacenters (US West 2 — Quincy, WA). We do not move customer inbox content outside the US. Cold backups live in the same region.</p>
+      <h2>Where your data lives</h2>
+      <p>Everything runs on Microsoft Azure in US datacenters (US West 2). Your data stays in the US. We build on the same secure, cloud-native stack we run our own products on.</p>
 
-      <h2>Encryption</h2>
-      <p>In transit: TLS 1.2+ everywhere, including the connection from Microsoft Graph / Google Workspace into our pipeline. At rest: Azure Storage Service Encryption (AES-256) for all inbox content + SQLite databases. Customer-specific AI keys are stored in Azure Key Vault with managed-identity access only — no operator can read them in plaintext.</p>
+      <h2>How it's protected</h2>
+      <p>Encrypted in transit (TLS) and at rest. Any API keys or credentials live in Azure Key Vault with managed-identity access — not sitting in code or a config file.</p>
 
-      <h2>What we will NOT do with your data</h2>
+      <h2>What we will NOT do</h2>
       <ul>
-        <li><strong>We do not train AI models on your customer data.</strong> Your inbox content is used only to generate drafts for your inbox — never pooled with other customers' data, never used to improve a shared model.</li>
-        <li><strong>We do not share your customer data with other clients.</strong> Each customer gets logically isolated storage and a dedicated processing context.</li>
-        <li><strong>We do not sell, license, or share your contact lists with marketers, data brokers, or anyone else.</strong> Ever.</li>
-        <li><strong>We do not retain customer email bodies longer than 90 days</strong> for AI Inbox draft generation. After 90 days the body is purged; we retain only metadata (sender, subject, draft action taken, timestamps) for audit purposes.</li>
+        <li><strong>We don't train AI models on your data.</strong> Your content is used only to do your work — never pooled with anyone else's, never used to improve a shared model.</li>
+        <li><strong>We don't share your data between clients.</strong> Each client is kept separate.</li>
+        <li><strong>We don't sell or share your contacts.</strong> Ever — not with marketers, not with data brokers, not with anyone.</li>
       </ul>
 
-      <h2>What we WILL do (the contractual commitments)</h2>
-      <ul>
-        <li><strong>Sign a Data Processing Agreement (DPA)</strong> before any inbox is connected. Our standard template names us as a Processor under your venue's data-controller role. Sub-processors are listed below and any addition triggers 30-day notice.</li>
-        <li><strong>Provide a complete data export</strong> within 5 business days of any request. JSON format, plus original message metadata. No charge.</li>
-        <li><strong>Delete your data within 30 days</strong> of cancellation or any deletion request. We send a written confirmation when the deletion is complete.</li>
-        <li><strong>Notify you within 72 hours</strong> of any confirmed unauthorized access to your data, with what we know and what we're doing about it.</li>
-      </ul>
-
-      <h2>Sub-processors</h2>
-      <ul>
-        <li><strong>Microsoft Azure</strong> — compute, storage, Key Vault, communications (US West 2)</li>
-        <li><strong>Azure OpenAI Service (or OpenAI, depending on customer preference)</strong> — language model inference for draft generation. Azure OpenAI in particular does not use customer prompts for training under Microsoft's standard enterprise terms.</li>
-        <li><strong>Microsoft Communication Services</strong> — transactional email delivery for our internal notifications (not used to send customer-facing replies; those go through your own M365/Workspace)</li>
-        <li><strong>Cloudflare</strong> — CDN, WAF, Turnstile bot protection in front of opshqdigital.com only (not in front of your inbox)</li>
-      </ul>
-
-      <h2>Human approval is the default</h2>
-      <p>AI Inbox ships in human-approval mode. Every draft requires your explicit tap-to-send. Auto-send is opt-in per sender (typically used for returning planners or known repeat customers). You can revert to full-approval mode at any time from your dashboard.</p>
-      <p>AI Inbox will <strong>never</strong> issue a binding price quote, commit to a date, hold a date, or modify your packages without your approval — by design. We've coded these as hard guardrails in the system, not soft prompts.</p>
-
-      <h2>Audit log</h2>
-      <p>Every draft generated, every edit, every approval, every send, every skip, every sender-trust change is logged with a UTC timestamp and the responsible actor. The full audit log for your account is downloadable on demand and retained for the life of your subscription.</p>
-
-      <h2>Liability + insurance</h2>
-      <p>Our standard T&amp;Cs cap our liability at 12 months of fees paid, and explicitly require human approval on any communication that creates a contract or financial obligation (price, date hold, etc.) with your customer. We carry $1M general liability + $1M E&amp;O insurance (certificate available on request to legitimate prospects). If your venue's legal team needs higher limits, we can add a per-engagement rider.</p>
-
-      <h2>Compliance posture</h2>
-      <p>We follow the practical standards a small venue or service business would expect:</p>
-      <ul>
-        <li>CAN-SPAM compliance for any email we generate (identification + unsubscribe + accurate header info)</li>
-        <li>TCPA awareness — we do NOT send SMS on your behalf without your customer's documented prior express written consent</li>
-        <li>Aligned with NIST Cybersecurity Framework basics (Identify, Protect, Detect, Respond, Recover) — we are not certified under SOC 2 or ISO 27001 today, and we don't pretend to be</li>
-        <li>If you're a venue subject to specific state privacy laws (CCPA, CPA, VCDPA, etc.), our DPA includes data-subject-rights language compatible with each</li>
-      </ul>
-
-      <h2>Who's actually responsible</h2>
-      <p>This is a one-developer practice. Nick Reef is the person who builds the system, gets the alerts at 2am, signs the DPA, talks to your legal team, and stays on the call until the question is answered. There is no offshore team, no support tier, no "your call is important to us." That's the point.</p>
+      <h2>You stay in control</h2>
+      <p>For anything that talks to your customers (like AI Inbox), <strong>human approval is the default</strong> — nothing goes out without your okay, and it will never quote a binding price or commit you to anything on its own. You can export or delete your data whenever you ask, and we'll confirm when it's done.</p>
 
       <h2>Questions?</h2>
-      <p>If your team has a specific question this page doesn't answer — especially around DPA language, sub-processor list, retention, or insurance limits — <a href="/contact/?service=security">send it our way</a>. We'll respond in writing within one business day.</p>
+      <p>If there's something specific you want to know about how your data is handled, <a href="/contact/">send it our way</a> and we'll answer in plain English.</p>
 
-      <p class="text-sm text-slate-500 mt-12">Last updated: 2026-06-05. Material changes to this page are announced at least 30 days in advance to active customers.</p>
+      <p class="text-sm text-slate-500 mt-12">Last updated: 2026-08-10.</p>
     </div>
   </section>
 </BaseLayout>
