@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import IndustryBadge from '../../components/IndustryBadge.astro';
+import MetricCard from '../../components/MetricCard.astro';
+
+const faqs = [
+  { q: "What exactly is \u201clead generation\u201d here \u2014 ads?", a: "We focus on the part most small businesses waste: converting the leads you already get. That means capturing every inquiry (website forms, lead-gen platforms, calls-to-text, DMs), responding in under 5 minutes, and following up until they book. We can advise on lead sources, but the fastest ROI is almost always fixing response speed and follow-up on the leads already coming in." },
+  { q: "Why does response time matter so much?", a: "Because the first business to reply usually wins, and studies consistently show a lead answered within 5 minutes is up to 9\u00d7 more likely to convert than the same lead answered an hour later. Most small businesses reply in hours. We close that gap automatically." },
+  { q: "Is the AI going to sound like a robot to my customers?", a: "No. We train it on your voice, your offer, and your policies, and every reply is human-approved by default (a tap on your phone). It reads like you wrote it \u2014 just faster. It never quotes a binding price or commits you to anything without your sign-off." },
+  { q: "Do you connect to my CRM and calendar?", a: "Yes \u2014 Microsoft 365 or Google Workspace for the inbox, your calendar (Calendly, HubSpot, Google) for booking, and your CRM (existing or a lightweight one we build). One connected pipeline instead of four disconnected tools." },
+  { q: "What does it cost?", a: "The core lead-response engine (AI Inbox) is a free 30-day pilot \u2014 if it doesn\u2019t book you more appointments in the first month, you don\u2019t pay. Anything beyond that is fixed-price after a free discovery call." },
+];
+---
+<BaseLayout
+  title="AI Lead Generation & 5-Minute Lead Response for Small Businesses | OpsHQ Digital"
+  description="Stop losing the leads you already get. We capture every inquiry, respond in under 5 minutes in your voice (human-approved), and follow up until they book. Free 30-day pilot."
+>
+  <section class="bg-navy-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 mb-6"><IndustryBadge label="Lead Generation & Response" variant="service" /></div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Win the Leads You\u2019re Already Paying For.</h1>
+        <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">Most small businesses don\u2019t have a lead problem \u2014 they have a <em>response</em> problem. We capture every inquiry, answer it in under 5 minutes in your voice, and follow up until it books. So more of the leads you already get turn into paying customers.</p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/contact/?service=lead-generation" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors text-lg min-h-[44px]">Free Discovery Call →</a>
+          <a href="/tools/email-response-grader/" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Grade My Response Time</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">The Problem</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-6">You\u2019re Not Losing Leads \u2014 You\u2019re Losing the Race to Reply.</h2>
+      <div class="text-slate-600 leading-relaxed space-y-4 text-lg">
+        <p>You spend money and effort getting inquiries. Then they sit for hours while you do the actual work \u2014 and half of them book with whoever answered first.</p>
+        <p class="font-semibold text-navy-950">A reply within 5 minutes makes a lead up to <strong>9\u00d7 more likely</strong> to convert than a reply an hour later. Fixing that one number is usually the highest-ROI thing a small business can do.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">What\u2019s Included</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">Capture → Respond → Follow Up</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">📥</div><h3 class="text-lg font-bold text-navy-950 mb-2">Capture Every Inquiry</h3><p class="text-sm text-slate-600 leading-relaxed">Website forms, lead-gen platforms, click-to-text, DMs \u2014 all funneled into one inbox so nothing falls through the cracks.</p></div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">⚡</div><h3 class="text-lg font-bold text-navy-950 mb-2">Respond in 5 Minutes</h3><p class="text-sm text-slate-600 leading-relaxed">A personalized, on-brand first reply within minutes \u2014 human-approved from your phone \u2014 that answers, qualifies, and books the call.</p></div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200"><div class="text-3xl mb-3">🔁</div><h3 class="text-lg font-bold text-navy-950 mb-2">Follow Up Until They Book</h3><p class="text-sm text-slate-600 leading-relaxed">Most sales happen on the 3rd\u20135th touch. Automatic, tasteful follow-up so no lead ever goes cold because you got busy.</p></div>
+      </div>
+      <p class="text-center text-slate-500 mt-10 text-lg">This is our productized <a href="/services/ai-inbox/" class="text-blue-500 hover:underline font-medium">AI Inbox</a> service \u2014 free 30-day pilot, cancel anytime.</p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Proof It Works</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-12 text-center">The Numbers After Four Weeks</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <MetricCard label="Reply Time" before="4 hours" after="8 min" caption="Average first response across every inquiry" />
+        <MetricCard label="Leads Captured" before="48%" after="68%" caption="Inquiries that book a call or callback" />
+      </div>
+      <div class="text-center mt-10"><a href="/work/inquiry-response-automation/" class="text-blue-500 font-medium hover:underline text-lg">Read the full case study →</a></div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">FAQ</span></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-8">Common Questions</h2>
+      <div class="space-y-4">
+        {faqs.map(f => (
+          <details class="group bg-white rounded-xl border border-slate-200 p-6">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-navy-950 list-none">{f.q}<span class="text-blue-500 group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+            <p class="mt-4 text-slate-600 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-navy-950 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Turn More Leads Into Customers</h2>
+      <p class="text-lg text-slate-300 mb-8">Free 30-minute call. We\u2019ll show you exactly where leads are leaking today \u2014 and what a 5-minute response would change.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-3">
+        <a href="/contact/?service=lead-generation" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-lg min-h-[44px]">Book a Discovery Call</a>
+        <a href="/tools/email-response-grader/" class="inline-flex items-center justify-center px-8 py-4 bg-white text-navy-950 font-medium rounded-lg hover:bg-slate-100 transition-colors text-lg min-h-[44px]">Try the Free Grader →</a>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org", "@type": "Service",
+      "name": "AI Lead Generation & Response for Small Businesses",
+      "serviceType": "Lead capture, 5-minute AI lead response, and follow-up automation",
+      "provider": { "@id": "https://opshqdigital.com/#organization" },
+      "areaServed": ["Seattle", "Washington", "United States"],
+      "audience": { "@type": "BusinessAudience", "audienceType": "Small and mid-sized service businesses" },
+      "url": "https://opshqdigital.com/services/lead-generation/"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org", "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
+    })} />
+  </Fragment>
+</BaseLayout>

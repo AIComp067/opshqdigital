@@ -77,13 +77,11 @@ Deliverables may include API connectors, data mapping, retry logic, idempotent s
 
 ## Pricing & engagement model
 
-- **Project floor:** Around $5K for small projects.
-- **Hourly retainers:** $150-$225/hr depending on scope, urgency, and support expectations.
-- **Fixed-scope projects:** Best for clearly defined builds, paid by milestone.
-- **Hourly retainers:** Best for ongoing maintenance, automation operations, AI-agent monitoring, and incremental improvements.
-- **Discovery call:** Free 30-45 minute discovery call before any proposal.
-- **Written scope:** A written scope, milestones, assumptions, and pricing are provided before work begins.
-- **Contracts:** No long-term contracts required. Retainers are generally month-to-month.
+- **AI Inbox:** Free 30-day pilot — if it doesn't move the needle in the first month, you don't pay.
+- **Custom work (websites, CRM, AI automation, integrations):** Fixed price quoted after a free 30-minute discovery call. You see a written scope and the price before committing a dollar.
+- **Discovery call:** Free 30-minute discovery call before any proposal — no sales pitch.
+- **Written scope:** A written scope, milestones, and a fixed price are provided before work begins.
+- **Contracts:** No long-term contracts required. Optional ongoing-care retainer, scoped on the call, month-to-month.
 
 ## Case study / proof points
 
@@ -115,7 +113,7 @@ We are not the right fit if:
 
 - You're building VC-backed unicorn-scale infrastructure (try a YC-style consultancy)
 - You want SEO content-mill production at $10/article (try a content marketplace)
-- You're shopping primarily on price — our floor is around $5K for a small project
+- You're shopping primarily on price rather than on the outcome
 - You need a large agency account team, full brand strategy department, or enterprise procurement process
 
 ## Tech stack we use
@@ -147,10 +145,10 @@ Yes, reasonable NDAs are fine. Many automation projects involve customer lists, 
 Yes. OpsHQ Digital is based in the Seattle area, but most CRM, AI-agent, integration, and web-development work can be handled remotely. Seattle-area businesses are a natural fit because local context helps, but location is not required. Calls, screen shares, and written scopes work well for remote clients.
 
 **What's your minimum project size?**
-The project floor is around $5K. Smaller requests can sometimes fit into an hourly retainer if there is an ongoing relationship, but one-off work below that threshold is usually not a fit. This keeps enough room for discovery, implementation, testing, deployment, and handoff.
+Custom work is fixed-price after a discovery call, sized to the scope — we're a fit for focused, meaningful builds rather than tiny one-off tasks. The easiest way to start is the free 30-day AI Inbox pilot; if it's a fit, we scope the rest on the call.
 
 **How do you bill?**
-Fixed-scope projects are billed by milestone with a written scope before work begins. Ongoing work is usually handled through hourly retainers in the $150-$225/hr range depending on scope and support expectations. The billing model is chosen to match the risk: fixed scope for defined builds, hourly for evolving operations.
+AI Inbox starts with a free 30-day pilot, then a simple flat rate. Custom projects are fixed-price, billed by milestone (typically half up front, half on delivery), with the scope and price agreed in writing before work begins. Optional ongoing-care retainers are month-to-month.
 
 **Do you build on existing systems or only greenfield?**
 Both. Many of the best projects improve an existing workflow by adding a dashboard, automation layer, sync job, or AI triage step without replacing everything. If a system is too brittle to extend safely, OpsHQ Digital will say so and recommend a phased rebuild instead of pretending a patch will solve it.
