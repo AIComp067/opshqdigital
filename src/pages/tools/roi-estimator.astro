@@ -1,0 +1,315 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+---
+<ToolLayout
+  title="ROI Estimator — What Could OpsHQ Digital Return for Your Business?"
+  description="Enter your leads, close rate, and deal value, pick the capabilities you want, and see the estimated return — as a multiple and in dollars — on your OpsHQ Digital investment. Free."
+  toolName="Free Tool"
+  canonical="https://opshqdigital.com/tools/roi-estimator/"
+>
+  <h1 class="text-3xl md:text-4xl font-bold text-navy-950 mb-3">ROI Estimator</h1>
+  <p class="text-lg text-slate-600 mb-8 leading-relaxed">Tell us your numbers, pick the capabilities you'd add, and we'll estimate the return — both as a <strong>multiple</strong> (like 3&times;) and in <strong>dollars</strong>. It's an estimate; your exact numbers get confirmed on a free consultation.</p>
+
+  <!-- Industry selector -->
+  <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Your industry</p>
+  <div id="industry-pills" class="flex flex-wrap gap-2 mb-8">
+    <button type="button" data-ind="insurance" class="ind-pill inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors">🛡️ Insurance</button>
+    <button type="button" data-ind="home-services" class="ind-pill inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors">🔧 Home &amp; Trade</button>
+    <button type="button" data-ind="professional-services" class="ind-pill inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors">⚖️ Professional</button>
+    <button type="button" data-ind="transportation" class="ind-pill inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors">🚐 Transportation</button>
+  </div>
+
+  <form id="est-form" class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div>
+        <label for="leads" class="block text-sm font-medium text-navy-950 mb-1">Leads / inquiries per month</label>
+        <input type="number" id="leads" name="leads" min="1" max="2000" step="1" value="30" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px]" />
+      </div>
+      <div>
+        <label for="deal" class="block text-sm font-medium text-navy-950 mb-1">Average value per <span id="unit-label">customer</span></label>
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">$</span>
+          <input type="number" id="deal" name="deal" min="50" max="1000000" step="50" value="2500" class="w-full pl-8 pr-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors min-h-[44px]" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label for="resp" class="block text-sm font-medium text-navy-950 mb-1">How fast do you reply to a new lead today?</label>
+      <select id="resp" name="resp" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors bg-white min-h-[44px]">
+        <option value="0">Under 5 minutes</option>
+        <option value="1">5 minutes – 1 hour</option>
+        <option value="2" selected>1 – 4 hours</option>
+        <option value="3">4 – 24 hours</option>
+        <option value="4">More than 24 hours</option>
+      </select>
+    </div>
+
+    <div>
+      <p class="block text-sm font-medium text-navy-950 mb-2">What would you add?</p>
+      <div class="space-y-2" id="addon-list">
+        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="ai_inbox" checked class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">AI Inbox — 5-minute lead response</span><span class="block text-xs text-slate-500">Answers every lead in your voice, human-approved. Lifts how many leads convert.</span></span></label>
+        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="reporting" checked class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">ROI / ROAS / ROAI reporting</span><span class="block text-xs text-slate-500">See exactly what the spend returns, every month.</span></span></label>
+        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="content_seo" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Content &amp; SEO engine</span><span class="block text-xs text-slate-500">Rank locally + in AI search — brings more leads in over time.</span></span></label>
+        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="social" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Social auto-posting</span><span class="block text-xs text-slate-500">Show up consistently on FB / X without lifting a finger.</span></span></label>
+        <label class="flex items-start gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 cursor-pointer transition-colors"><input type="checkbox" name="addon" value="sem" class="mt-1 h-4 w-4 accent-blue-500" /><span><span class="font-medium text-navy-950">Google Ads / SEM management</span><span class="block text-xs text-slate-500">Buy qualified traffic (ad budget separate). Fastest lead lift.</span></span></label>
+      </div>
+    </div>
+
+    <button type="submit" class="w-full sm:w-auto px-8 py-4 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors min-h-[44px] text-lg cursor-pointer">Estimate My Return</button>
+  </form>
+
+  <!-- Result -->
+  <div id="result-card" class="hidden mt-10"></div>
+
+  <!-- Approve -> lead form -->
+  <div id="lead-gate" class="hidden mt-6 bg-gradient-to-br from-navy-950 to-navy-800 text-white rounded-2xl p-6 sm:p-8">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-3">Like these numbers? Let's build it.</h2>
+    <p class="text-slate-300 mb-6 leading-relaxed">Send this over and we'll confirm the estimate against your real numbers on a <strong class="text-white">free 30-minute consultation</strong> — with exact pricing before you commit to anything.</p>
+    <form id="lead-form" class="space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input type="text" id="lead-name" name="name" required minlength="2" maxlength="100" placeholder="Your name" class="w-full px-4 py-3 rounded-lg border border-slate-600 bg-navy-900 text-white placeholder-slate-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-500/30 outline-none min-h-[44px]" />
+        <input type="email" id="lead-email" name="email" required maxlength="254" placeholder="you@company.com" class="w-full px-4 py-3 rounded-lg border border-slate-600 bg-navy-900 text-white placeholder-slate-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-500/30 outline-none min-h-[44px]" />
+        <input type="tel" id="lead-phone" name="phone" maxlength="20" placeholder="Phone (optional)" class="w-full px-4 py-3 rounded-lg border border-slate-600 bg-navy-900 text-white placeholder-slate-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-500/30 outline-none min-h-[44px]" />
+        <input type="text" id="lead-company" name="company" maxlength="100" placeholder="Business name (optional)" class="w-full px-4 py-3 rounded-lg border border-slate-600 bg-navy-900 text-white placeholder-slate-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-500/30 outline-none min-h-[44px]" />
+      </div>
+      <div class="hidden" aria-hidden="true"><input type="text" name="_honeypot" tabindex="-1" autocomplete="off" /></div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAC_e_auEOH0GafsI" data-theme="dark"></div>
+      <button type="submit" class="w-full sm:w-auto px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors min-h-[44px] text-lg cursor-pointer">Get My Custom Plan →</button>
+      <p id="lead-error" class="hidden text-sm text-red-300" role="alert"></p>
+      <p class="text-xs text-slate-400">We'll only use this to reply about your estimate. See <a href="/privacy/" class="text-blue-300 hover:underline">Privacy Policy</a>.</p>
+    </form>
+  </div>
+
+  <div class="mt-12 pt-8 border-t border-slate-200">
+    <h2 class="text-xl font-bold text-navy-950 mb-3">How the estimate works</h2>
+    <p class="text-slate-600 leading-relaxed text-sm">Response speed drives conversion: a lead answered under 5 minutes is far likelier to book than one answered hours later (we use a conservative capture curve). AI Inbox moves your reply time to the top of that curve; content, SEO, social, and ads add leads at the top of the funnel. We multiply the extra bookings by your average value to estimate added revenue, then compare it to an estimated monthly investment. Numbers are estimates confirmed on your consultation — all math runs in your browser.</p>
+  </div>
+
+  <Fragment slot="head">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  </Fragment>
+
+  <script is:inline>
+    /* ============================================================
+       EDITABLE PRICING CONFIG — Nick: set real prices here when ready.
+       COGS per add-on is tiny (infra + AI tokens = cents/mo); these are
+       value/labor-based placeholders. Flip SHOW_PRICES=false to hide $
+       (shows the return multiple + "pricing on consultation").
+       ============================================================ */
+    var BASE_SETUP = 50;
+    var BASE_MONTHLY = 25;
+    var SHOW_PRICES = true;
+    var ADDONS = {
+      ai_inbox:    { label: 'AI Inbox — 5-minute lead response', price: 149, lift: 0,    inbox: true  },
+      reporting:   { label: 'ROI / ROAS / ROAI reporting',        price: 49,  lift: 0,    inbox: false },
+      content_seo: { label: 'Content & SEO engine',               price: 199, lift: 0.15, inbox: false },
+      social:      { label: 'Social auto-posting',                price: 99,  lift: 0.08, inbox: false },
+      sem:         { label: 'Google Ads / SEM management',        price: 299, lift: 0.25, inbox: false }
+    };
+    /* Conversion capture by current reply speed (conservative absolute booking share). */
+    var CAPTURE = [0.28, 0.24, 0.18, 0.12, 0.07];
+    var RECOVERY = 0.6; /* AI Inbox recovers 60% of the gap to best-in-class speed */
+    var RAMP = 0.6;     /* conservatism / ramp haircut on modeled gains */
+    var RESP_LABELS = ['under 5 minutes', '5 min – 1 hour', '1 – 4 hours', '4 – 24 hours', 'more than 24 hours'];
+    /* Per-industry starting defaults. */
+    var INDUSTRIES = {
+      'insurance':              { label: 'Insurance',        deal: 1500, leads: 40, unit: 'policy' },
+      'home-services':          { label: 'Home & Trade',     deal: 3500, leads: 30, unit: 'job' },
+      'professional-services':  { label: 'Professional',     deal: 2500, leads: 25, unit: 'client' },
+      'transportation':         { label: 'Transportation',   deal: 900,  leads: 50, unit: 'booking' }
+    };
+
+    var fmt = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+    var currentIndustry = 'professional-services';
+    var lastResult = null;
+
+    var form = document.getElementById('est-form');
+    var resultEl = document.getElementById('result-card');
+    var gateEl = document.getElementById('lead-gate');
+    var leadForm = document.getElementById('lead-form');
+    var leadError = document.getElementById('lead-error');
+    var unitLabel = document.getElementById('unit-label');
+    var pills = Array.prototype.slice.call(document.querySelectorAll('.ind-pill'));
+
+    function paintPills() {
+      pills.forEach(function (p) {
+        var on = p.getAttribute('data-ind') === currentIndustry;
+        p.className = 'ind-pill inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors ' +
+          (on ? 'bg-blue-500 border-blue-500 text-white' : 'bg-white border-slate-300 text-navy-950 hover:border-blue-300');
+      });
+    }
+
+    function applyIndustry(key, prefill) {
+      if (!INDUSTRIES[key]) return;
+      currentIndustry = key;
+      var d = INDUSTRIES[key];
+      if (unitLabel) unitLabel.textContent = d.unit;
+      if (prefill) {
+        document.getElementById('deal').value = d.deal;
+        document.getElementById('leads').value = d.leads;
+      }
+      paintPills();
+    }
+
+    pills.forEach(function (p) {
+      p.addEventListener('click', function () { applyIndustry(p.getAttribute('data-ind'), true); });
+    });
+
+    function selectedAddons() {
+      return Array.prototype.slice.call(document.querySelectorAll('input[name="addon"]:checked')).map(function (c) { return c.value; });
+    }
+
+    function compute() {
+      var L = Math.max(0, parseFloat(document.getElementById('leads').value) || 0);
+      var V = Math.max(0, parseFloat(document.getElementById('deal').value) || 0);
+      var bucket = parseInt(document.getElementById('resp').value, 10) || 0;
+      var addons = selectedAddons();
+      var curCap = CAPTURE[bucket];
+      var hasInbox = false, lift = 0, investAddons = 0, chosen = [];
+      addons.forEach(function (a) {
+        var cfg = ADDONS[a]; if (!cfg) return;
+        chosen.push(cfg.label);
+        investAddons += cfg.price;
+        lift += cfg.lift;
+        if (cfg.inbox) hasInbox = true;
+      });
+      var newCap = hasInbox ? (curCap + RECOVERY * (CAPTURE[0] - curCap)) : curCap;
+      var newLeads = L * (1 + lift);
+      var curBooked = L * curCap;
+      var newBooked = newLeads * newCap;
+      var addlBooked = RAMP * Math.max(0, newBooked - curBooked);
+      var addlRevMonthly = addlBooked * V;
+      var investMonthly = BASE_MONTHLY + investAddons;
+      var multiple = investMonthly > 0 ? (addlRevMonthly / investMonthly) : 0;
+      return {
+        addlRevMonthly: addlRevMonthly,
+        addlRevAnnual: addlRevMonthly * 12,
+        addlBooked: addlBooked,
+        investMonthly: investMonthly,
+        setup: BASE_SETUP,
+        multiple: multiple,
+        netMonthly: addlRevMonthly - investMonthly,
+        chosen: chosen,
+        bucket: bucket,
+        leads: L, deal: V
+      };
+    }
+
+    function render(r) {
+      var multipleTxt = r.multiple >= 10 ? '10&times;+' : (Math.round(r.multiple * 10) / 10) + '&times;';
+      var costBlock = '';
+      if (SHOW_PRICES) {
+        costBlock =
+          '<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">' +
+            '<div class="bg-slate-50 border border-slate-200 rounded-xl p-4"><p class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Est. investment</p><p class="text-2xl font-bold text-navy-950">' + fmt(r.investMonthly) + '<span class="text-sm text-slate-500 font-normal">/mo</span></p><p class="text-xs text-slate-500 mt-1">+ ' + fmt(r.setup) + ' one-time setup</p></div>' +
+            '<div class="bg-slate-50 border border-slate-200 rounded-xl p-4"><p class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Added revenue</p><p class="text-2xl font-bold text-emerald-600">' + fmt(r.addlRevMonthly) + '<span class="text-sm text-slate-500 font-normal">/mo</span></p><p class="text-xs text-slate-500 mt-1">~' + fmt(r.addlRevAnnual) + '/yr</p></div>' +
+            '<div class="bg-slate-50 border border-slate-200 rounded-xl p-4"><p class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Net / month</p><p class="text-2xl font-bold ' + (r.netMonthly >= 0 ? 'text-emerald-600' : 'text-orange-500') + '">' + (r.netMonthly >= 0 ? '+' : '') + fmt(r.netMonthly) + '</p><p class="text-xs text-slate-500 mt-1">after investment</p></div>' +
+          '</div>';
+      } else {
+        costBlock =
+          '<div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mt-6"><p class="text-slate-700"><strong>' + fmt(r.addlRevMonthly) + '/mo</strong> in added revenue (~' + fmt(r.addlRevAnnual) + '/yr). Your exact investment is confirmed on a free consultation.</p></div>';
+      }
+      resultEl.innerHTML =
+        '<div class="bg-white border-2 border-blue-500 rounded-2xl p-6 sm:p-8 shadow-xl shadow-blue-500/10">' +
+          '<p class="text-sm font-semibold uppercase tracking-wider text-blue-500 mb-2">Estimated return</p>' +
+          '<p class="text-6xl sm:text-7xl font-bold text-navy-950 leading-none mb-2">' + multipleTxt + '</p>' +
+          '<p class="text-lg text-slate-600">estimated return on your monthly investment — about <strong>' + (Math.round(r.addlBooked * 10) / 10) + ' more ' + INDUSTRIES[currentIndustry].unit + 's/month</strong>.</p>' +
+          costBlock +
+          '<p class="text-xs text-slate-500 mt-4 italic">Estimate only, using a conservative conversion curve and placeholder pricing. Your real numbers and exact price are confirmed on a free consultation.</p>' +
+          '<div class="mt-6"><button type="button" id="approve-btn" class="inline-flex items-center justify-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors min-h-[44px] text-lg cursor-pointer">These numbers work — build my plan →</button></div>' +
+        '</div>';
+      resultEl.classList.remove('hidden');
+      var approve = document.getElementById('approve-btn');
+      if (approve) approve.addEventListener('click', function () {
+        gateEl.classList.remove('hidden');
+        gateEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      try {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'roi_estimate', { industry: currentIndustry, multiple: Math.round(r.multiple * 10) / 10, value: Math.round(r.addlRevMonthly), currency: 'USD' });
+        }
+      } catch (e) {}
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      lastResult = compute();
+      render(lastResult);
+      resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    leadForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      leadError.classList.add('hidden');
+      if (!lastResult) return;
+      var name = String(document.getElementById('lead-name').value || '').trim();
+      var email = String(document.getElementById('lead-email').value || '').trim();
+      var phone = String(document.getElementById('lead-phone').value || '').trim();
+      var company = String(document.getElementById('lead-company').value || '').trim();
+      var honeypot = String((leadForm.querySelector('input[name="_honeypot"]') || {}).value || '');
+      if (honeypot) return;
+      if (name.length < 2) { leadError.textContent = 'Please enter your name.'; leadError.classList.remove('hidden'); return; }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { leadError.textContent = 'Please enter a valid email.'; leadError.classList.remove('hidden'); return; }
+
+      var btn = leadForm.querySelector('button[type=submit]');
+      var origText = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending...';
+
+      var r = lastResult;
+      var message = [
+        'ROI Estimator submission:',
+        '- Industry: ' + INDUSTRIES[currentIndustry].label,
+        '- Leads/month: ' + r.leads,
+        '- Avg value per ' + INDUSTRIES[currentIndustry].unit + ': ' + fmt(r.deal),
+        '- Current reply speed: ' + RESP_LABELS[r.bucket],
+        '- Capabilities chosen: ' + (r.chosen.length ? r.chosen.join(', ') : 'none'),
+        '- Est. added revenue: ' + fmt(r.addlRevMonthly) + '/mo (~' + fmt(r.addlRevAnnual) + '/yr)',
+        '- Est. monthly investment: ' + fmt(r.investMonthly) + ' (+ ' + fmt(r.setup) + ' setup)',
+        '- Est. return multiple: ' + (Math.round(r.multiple * 10) / 10) + 'x',
+        '- Est. net/month: ' + fmt(r.netMonthly)
+      ].join('\n');
+
+      var turnstileToken = (function () { var el = document.querySelector('input[name="cf-turnstile-response"]'); return el ? el.value : ''; })();
+
+      var payload = {
+        name: name, email: email, phone: phone, company: company,
+        projectType: 'other',
+        message: message,
+        _honeypot: '',
+        utm_source: 'roi-estimator', utm_medium: 'tool', utm_campaign: currentIndustry,
+        'cf-turnstile-response': turnstileToken
+      };
+
+      fetch('https://opshqdigital-func.azurewebsites.net/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) { return res.json().then(function (result) { return { ok: res.ok, result: result }; }); })
+        .then(function (resp) {
+          try {
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'generate_lead', { form_id: 'roi-estimator', industry: currentIndustry, value: Math.round(r.addlRevMonthly), currency: 'USD' });
+            }
+          } catch (e) {}
+          if (!(resp.ok && resp.result && resp.result.success)) { console.warn('ROI estimator lead endpoint rejected:', resp.result); }
+          window.location.replace('/thank-you/');
+        })
+        .catch(function (err) {
+          console.warn('ROI estimator network error:', err);
+          leadError.textContent = 'Connection error. Please email nick@opshqdigital.com directly.';
+          leadError.classList.remove('hidden');
+          btn.disabled = false; btn.textContent = origText;
+        });
+    });
+
+    /* Init: pick industry from ?industry= param, else default. */
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var ind = params.get('industry');
+      if (ind && INDUSTRIES[ind]) { applyIndustry(ind, true); }
+      else { applyIndustry(currentIndustry, false); }
+    })();
+  </script>
+</ToolLayout>
