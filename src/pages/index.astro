@@ -2,6 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CaseStudyCard from '../components/CaseStudyCard.astro';
+
+const industries = [
+  { href: '/industries/insurance-agents/', emoji: '🛡️', title: 'Insurance Agents', bg: 'bg-blue-50',
+    blurb: 'Every quote goes to four or five agents at once. Be the one who answers first — in 5 minutes, never binding.' },
+  { href: '/industries/home-services/', emoji: '🔧', title: 'Home & Trade Services', bg: 'bg-amber-50',
+    blurb: 'HVAC, plumbing, electrical, roofing, remodels. Win the estimate while you\u2019re still on the job.' },
+  { href: '/industries/professional-services/', emoji: '⚖️', title: 'Professional Services', bg: 'bg-emerald-50',
+    blurb: 'Law firms, accountants, consultants. Turn more inquiries into booked, qualified consultations.' },
+  { href: '/industries/transportation/', emoji: '🚌', title: 'Transportation & Shuttles', bg: 'bg-purple-50',
+    blurb: 'Charter, limo, shuttle, party bus. Book more trips and run dispatch from your pocket.' },
+];
 ---
 <BaseLayout
   title="Stop Fighting Your Technology — Let It Work for You | OpsHQ Digital"
@@ -101,6 +112,33 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
         <a href="/tools/email-response-grader/" class="text-sm text-slate-500 hover:text-blue-500 transition-colors">
           Or try our free Email Response Grader →
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          <span class="text-sm font-semibold text-blue-500 uppercase tracking-wider">Built for Your Industry</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-navy-950 mb-4">If Your Business Runs on Lead Response, This Was Built for You</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">The first to reply usually wins — and it should be you. Same playbook, tuned to how your industry actually sells.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {industries.map(ind => (
+          <a href={ind.href} class="group bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl hover:-translate-y-1 hover:border-blue-200 transition-all">
+            <div class={`w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-4 ${ind.bg}`}>{ind.emoji}</div>
+            <h3 class="text-lg font-bold text-navy-950 mb-2 group-hover:text-blue-500 transition-colors">{ind.title}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">{ind.blurb}</p>
+            <span class="text-sm font-semibold text-blue-500 group-hover:underline">See how we help →</span>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href="/industries/" class="inline-flex items-center px-6 py-3 border-2 border-slate-200 text-navy-950 font-medium rounded-lg hover:border-blue-300 hover:text-blue-500 transition-colors min-h-[44px]">See all industries →</a>
       </div>
     </div>
   </section>
