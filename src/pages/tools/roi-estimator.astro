@@ -99,15 +99,17 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
        value/labor-based placeholders. Flip SHOW_PRICES=false to hide $
        (shows the return multiple + "pricing on consultation").
        ============================================================ */
-    var BASE_SETUP = 50;
-    var BASE_MONTHLY = 25;
+    var HOURLY = 30;          /* Nick's blended rate for initial setups */
+    var BASE_SETUP_HRS = 1.5; /* base onboarding: site + hosting + monitoring + analytics + form */
+    var BASE_MONTHLY = 15;    /* base managed monthly (infra ~$0.10 + monitoring/attention) */
     var SHOW_PRICES = true;
+    /* Cost-based pricing (2026-08-11): monthly ≈ infra COGS + thin margin; setup = hours × $30.
+       Infra COGS/mo is cents–a-few-dollars (see spec §13). Reporting is folded into AI Inbox/base. */
     var ADDONS = {
-      ai_inbox:    { label: 'AI Inbox — 5-minute lead response', price: 149, lift: 0,    inbox: true  },
-      reporting:   { label: 'ROI / ROAS / ROAI reporting',        price: 49,  lift: 0,    inbox: false },
-      content_seo: { label: 'Content & SEO engine',               price: 199, lift: 0.15, inbox: false },
-      social:      { label: 'Social auto-posting',                price: 99,  lift: 0.08, inbox: false },
-      sem:         { label: 'Google Ads / SEM management',        price: 299, lift: 0.25, inbox: false }
+      ai_inbox:    { label: 'AI Inbox — 5-minute lead response', monthly: 29, setupHrs: 3, lift: 0,    inbox: true  },
+      content_seo: { label: 'Content & SEO engine',               monthly: 25, setupHrs: 2, lift: 0.15, inbox: false },
+      social:      { label: 'Social auto-posting',                monthly: 10, setupHrs: 1, lift: 0.08, inbox: false },
+      sem:         { label: 'Google Ads / SEM management',        monthly: 39, setupHrs: 3, lift: 0.25, inbox: false }
     };
     /* Conversion capture by current reply speed (conservative absolute booking share). */
     var CAPTURE = [0.28, 0.24, 0.18, 0.12, 0.07];
@@ -168,11 +170,12 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
       var bucket = parseInt(document.getElementById('resp').value, 10) || 0;
       var addons = selectedAddons();
       var curCap = CAPTURE[bucket];
-      var hasInbox = false, lift = 0, investAddons = 0, chosen = [];
+      var hasInbox = false, lift = 0, investAddons = 0, setupHrs = 0, chosen = [];
       addons.forEach(function (a) {
         var cfg = ADDONS[a]; if (!cfg) return;
         chosen.push(cfg.label);
-        investAddons += cfg.price;
+        investAddons += cfg.monthly;
+        setupHrs += cfg.setupHrs;
         lift += cfg.lift;
         if (cfg.inbox) hasInbox = true;
       });
@@ -183,13 +186,14 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
       var addlBooked = RAMP * Math.max(0, newBooked - curBooked);
       var addlRevMonthly = addlBooked * V;
       var investMonthly = BASE_MONTHLY + investAddons;
+      var setup = (BASE_SETUP_HRS + setupHrs) * HOURLY;
       var multiple = investMonthly > 0 ? (addlRevMonthly / investMonthly) : 0;
       return {
         addlRevMonthly: addlRevMonthly,
         addlRevAnnual: addlRevMonthly * 12,
         addlBooked: addlBooked,
         investMonthly: investMonthly,
-        setup: BASE_SETUP,
+        setup: setup,
         multiple: multiple,
         netMonthly: addlRevMonthly - investMonthly,
         chosen: chosen,
