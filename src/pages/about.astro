@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout
   title="About Nick Reef — Full-Stack Developer | OpsHQ Digital"
   description="10+ years building production software. Direct access to the developer — no middlemen, no project managers. Seattle, WA."
+  ogImage="/images/about-nick.jpg"
 >
   <!-- Hero -->
   <section class="bg-gradient-to-br from-navy-950 to-navy-800 text-white py-16 md:py-24">
@@ -18,21 +19,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 items-start">
         <div class="md:sticky md:top-8">
-          <div class="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/10 to-teal-500/10 border-2 border-dashed border-slate-300 flex items-center justify-center text-center p-8">
-            <div>
-              <div class="text-5xl mb-3">📸</div>
-              <p class="text-sm font-medium text-slate-500">Nick Reef</p>
-              <p class="text-xs text-slate-400 mt-1">Photo placeholder</p>
-            </div>
-          </div>
+          <img src="/images/about-nick.jpg" alt="Nick Reef, founder of OpsHQ Digital, working on his laptop during a flight" width="900" height="900" class="aspect-square w-full rounded-2xl object-cover shadow-lg" />
           <div class="mt-4 text-center">
             <p class="font-bold text-navy-950">Nick Reef</p>
             <p class="text-sm text-slate-500">Founder & Developer</p>
             <p class="text-sm text-slate-500 mt-1">Maple Valley, WA</p>
+            <p class="mt-3 inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-sm font-medium rounded-full px-3 py-1"><span aria-hidden="true">👨‍👩‍👧‍👦</span> Just me — with help from my family</p>
           </div>
         </div>
         <div class="text-slate-600 leading-relaxed space-y-4">
           <p>I'm <strong class="text-navy-950">Nick Reef</strong>, the founder and sole developer behind OpsHQ Digital. I'm based in Maple Valley, WA, and I work with small businesses across the greater Seattle area and the Pacific Northwest.</p>
+          <p>OpsHQ Digital is genuinely a family effort. <strong class="text-navy-950">It's me doing the building</strong> — with help and support from my family behind the scenes keeping it all running. That's the photo on the left: me getting work done on a flight, because that's how a small, family-run shop actually operates.</p>
           <p>Here's what I've learned in 10+ years of building software: <strong class="text-navy-950">the best technology is the kind you don't have to think about.</strong> You check one email in the morning and know what's happening. Leads get followed up automatically. Payments are tracked without spreadsheets. Your website actually brings in customers.</p>
           <p>That's what I build — production software that makes business owners' lives easier. Custom CRM systems, AI email and workflow agents, fast lead-generating websites, and right-sized cloud infrastructure. Not prototypes. Not demos. Systems that handle real customers, real money, and real deadlines for owners who run service businesses, small e-commerce operations, and B2B companies in the $200K-$10M ARR range.</p>
           <p>The right question isn't <em>"what framework should we use?"</em> It's <strong class="text-navy-950">"what's the simplest thing that solves your problem and doesn't break at 2 AM?"</strong></p>
@@ -197,6 +194,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           "name": "Nick Reef",
           "jobTitle": "Founder & Developer",
           "url": "https://opshqdigital.com/about/",
+          "image": "https://opshqdigital.com/images/about-nick.jpg",
           "worksFor": { "@id": "https://opshqdigital.com/#organization" },
           "homeLocation": {
             "@type": "Place",
