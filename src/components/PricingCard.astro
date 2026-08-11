@@ -1,12 +1,12 @@
 ---
-// PricingCard — fixed-price OR no-price display for productized offerings.
+// PricingCard — setup + monthly OR no-price display for productized offerings.
 // Mobile: flex-col default. Desktop: flex-row.
 // Spec'd by Sonnet (design agent). Placed 60-70% down a service page.
 interface Props {
   productName: string;
   monthlyFee?: string;         // e.g. "$649" — omit to hide the price block entirely
   setupFee?: string;           // e.g. "$0" or "$949" — pass "$0" or omit for none
-  pilotOffer?: string;         // e.g. "30-day free pilot"
+  headline?: string;           // big text shown when no monthlyFee (default: "Free consultation to start")
   features: string[];
   ctaText?: string;
   ctaHref?: string;
@@ -16,7 +16,7 @@ const {
   productName,
   monthlyFee,
   setupFee,
-  pilotOffer,
+  headline,
   features,
   ctaText = 'Get Started',
   ctaHref = '/contact/',
@@ -33,21 +33,17 @@ const {
           <span class="text-slate-500 text-base">/ month</span>
         </div>
       )}
-      {!monthlyFee && pilotOffer && (
-        <p class="text-2xl sm:text-3xl font-bold text-navy-950">{pilotOffer}</p>
+      {!monthlyFee && (
+        <p class="text-2xl sm:text-3xl font-bold text-navy-950">{headline ?? 'Free consultation to start'}</p>
       )}
-      {!monthlyFee && !pilotOffer && (
-        <p class="text-2xl sm:text-3xl font-bold text-navy-950">Quoted on the discovery call</p>
-      )}
-      {monthlyFee && pilotOffer && <p class="text-sm text-blue-500 font-medium mt-2">✓ {pilotOffer}</p>}
       {monthlyFee && setupFee && setupFee !== '$0' && (
         <p class="text-sm text-slate-500 mt-2">+ {setupFee} one-time setup</p>
       )}
       {monthlyFee && (!setupFee || setupFee === '$0') && (
-        <p class="text-sm text-slate-500 mt-2">No setup fee</p>
+        <p class="text-sm text-slate-500 mt-2">One-time setup scoped on your consultation</p>
       )}
       {!monthlyFee && (
-        <p class="text-sm text-slate-500 mt-2">Monthly fee scoped on the discovery call. Cancel anytime after the pilot.</p>
+        <p class="text-sm text-slate-500 mt-2">A one-time setup fee gets you live, then a simple monthly fee covers hosting + optimization — all scoped on your free consultation. No long-term contract.</p>
       )}
     </div>
     <a

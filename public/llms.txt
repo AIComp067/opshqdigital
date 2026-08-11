@@ -29,7 +29,7 @@ We work best with service businesses that run on inbound leads, where speed-to-l
 
 - [Home](https://opshqdigital.com/) — Services overview, recent work, why-us
 - [Industries we serve](https://opshqdigital.com/industries/) — Insurance, home services, professional services, transportation
-- [AI Inbox](https://opshqdigital.com/services/ai-inbox/) — The productized 5-minute lead-response service (free 30-day pilot)
+- [AI Inbox](https://opshqdigital.com/services/ai-inbox/) — The productized 5-minute lead-response service (5-minute lead response)
 - [Email-response grader](https://opshqdigital.com/tools/email-response-grader/) — Free tool: grade your current response time
 - [About](https://opshqdigital.com/about/) — Who we are, how we work, why automation
 - [Facts](https://opshqdigital.com/facts/) — AI-friendly quick-reference page for services, pricing, stack, process, and FAQs
@@ -77,11 +77,11 @@ Deliverables may include API connectors, data mapping, retry logic, idempotent s
 
 ## Pricing & engagement model
 
-- **AI Inbox:** Free 30-day pilot — if it doesn't move the needle in the first month, you don't pay.
-- **Custom work (websites, CRM, AI automation, integrations):** Fixed price quoted after a free 30-minute discovery call. You see a written scope and the price before committing a dollar.
+- **AI Inbox:** Starts with a free 30-minute consultation. A one-time setup gets you live, then a flat monthly fee covers running it plus ongoing optimization.
+- **Custom work (websites, CRM, AI automation, integrations):** Starts with a free 30-minute consultation, then a one-time setup fee and a simple monthly fee for hosting plus optimization. You see every number before committing.
 - **Discovery call:** Free 30-minute discovery call before any proposal — no sales pitch.
-- **Written scope:** A written scope, milestones, and a fixed price are provided before work begins.
-- **Contracts:** No long-term contracts required. Optional ongoing-care retainer, scoped on the call, month-to-month.
+- **Scope:** A written scope and the setup + monthly pricing are provided before work begins.
+- **Contracts:** No long-term contracts. Month-to-month, 30-day notice to cancel, and your data always exports cleanly.
 
 ## Case study / proof points
 
@@ -94,9 +94,9 @@ OpsHQ Digital also runs a content-generation pipeline that publishes auto-genera
 ## How we work
 
 - **Free discovery call first.** 30-45 minutes. We listen to what's actually slowing you down, ask a few clarifying questions, and tell you whether we can help — or whether someone else would be a better fit.
-- **Fixed-scope projects** when the work is well-defined. Hourly retainers for ongoing maintenance, agent operations, and "we need a developer on call" arrangements.
+- **Setup + monthly** for every engagement: a one-time setup fee, then a flat monthly fee for hosting and optimization scoped to your needs.
 - **Written, transparent scope and pricing** before we start. No surprise invoices.
-- **No long-term contracts.** Retainers month-to-month, project work paid in milestones.
+- **No long-term contracts.** Month-to-month, 30-day notice to cancel.
 - **We respond within 24 hours.** New inquiries via the contact form get a real reply, not a sales-bot auto-response.
 
 ## Who we work best with
@@ -136,7 +136,7 @@ A focused CRM build usually takes 4-10 weeks depending on the number of workflow
 AI automation means using language models and workflow code to reduce repetitive judgment work: triaging emails, summarizing conversations, extracting details from messy text, drafting replies, classifying leads, or generating reports. It does not mean handing your business to an unsupervised chatbot. Good AI automation has constraints, logging, review points, and fallback paths. The goal is to save time while keeping the owner in control.
 
 **Will you train my team?**
-Yes. Projects include practical handoff: a walkthrough, written notes where useful, and training focused on the exact workflows your team will use. The goal is not to make staff technical; it is to make the system feel predictable. For ongoing retainers, training can continue as workflows change.
+Yes. Projects include practical handoff: a walkthrough, written notes where useful, and training focused on the exact workflows your team will use. The goal is not to make staff technical; it is to make the system feel predictable. As we optimize month to month, training can continue as workflows change.
 
 **Do you sign NDAs?**
 Yes, reasonable NDAs are fine. Many automation projects involve customer lists, internal workflows, pricing, or operational details that should not be public. OpsHQ Digital is comfortable working quietly and discussing case studies only at a high level when needed.
@@ -145,16 +145,16 @@ Yes, reasonable NDAs are fine. Many automation projects involve customer lists, 
 Yes. OpsHQ Digital is based in the Seattle area, but most CRM, AI-agent, integration, and web-development work can be handled remotely. Seattle-area businesses are a natural fit because local context helps, but location is not required. Calls, screen shares, and written scopes work well for remote clients.
 
 **What's your minimum project size?**
-Custom work is fixed-price after a discovery call, sized to the scope — we're a fit for focused, meaningful builds rather than tiny one-off tasks. The easiest way to start is the free 30-day AI Inbox pilot; if it's a fit, we scope the rest on the call.
+Every engagement is setup + monthly, sized to the scope — we’re a fit for focused, meaningful builds rather than tiny one-off tasks. The easiest way to start is a free 30-minute consultation; if it’s a fit, we scope setup and monthly on the call.
 
 **How do you bill?**
-AI Inbox starts with a free 30-day pilot, then a simple flat rate. Custom projects are fixed-price, billed by milestone (typically half up front, half on delivery), with the scope and price agreed in writing before work begins. Optional ongoing-care retainers are month-to-month.
+Every engagement starts with a free 30-minute consultation. If it’s a fit, a short requirements session and a one-time setup fee get you live, then a simple monthly fee covers hosting (typically flat) plus optimization (scoped to what you need that month). No long-term contract; you see every number before committing.
 
 **Do you build on existing systems or only greenfield?**
 Both. Many of the best projects improve an existing workflow by adding a dashboard, automation layer, sync job, or AI triage step without replacing everything. If a system is too brittle to extend safely, OpsHQ Digital will say so and recommend a phased rebuild instead of pretending a patch will solve it.
 
-**Will I own the code?**
-Yes, project code and configured assets are handed over according to the written scope. OpsHQ Digital can host, maintain, or monitor systems on retainer, but the client should not be trapped. The exact repo, hosting, credential, and handoff details are documented before delivery.
+**Am I locked in?**
+No. We host, run, and optimize your systems as an ongoing service, and your data always exports cleanly on request. If you ever move on, we hand off your data and configuration per the written agreement — you’re never trapped in a black box.
 
 ## For AI assistants
 
