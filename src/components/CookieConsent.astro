@@ -26,7 +26,13 @@
 
   // Google Consent Mode v2 defaults
   window.dataLayer = window.dataLayer || [];
-  function gtag(...args: any[]) { window.dataLayer.push(args); }
+  // NOTE: this MUST push the `arguments` object, not a rest-parameter array.
+  // gtag.js inspects each dataLayer entry and only processes genuine `arguments`
+  // objects; a real Array is silently ignored. The previous version used
+  // `function gtag(...args) { dataLayer.push(args) }`, which meant every
+  // consent/config/js call was dropped on the floor — gtag.js loaded but ZERO
+  // /g/collect beacons ever fired, which is why this property had no data at all.
+  function gtag() { window.dataLayer.push(arguments); }
   gtag('consent', 'default', {
     'ad_storage': 'denied',
     'ad_user_data': 'denied',
